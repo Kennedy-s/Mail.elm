@@ -26,7 +26,6 @@ type alias Model =
   , reply : String
   , filter : String
   , send  : String
-  , inboxpage : String
   , users : List User
   }
 
@@ -40,7 +39,6 @@ model =
   , reply = ""
   , filter = ""
   , send = ""
-  , inboxPage = ""
   , users = [ user1, user2, user3, user4, kennedy, mks ]
   }
 
@@ -61,7 +59,6 @@ type Msg
     | Reply String
     | Filter String
     | Send String
-    | InboxPage String
 
 
 type alias User =
@@ -155,15 +152,7 @@ update msg model  =
     Send send ->
       ({ model | send = send }, Cmd.none)
 
-   InboxPage inboxpage 
-     let 
-        -- messages
-           viewMessages =
-            
-
-
-
-      ({ model | messageView = messageView }, Cmd.none)
+      
     
 
   
@@ -212,8 +201,6 @@ view model =
       messagePage model
     False ->
       loginPage model
-    True
-      inboxPage model
 
 
 
