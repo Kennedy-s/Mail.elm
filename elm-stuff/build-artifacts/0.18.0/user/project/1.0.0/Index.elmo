@@ -1,0 +1,366 @@
+var _user$project$Index$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$none;
+};
+var _user$project$Index$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$input,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$type_('text'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('mailPage'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$input,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$type_('text'),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('sentPage'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$input,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$type_('text'),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('filterpage'),
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}
+			}
+		});
+};
+var _user$project$Index$mailView = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('mail'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('mailPage'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text(''),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Index$filterView = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('filter'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('filter'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html$text(''),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Index$draftView = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('draft'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('draft'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html$text(''),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Index$sentView = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('sent'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('sent'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html$text(''),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Index$inboxView = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('inbox'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('inbox'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html$text(''),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Index$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		switch (_p0.ctor) {
+			case 'InboxPage':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{inboxPage: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'SentPage':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{sentPage: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'DraftPage':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{draftPage: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'FilterPage':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{filterPage: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'MailPage':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{mailPage: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'Message':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{message: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'Reply':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{reply: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'MesssagePage':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{messagePage: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'Send':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{send: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'Draft':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{draft: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'Sent':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{sent: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'Filter':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{filter: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			default:
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{inbox: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+		}
+	});
+var _user$project$Index$model = {inboxPage: '', sentPage: '', draftPage: '', filterPage: '', mailPage: '', reply: '', send: '', filter: '', inbox: '', sent: '', draft: '', messagePage: '', message: ''};
+var _user$project$Index$init = {ctor: '_Tuple2', _0: _user$project$Index$model, _1: _elm_lang$core$Platform_Cmd$none};
+var _user$project$Index$main = _elm_lang$html$Html$program(
+	{init: _user$project$Index$init, view: _user$project$Index$view, update: _user$project$Index$update, subscriptions: _user$project$Index$subscriptions})();
+var _user$project$Index$Model = function (a) {
+	return function (b) {
+		return function (c) {
+			return function (d) {
+				return function (e) {
+					return function (f) {
+						return function (g) {
+							return function (h) {
+								return function (i) {
+									return function (j) {
+										return function (k) {
+											return function (l) {
+												return function (m) {
+													return {inboxPage: a, sentPage: b, draftPage: c, filterPage: d, messagePage: e, send: f, reply: g, filter: h, inbox: i, sent: j, draft: k, mailPage: l, message: m};
+												};
+											};
+										};
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+		};
+	};
+};
+var _user$project$Index$Message = function (a) {
+	return {ctor: 'Message', _0: a};
+};
+var _user$project$Index$MailPage = function (a) {
+	return {ctor: 'MailPage', _0: a};
+};
+var _user$project$Index$Draft = function (a) {
+	return {ctor: 'Draft', _0: a};
+};
+var _user$project$Index$Sent = function (a) {
+	return {ctor: 'Sent', _0: a};
+};
+var _user$project$Index$Inbox = function (a) {
+	return {ctor: 'Inbox', _0: a};
+};
+var _user$project$Index$Filter = function (a) {
+	return {ctor: 'Filter', _0: a};
+};
+var _user$project$Index$Reply = function (a) {
+	return {ctor: 'Reply', _0: a};
+};
+var _user$project$Index$Send = function (a) {
+	return {ctor: 'Send', _0: a};
+};
+var _user$project$Index$MesssagePage = function (a) {
+	return {ctor: 'MesssagePage', _0: a};
+};
+var _user$project$Index$FilterPage = function (a) {
+	return {ctor: 'FilterPage', _0: a};
+};
+var _user$project$Index$DraftPage = function (a) {
+	return {ctor: 'DraftPage', _0: a};
+};
+var _user$project$Index$SentPage = function (a) {
+	return {ctor: 'SentPage', _0: a};
+};
+var _user$project$Index$InboxPage = function (a) {
+	return {ctor: 'InboxPage', _0: a};
+};
