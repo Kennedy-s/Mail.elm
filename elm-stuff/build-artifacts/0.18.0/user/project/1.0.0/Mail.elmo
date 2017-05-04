@@ -1,0 +1,551 @@
+var _user$project$Mail$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$none;
+};
+var _user$project$Mail$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		switch (_p0.ctor) {
+			case 'Username':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{username: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'Password':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{password: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'Login':
+				var validate = function (user) {
+					return _elm_lang$core$Native_Utils.eq(user.username, model.username) && _elm_lang$core$Native_Utils.eq(user.password, model.password);
+				};
+				var justUser = function (maybeUser) {
+					var _p1 = maybeUser;
+					if (_p1.ctor === 'Just') {
+						return 'Ok';
+					} else {
+						return 'Invalid username/password';
+					}
+				};
+				var validationMessage = justUser(
+					_elm_lang$core$List$head(
+						A2(_elm_lang$core$List$filter, validate, model.users)));
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{message: validationMessage}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'Logout':
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			case 'Message':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{message: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'Reply':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{reply: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'Filter':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{filter: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'Send':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{send: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'Delete':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{$delete: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			default:
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{inbox: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+		}
+	});
+var _user$project$Mail$mks = {username: 'mks', password: '2010'};
+var _user$project$Mail$kennedy = {username: 'kennedy', password: '1991'};
+var _user$project$Mail$user4 = {username: 'user4', password: '7890'};
+var _user$project$Mail$user3 = {username: 'user3', password: '2468'};
+var _user$project$Mail$user2 = {username: 'user2', password: '5678'};
+var _user$project$Mail$user1 = {username: 'user1', password: '1234'};
+var _user$project$Mail$model = {
+	username: '',
+	password: '',
+	login: '',
+	logout: '',
+	message: '',
+	reply: '',
+	filter: '',
+	send: '',
+	$delete: '',
+	inbox: '',
+	users: {
+		ctor: '::',
+		_0: _user$project$Mail$user1,
+		_1: {
+			ctor: '::',
+			_0: _user$project$Mail$user2,
+			_1: {
+				ctor: '::',
+				_0: _user$project$Mail$user3,
+				_1: {
+					ctor: '::',
+					_0: _user$project$Mail$user4,
+					_1: {
+						ctor: '::',
+						_0: _user$project$Mail$kennedy,
+						_1: {
+							ctor: '::',
+							_0: _user$project$Mail$mks,
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		}
+	}
+};
+var _user$project$Mail$init = {ctor: '_Tuple2', _0: _user$project$Mail$model, _1: _elm_lang$core$Platform_Cmd$none};
+var _user$project$Mail$Model = function (a) {
+	return function (b) {
+		return function (c) {
+			return function (d) {
+				return function (e) {
+					return function (f) {
+						return function (g) {
+							return function (h) {
+								return function (i) {
+									return function (j) {
+										return function (k) {
+											return {username: a, password: b, login: c, logout: d, message: e, reply: f, filter: g, send: h, $delete: i, inbox: j, users: k};
+										};
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+		};
+	};
+};
+var _user$project$Mail$User = F2(
+	function (a, b) {
+		return {username: a, password: b};
+	});
+var _user$project$Mail$Inbox = function (a) {
+	return {ctor: 'Inbox', _0: a};
+};
+var _user$project$Mail$Delete = function (a) {
+	return {ctor: 'Delete', _0: a};
+};
+var _user$project$Mail$Send = function (a) {
+	return {ctor: 'Send', _0: a};
+};
+var _user$project$Mail$Filter = function (a) {
+	return {ctor: 'Filter', _0: a};
+};
+var _user$project$Mail$Reply = function (a) {
+	return {ctor: 'Reply', _0: a};
+};
+var _user$project$Mail$messagePage = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('message'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Message'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html$text(model.message),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$textarea,
+						{ctor: '[]'},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('type your message'),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$button,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Events$onClick(
+									_user$project$Mail$Filter('filter')),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$value('Filter'),
+									_1: {ctor: '[]'}
+								}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('filter'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$button,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Events$onClick(
+										_user$project$Mail$Reply('delivered')),
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$value('Reply'),
+										_1: {ctor: '[]'}
+									}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('reply'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$button,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Events$onClick(
+											_user$project$Mail$Send('sent')),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$value('Send'),
+											_1: {ctor: '[]'}
+										}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('send'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}
+			}
+		});
+};
+var _user$project$Mail$inboxPage = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('inbox'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Inbox'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html$text(model.inbox),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$button,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Events$onClick(
+								_user$project$Mail$Filter('filter')),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$value('Filter'),
+								_1: {ctor: '[]'}
+							}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('filter'),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$button,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Events$onClick(
+									_user$project$Mail$Reply('reply')),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$value('Reply'),
+									_1: {ctor: '[]'}
+								}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('reply'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$button,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Events$onClick(
+										_user$project$Mail$Send('send')),
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$value('Send'),
+										_1: {ctor: '[]'}
+									}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('send'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$button,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Events$onClick(
+											_user$project$Mail$Delete('delete')),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$value('Delete'),
+											_1: {ctor: '[]'}
+										}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('delete'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}
+			}
+		});
+};
+var _user$project$Mail$Message = function (a) {
+	return {ctor: 'Message', _0: a};
+};
+var _user$project$Mail$Logout = {ctor: 'Logout'};
+var _user$project$Mail$Login = {ctor: 'Login'};
+var _user$project$Mail$Password = function (a) {
+	return {ctor: 'Password', _0: a};
+};
+var _user$project$Mail$Username = function (a) {
+	return {ctor: 'Username', _0: a};
+};
+var _user$project$Mail$loginPage = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('login-form'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Login Form'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text(model.message),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$label,
+						{ctor: '[]'},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('username'),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$input,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$id('username-filed'),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$type_('text'),
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$value(model.username),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html_Events$on,
+												'input',
+												A2(
+													_elm_lang$core$Json_Decode$map,
+													function (str) {
+														return _user$project$Mail$Username(str);
+													},
+													_elm_lang$html$Html_Events$targetValue)),
+											_1: {ctor: '[]'}
+										}
+									}
+								}
+							},
+							{ctor: '[]'}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$label,
+								{ctor: '[]'},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('password: '),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$input,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$id('password-field'),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$type_('password'),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$value(model.password),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_elm_lang$html$Html_Events$on,
+														'input',
+														A2(
+															_elm_lang$core$Json_Decode$map,
+															function (str) {
+																return _user$project$Mail$Password(str);
+															},
+															_elm_lang$html$Html_Events$targetValue)),
+													_1: {ctor: '[]'}
+												}
+											}
+										}
+									},
+									{ctor: '[]'}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$button,
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Events$onClick(_user$project$Mail$Login),
+											_1: {ctor: '[]'}
+										},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('Login'),
+											_1: {ctor: '[]'}
+										}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$button,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Events$onClick(_user$project$Mail$Logout),
+												_1: {ctor: '[]'}
+											},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('Logout'),
+												_1: {ctor: '[]'}
+											}),
+										_1: {ctor: '[]'}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		});
+};
+var _user$project$Mail$view = function (model) {
+	var _p2 = _elm_lang$core$Native_Utils.eq(model.message, 'Ok');
+	if (_p2 === true) {
+		return _user$project$Mail$inboxPage(model);
+	} else {
+		return _user$project$Mail$loginPage(model);
+	}
+};
+var _user$project$Mail$main = _elm_lang$html$Html$program(
+	{init: _user$project$Mail$init, view: _user$project$Mail$view, update: _user$project$Mail$update, subscriptions: _user$project$Mail$subscriptions})();

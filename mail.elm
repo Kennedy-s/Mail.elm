@@ -155,11 +155,13 @@ update msg model  =
       ({ model | filter = filter }, Cmd.none)
 
     Send send ->
+       let
+         
       ({ model | send = send }, Cmd.none)
 
     Delete delete ->
       let
-        
+
       ({ model | delete = delete }, Cmd.none)
 
     Inbox inbox ->
