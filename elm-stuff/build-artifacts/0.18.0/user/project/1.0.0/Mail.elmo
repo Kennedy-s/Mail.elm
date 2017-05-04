@@ -95,12 +95,16 @@ var _user$project$Mail$update = F2(
 				};
 		}
 	});
-var _user$project$Mail$mks = {username: 'mks', password: '2010'};
-var _user$project$Mail$kennedy = {username: 'kennedy', password: '1991'};
+var _user$project$Mail$user6 = {username: 'user6', password: '2010'};
+var _user$project$Mail$user5 = {username: 'user5', password: '1991'};
 var _user$project$Mail$user4 = {username: 'user4', password: '7890'};
 var _user$project$Mail$user3 = {username: 'user3', password: '2468'};
 var _user$project$Mail$user2 = {username: 'user2', password: '5678'};
 var _user$project$Mail$user1 = {username: 'user1', password: '1234'};
+var _user$project$Mail$inboxMessages4 = {fromUserId: 3, toUserId: 3, subject: 'Hello', messageBody: 'How are you doing?'};
+var _user$project$Mail$inboxMessages3 = {fromUserId: 3, toUserId: 4, subject: 'Hello', messageBody: 'Good day'};
+var _user$project$Mail$inboxMessage2 = {fromUserId: 2, toUserId: 1, subject: 'Hello', messageBody: 'Hi, I am doing great.'};
+var _user$project$Mail$inboxMessage1 = {fromUserId: 1, toUserId: 2, subject: 'Hello', messageBody: 'Hi, How are you doing?'};
 var _user$project$Mail$model = {
 	username: '',
 	password: '',
@@ -126,13 +130,30 @@ var _user$project$Mail$model = {
 					_0: _user$project$Mail$user4,
 					_1: {
 						ctor: '::',
-						_0: _user$project$Mail$kennedy,
+						_0: _user$project$Mail$user5,
 						_1: {
 							ctor: '::',
-							_0: _user$project$Mail$mks,
+							_0: _user$project$Mail$user6,
 							_1: {ctor: '[]'}
 						}
 					}
+				}
+			}
+		}
+	},
+	inboxMessages: {
+		ctor: '::',
+		_0: _user$project$Mail$inboxMessage1,
+		_1: {
+			ctor: '::',
+			_0: _user$project$Mail$inboxMessage2,
+			_1: {
+				ctor: '::',
+				_0: _user$project$Mail$inboxMessages3,
+				_1: {
+					ctor: '::',
+					_0: _user$project$Mail$inboxMessages4,
+					_1: {ctor: '[]'}
 				}
 			}
 		}
@@ -150,7 +171,9 @@ var _user$project$Mail$Model = function (a) {
 								return function (i) {
 									return function (j) {
 										return function (k) {
-											return {username: a, password: b, login: c, logout: d, message: e, reply: f, filter: g, send: h, $delete: i, inbox: j, users: k};
+											return function (l) {
+												return {username: a, password: b, login: c, logout: d, message: e, reply: f, filter: g, send: h, $delete: i, inbox: j, users: k, inboxMessages: l};
+											};
 										};
 									};
 								};
@@ -162,6 +185,10 @@ var _user$project$Mail$Model = function (a) {
 		};
 	};
 };
+var _user$project$Mail$InboxMessage = F4(
+	function (a, b, c, d) {
+		return {fromUserId: a, toUserId: b, subject: c, messageBody: d};
+	});
 var _user$project$Mail$User = F2(
 	function (a, b) {
 		return {username: a, password: b};
@@ -219,16 +246,16 @@ var _user$project$Mail$messagePage = function (model) {
 							{
 								ctor: '::',
 								_0: _elm_lang$html$Html_Events$onClick(
-									_user$project$Mail$Filter('filter')),
+									_user$project$Mail$Reply('delivered')),
 								_1: {
 									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$value('Filter'),
+									_0: _elm_lang$html$Html_Attributes$value('Reply'),
 									_1: {ctor: '[]'}
 								}
 							},
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html$text('filter'),
+								_0: _elm_lang$html$Html$text('reply'),
 								_1: {ctor: '[]'}
 							}),
 						_1: {
@@ -238,39 +265,19 @@ var _user$project$Mail$messagePage = function (model) {
 								{
 									ctor: '::',
 									_0: _elm_lang$html$Html_Events$onClick(
-										_user$project$Mail$Reply('delivered')),
+										_user$project$Mail$Send('sent')),
 									_1: {
 										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$value('Reply'),
+										_0: _elm_lang$html$Html_Attributes$value('Send'),
 										_1: {ctor: '[]'}
 									}
 								},
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html$text('reply'),
+									_0: _elm_lang$html$Html$text('send'),
 									_1: {ctor: '[]'}
 								}),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_elm_lang$html$Html$button,
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html_Events$onClick(
-											_user$project$Mail$Send('sent')),
-										_1: {
-											ctor: '::',
-											_0: _elm_lang$html$Html_Attributes$value('Send'),
-											_1: {ctor: '[]'}
-										}
-									},
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html$text('send'),
-										_1: {ctor: '[]'}
-									}),
-								_1: {ctor: '[]'}
-							}
+							_1: {ctor: '[]'}
 						}
 					}
 				}
@@ -542,7 +549,7 @@ var _user$project$Mail$loginPage = function (model) {
 var _user$project$Mail$view = function (model) {
 	var _p2 = _elm_lang$core$Native_Utils.eq(model.message, 'Ok');
 	if (_p2 === true) {
-		return _user$project$Mail$inboxPage(model);
+		return _user$project$Mail$messagePage(model);
 	} else {
 		return _user$project$Mail$loginPage(model);
 	}

@@ -30,7 +30,44 @@ type alias Model =
   , delete : String
   , inbox : String
   , users : List User
+  , inboxMessages : List InboxMessage 
   }
+
+
+type alias InboxMessage = 
+  { fromUserId : Int
+  , toUserId : Int
+  , subject : String
+  , messageBody : String
+  } 
+
+
+inboxMessage1 = 
+  { fromUserId = 1
+  , toUserId = 2
+  , subject = "Hello"
+  , messageBody = "Hi, How are you doing?"
+  } 
+
+inboxMessage2 = 
+  { fromUserId = 2
+  , toUserId = 1
+  , subject = "Hello"
+  , messageBody = "Hi, I am doing great."
+  } 
+
+inboxMessages3 =
+  { fromUserId = 3 
+  , toUserId = 4
+  , subject = "Hello"
+  , messageBody = "Good day"
+  }
+
+inboxMessages4 =
+  { fromUserId = 3
+  , toUserId = 3
+  , subject = "Hello"
+  , messageBody = "How are you doing?"} 
 
 model : Model
 model = 
@@ -44,8 +81,12 @@ model =
   , send = ""
   , delete = ""
   , inbox = ""
-  , users = [ user1, user2, user3, user4, kennedy, mks ]
+  , users = [ user1, user2, user3, user4, user5, user6 ]
+  , inboxMessages = [inboxMessage1, inboxMessage2, inboxMessages3, inboxMessages4]
   }
+
+
+
 
 init : ( Model, Cmd Msg)
 init = 
@@ -74,7 +115,6 @@ type alias User =
    }
 
 
-
 user1 : User
 user1 = 
   { username = "user1"
@@ -99,15 +139,15 @@ user4 =
   , password = "7890"
   }
 
-kennedy : User
-kennedy =
-  { username = "kennedy"
+user5 : User
+user5 =
+  { username = "user5"
   , password = "1991"
   }
 
-mks : User
-mks =
- { username = "mks"
+user6 : User
+user6 =
+ { username = "user6"
  , password = "2010"
  }
 
@@ -156,13 +196,26 @@ update msg model  =
 
     Send send ->
        let
-         
-      ({ model | send = send }, Cmd.none)
+          --messages
+
+          inboxMessages = inboxMessages
+             List.filter validate model.inboxMessages
+               |> List.head
+               |> justinboxMessages
+
+          justinboxMessages
+            case inboxMessages of
+               just inboxMessages ->
+                 "OK"
+        
+          validate inboxMessages
+            (inboxMessages.)
+        
+       in
+        ({ model | inboxMessages = inboxMessages }, Cmd.none)
 
     Delete delete ->
-      let
-
-      ({ model | delete = delete }, Cmd.none)
+          ({ model | delete = delete }, Cmd.none)
 
     Inbox inbox ->
       ({ model | inbox = inbox }, Cmd.none)
@@ -177,7 +230,6 @@ messagePage model =
         [ h1 [] [ text "Message" ]
         , text model.message
         , textarea [] [ text "type your message" ]
-        , button  [ onClick ( Filter "filter"), value "Filter" ] [ text "filter"]
         , button  [ onClick ( Reply "delivered"), value "Reply" ] [ text "reply"]
         , button  [ onClick ( Send "sent"), value "Send" ] [ text "send"]
         ]
@@ -226,7 +278,7 @@ view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
     True ->
-      inboxPage model
+      messagePage model
     False ->
       loginPage model
 
