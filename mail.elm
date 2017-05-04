@@ -103,8 +103,6 @@ model =
   }
 
 
-
-
 init : ( Model, Cmd Msg)
 init = 
   ( model, Cmd.none)
@@ -282,7 +280,19 @@ loginPage model =
 
 send : Model -> Html Msg
 send model =
- div 
+  div [ id "send" ]
+      [ h1 [ text "Sent" ]
+      , label []
+              [ text "fromUserId" ]
+      , input [ id "fromUserId-field"
+              , type_ "text"
+              , value model.fromUserId
+              ]
+              []
+      , button [ onClick Send ] [ text "Send"]
+      , button [ onClick Delete ] [ text "Delete"]
+      , button [ onClick Reply ] [ text "Reply"]
+      ]
 
 view : Model -> Html Msg
 view model =
