@@ -29,6 +29,7 @@ type alias Model =
   , send  : String
   , delete : String
   , inbox : String
+  , newMessages : String
   , users : List User
   , inboxMessages : List InboxMessage 
   }
@@ -64,10 +65,25 @@ inboxMessages3 =
   }
 
 inboxMessages4 =
-  { fromUserId = 3
-  , toUserId = 3
+  { fromUserId = 4
+  , toUserId = 5
   , subject = "Hello"
   , messageBody = "How are you doing?"} 
+
+inboxMessages5 =
+  { fromUserId = 5
+  , toUserId = 6
+  , subject = "Hi"
+  , messageBody = "how is life" 
+  }
+
+inboxMessages6 =
+  { fromUserId =6
+  , toUserId = 5
+  , subject = "Gooda day"
+  , messageBody = "Life is graet and you?"
+  }
+
 
 model : Model
 model = 
@@ -81,6 +97,7 @@ model =
   , send = ""
   , delete = ""
   , inbox = ""
+  , newMessages = ""
   , users = [ user1, user2, user3, user4, user5, user6 ]
   , inboxMessages = [inboxMessage1, inboxMessage2, inboxMessages3, inboxMessages4]
   }
@@ -107,6 +124,7 @@ type Msg
     | Send String
     | Delete String
     | Inbox String
+    | NewMessages String
 
 
 type alias User =
@@ -196,23 +214,15 @@ update msg model  =
 
     Send send ->
        let
-          --messages
-
-          inboxMessages = inboxMessages
-             List.filter validate model.inboxMessages
-               |> List.head
-               |> justinboxMessages
-
-          justinboxMessages
-            case inboxMessages of
-               just inboxMessages ->
-                 "OK"
-        
-          validate inboxMessages
-            (inboxMessages.)
+        newInbox =
+            { fromUserId = 
+            , toUserId = 
+            , subject =
+            , messageBody = 
+            } 
         
        in
-        ({ model | inboxMessages = inboxMessages }, Cmd.none)
+        ({ model | inboxMessages = newMessages }, Cmd.none)
 
     Delete delete ->
           ({ model | delete = delete }, Cmd.none)
@@ -221,8 +231,6 @@ update msg model  =
       ({ model | inbox = inbox }, Cmd.none)
 
       
-    
-
   
 messagePage : Model -> Html Msg
 messagePage model =
@@ -272,7 +280,9 @@ loginPage model =
        , button [ onClick Logout ] [ text "Logout" ]
        ]
 
-
+send : Model -> Html Msg
+send model =
+ div 
 
 view : Model -> Html Msg
 view model =
