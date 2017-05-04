@@ -213,10 +213,10 @@ update msg model  =
     Send send ->
        let
         newInbox =
-            { fromUserId = 
-            , toUserId = 
-            , subject =
-            , messageBody = 
+            { fromUserId = fromUserId
+            , toUserId = toUserId
+            , subject = subject
+            , messageBody = messageBody
             } 
         
        in
