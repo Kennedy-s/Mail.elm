@@ -1,4 +1,4 @@
-module Main exposing (..)
+module Mail exposing (..)
 
 import Html.Attributes exposing (id, class, value, type_)
 import Html.Events exposing (..)
@@ -18,6 +18,7 @@ main =
 -- Model
 
 type alias Model =
+
   { username : String
   , password : String
   , login : String
@@ -26,6 +27,8 @@ type alias Model =
   , reply : String
   , filter : String
   , send  : String
+  , delete : String
+  , inbox : String
   , users : List User
   }
 
@@ -39,6 +42,8 @@ model =
   , reply = ""
   , filter = ""
   , send = ""
+  , delete = ""
+  , inbox = ""
   , users = [ user1, user2, user3, user4, kennedy, mks ]
   }
 
@@ -59,6 +64,8 @@ type Msg
     | Reply String
     | Filter String
     | Send String
+    | Delete String
+    | Inbox String
 
 
 type alias User =
@@ -139,8 +146,6 @@ update msg model  =
       (model, Cmd.none)
 
     Message message ->
-      
-
       ({ model | message = message }, Cmd.none)
 
     Reply reply -> 
@@ -151,6 +156,14 @@ update msg model  =
 
     Send send ->
       ({ model | send = send }, Cmd.none)
+
+    Delete delete ->
+      let
+        
+      ({ model | delete = delete }, Cmd.none)
+
+    Inbox inbox ->
+      ({ model | inbox = inbox }, Cmd.none)
 
       
     
@@ -165,6 +178,17 @@ messagePage model =
         , button  [ onClick ( Filter "filter"), value "Filter" ] [ text "filter"]
         , button  [ onClick ( Reply "delivered"), value "Reply" ] [ text "reply"]
         , button  [ onClick ( Send "sent"), value "Send" ] [ text "send"]
+        ]
+
+inboxPage : Model -> Html Msg
+inboxPage model =
+    div [ id "inbox" ]
+        [ h1 [] [ text "Inbox"]
+        , text model.inbox 
+        , button [ onClick ( Filter "filter"), value "Filter" ] [ text "filter"]
+        , button [ onClick ( Reply "reply"), value "Reply" ] [ text "reply"] 
+        , button [ onClick ( Send "send"), value "Send" ] [ text "send"]
+        , button [ onClick ( Delete "delete"), value "Delete" ] [ text "delete"]
         ]
            
 -- View
@@ -194,13 +218,16 @@ loginPage model =
        , button [ onClick Logout ] [ text "Logout" ]
        ]
 
+
+
 view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
     True ->
-      messagePage model
+      inboxPage model
     False ->
       loginPage model
+
 
 
 

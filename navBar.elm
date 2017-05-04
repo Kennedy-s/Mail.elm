@@ -3,13 +3,12 @@ module NavBar exposing (..)
 
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
-import Navigation 
 import Json.Decode as Decode exposing (..)
 
 
 main = Program Never Model Msg
 main =
-    Navigation.Program
+    Html.program
         (NewPage << ParsePage)
         { init = init << parsePage
         , view = view 
@@ -20,6 +19,7 @@ main =
 --Model
 
 type alias Project =
+
      { previewImageUrl : String
      , name : String
      , primaryUrl : String
@@ -29,7 +29,7 @@ type alias Project =
 
 type alias Model
 
-     { project List Project
+     { project List Project : String
      , isLoading : Bool 
      , loadingFailed : Bool
      , page : Int
