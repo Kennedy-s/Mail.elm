@@ -158,7 +158,7 @@ user4 =
 user5 : User
 user5 =
   { username = "user5"
-  , password = "1991"
+  , password = "2017"
   }
 
 user6 : User
@@ -303,9 +303,10 @@ view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
     True ->
-      sendView model
+      messagePage model 
     False ->
       loginPage model
+
 
 
 
