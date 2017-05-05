@@ -286,8 +286,8 @@ loginPage model =
 sendView : Model -> Html Msg
 sendView model =
   div [ id "send" ]
-      [ h1 [] [text "Sent"]
-      , label []
+      [ h1 [] [text "send"]
+      , label []     
               [ text "fromUserId" ]
       , input [ id "fromUserId-field"
               , type_ "text"
@@ -303,7 +303,7 @@ view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
     True ->
-      messagePage model
+      sendView model
     False ->
       loginPage model
 

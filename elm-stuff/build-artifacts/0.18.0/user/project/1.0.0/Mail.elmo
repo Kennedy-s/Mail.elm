@@ -417,7 +417,7 @@ var _user$project$Mail$sendView = function (model) {
 				{ctor: '[]'},
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html$text('Sent'),
+					_0: _elm_lang$html$Html$text('send'),
 					_1: {ctor: '[]'}
 				}),
 			_1: {
@@ -661,7 +661,7 @@ var _user$project$Mail$loginPage = function (model) {
 var _user$project$Mail$view = function (model) {
 	var _p2 = _elm_lang$core$Native_Utils.eq(model.message, 'Ok');
 	if (_p2 === true) {
-		return _user$project$Mail$messagePage(model);
+		return _user$project$Mail$sendView(model);
 	} else {
 		return _user$project$Mail$loginPage(model);
 	}
