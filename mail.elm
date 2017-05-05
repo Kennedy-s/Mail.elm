@@ -255,6 +255,7 @@ inboxPage model =
         , button [ onClick ( Send 1 1 "subject" "message body"), value "Send" ] [ text "send"]
         , button [ onClick ( Delete "delete"), value "Delete" ] [ text "delete"]
         ]
+
            
 -- View
 
@@ -299,13 +300,16 @@ sendView model =
       , button [ onClick (Reply "")] [ text "Reply"]
       ]
 
+
 view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
     True ->
-      messagePage model 
+      messagePage model
     False ->
       loginPage model
+  
+     
 
 
 
