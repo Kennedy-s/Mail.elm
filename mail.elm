@@ -119,10 +119,10 @@ type Msg
     | Message String
     | Reply String
     | Filter String
-    | Send String
+    | Send Int Int String String
     | Delete String
     | Inbox String
-    | NewMessages String
+    | NewMessage InboxMessage
 
 
 type alias User =
@@ -210,23 +210,28 @@ update msg model  =
     Filter filter ->
       ({ model | filter = filter }, Cmd.none)
 
-    Send send ->
+    Send fromUserId toUserId subject messageBody ->
        let
-        newInbox =
-            { fromUserId = ""
-            , toUserId = ""
-            , subject = ""
-            , messageBody = ""
+        newMessage =
+            { fromUserId = fromUserId 
+            , toUserId = toUserId
+            , subject = subject
+            , messageBody = messageBody
             } 
-        
+        updatedInboxMessageList = newMessage :: model.inboxMessages
+
        in
-        ({ model | inboxMessages = newMessages }, Cmd.none)
+        ({ model | inboxMessages = updatedInboxMessageList }, Cmd.none)
 
     Delete delete ->
           ({ model | delete = delete }, Cmd.none)
 
     Inbox inbox ->
       ({ model | inbox = inbox }, Cmd.none)
+
+    NewMessage inboxMessage ->
+      (model, Cmd.none)
+      
 
       
   
@@ -237,7 +242,7 @@ messagePage model =
         , text model.message
         , textarea [] [ text "type your message" ]
         , button  [ onClick ( Reply "delivered"), value "Reply" ] [ text "reply"]
-        , button  [ onClick ( Send "sent"), value "Send" ] [ text "send"]
+        , button  [ onClick ( Send 1 1 "subject" "message body"), value "Send" ] [ text "send"]
         ]
 
 inboxPage : Model -> Html Msg
@@ -247,7 +252,7 @@ inboxPage model =
         , text model.inbox 
         , button [ onClick ( Filter "filter"), value "Filter" ] [ text "filter"]
         , button [ onClick ( Reply "reply"), value "Reply" ] [ text "reply"] 
-        , button [ onClick ( Send "send"), value "Send" ] [ text "send"]
+        , button [ onClick ( Send 1 1 "subject" "message body"), value "Send" ] [ text "send"]
         , button [ onClick ( Delete "delete"), value "Delete" ] [ text "delete"]
         ]
            
@@ -278,20 +283,20 @@ loginPage model =
        , button [ onClick Logout ] [ text "Logout" ]
        ]
 
-send : Model -> Html Msg
-send model =
+sendView : Model -> Html Msg
+sendView model =
   div [ id "send" ]
-      [ h1 [ text "Sent" ]
+      [ h1 [] [text "Sent"]
       , label []
               [ text "fromUserId" ]
       , input [ id "fromUserId-field"
               , type_ "text"
-              , value model.fromUserId
+              , value ""
               ]
               []
-      , button [ onClick Send ] [ text "Send"]
-      , button [ onClick Delete ] [ text "Delete"]
-      , button [ onClick Reply ] [ text "Reply"]
+      , button [ onClick (Send 1 1 "" "") ] [ text "Send"]
+      , button [ onClick (Delete "")] [ text "Delete"]
+      , button [ onClick (Reply "")] [ text "Reply"]
       ]
 
 view : Model -> Html Msg

@@ -70,11 +70,13 @@ var _user$project$Mail$update = F2(
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			case 'Send':
+				var newMessage = {fromUserId: _p0._0, toUserId: _p0._1, subject: _p0._2, messageBody: _p0._3};
+				var updatedInboxMessageList = {ctor: '::', _0: newMessage, _1: model.inboxMessages};
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
 						model,
-						{send: _p0._0}),
+						{inboxMessages: updatedInboxMessageList}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			case 'Delete':
@@ -85,7 +87,7 @@ var _user$project$Mail$update = F2(
 						{$delete: _p0._0}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
-			default:
+			case 'Inbox':
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
@@ -93,6 +95,8 @@ var _user$project$Mail$update = F2(
 						{inbox: _p0._0}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
+			default:
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 		}
 	});
 var _user$project$Mail$user6 = {username: 'user6', password: '2010'};
@@ -101,7 +105,9 @@ var _user$project$Mail$user4 = {username: 'user4', password: '7890'};
 var _user$project$Mail$user3 = {username: 'user3', password: '2468'};
 var _user$project$Mail$user2 = {username: 'user2', password: '5678'};
 var _user$project$Mail$user1 = {username: 'user1', password: '1234'};
-var _user$project$Mail$inboxMessages4 = {fromUserId: 3, toUserId: 3, subject: 'Hello', messageBody: 'How are you doing?'};
+var _user$project$Mail$inboxMessages6 = {fromUserId: 6, toUserId: 5, subject: 'Gooda day', messageBody: 'Life is graet and you?'};
+var _user$project$Mail$inboxMessages5 = {fromUserId: 5, toUserId: 6, subject: 'Hi', messageBody: 'how is life'};
+var _user$project$Mail$inboxMessages4 = {fromUserId: 4, toUserId: 5, subject: 'Hello', messageBody: 'How are you doing?'};
 var _user$project$Mail$inboxMessages3 = {fromUserId: 3, toUserId: 4, subject: 'Hello', messageBody: 'Good day'};
 var _user$project$Mail$inboxMessage2 = {fromUserId: 2, toUserId: 1, subject: 'Hello', messageBody: 'Hi, I am doing great.'};
 var _user$project$Mail$inboxMessage1 = {fromUserId: 1, toUserId: 2, subject: 'Hello', messageBody: 'Hi, How are you doing?'};
@@ -116,6 +122,7 @@ var _user$project$Mail$model = {
 	send: '',
 	$delete: '',
 	inbox: '',
+	newMessages: '',
 	users: {
 		ctor: '::',
 		_0: _user$project$Mail$user1,
@@ -172,7 +179,9 @@ var _user$project$Mail$Model = function (a) {
 									return function (j) {
 										return function (k) {
 											return function (l) {
-												return {username: a, password: b, login: c, logout: d, message: e, reply: f, filter: g, send: h, $delete: i, inbox: j, users: k, inboxMessages: l};
+												return function (m) {
+													return {username: a, password: b, login: c, logout: d, message: e, reply: f, filter: g, send: h, $delete: i, inbox: j, newMessages: k, users: l, inboxMessages: m};
+												};
 											};
 										};
 									};
@@ -193,15 +202,19 @@ var _user$project$Mail$User = F2(
 	function (a, b) {
 		return {username: a, password: b};
 	});
+var _user$project$Mail$NewMessage = function (a) {
+	return {ctor: 'NewMessage', _0: a};
+};
 var _user$project$Mail$Inbox = function (a) {
 	return {ctor: 'Inbox', _0: a};
 };
 var _user$project$Mail$Delete = function (a) {
 	return {ctor: 'Delete', _0: a};
 };
-var _user$project$Mail$Send = function (a) {
-	return {ctor: 'Send', _0: a};
-};
+var _user$project$Mail$Send = F4(
+	function (a, b, c, d) {
+		return {ctor: 'Send', _0: a, _1: b, _2: c, _3: d};
+	});
 var _user$project$Mail$Filter = function (a) {
 	return {ctor: 'Filter', _0: a};
 };
@@ -265,7 +278,7 @@ var _user$project$Mail$messagePage = function (model) {
 								{
 									ctor: '::',
 									_0: _elm_lang$html$Html_Events$onClick(
-										_user$project$Mail$Send('sent')),
+										A4(_user$project$Mail$Send, 1, 1, 'subject', 'message body')),
 									_1: {
 										ctor: '::',
 										_0: _elm_lang$html$Html_Attributes$value('Send'),
@@ -350,7 +363,7 @@ var _user$project$Mail$inboxPage = function (model) {
 								{
 									ctor: '::',
 									_0: _elm_lang$html$Html_Events$onClick(
-										_user$project$Mail$Send('send')),
+										A4(_user$project$Mail$Send, 1, 1, 'subject', 'message body')),
 									_1: {
 										ctor: '::',
 										_0: _elm_lang$html$Html_Attributes$value('Send'),
@@ -379,6 +392,105 @@ var _user$project$Mail$inboxPage = function (model) {
 									{
 										ctor: '::',
 										_0: _elm_lang$html$Html$text('delete'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}
+			}
+		});
+};
+var _user$project$Mail$sendView = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('send'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Sent'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$label,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('fromUserId'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$input,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$id('fromUserId-field'),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$type_('text'),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$value(''),
+									_1: {ctor: '[]'}
+								}
+							}
+						},
+						{ctor: '[]'}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$button,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Events$onClick(
+									A4(_user$project$Mail$Send, 1, 1, '', '')),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('Send'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$button,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Events$onClick(
+										_user$project$Mail$Delete('')),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('Delete'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$button,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Events$onClick(
+											_user$project$Mail$Reply('')),
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('Reply'),
 										_1: {ctor: '[]'}
 									}),
 								_1: {ctor: '[]'}
