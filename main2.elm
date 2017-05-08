@@ -57,9 +57,12 @@ update msg model  =
     HomePage str ->
       let
          newPage =
-           
+          { frontPage = frontPage
+          , backPage = backPage
+          }
+
       in
-       ({ model | homePage = str }, Cmd.none)
+       ({ model | homePage = newPage }, Cmd.none)
 
     ContactPage str ->
       let
