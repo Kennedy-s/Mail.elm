@@ -55,15 +55,27 @@ update : Msg -> Model -> (Model, Cmd msg)
 update msg model  =
   case msg of
     HomePage str ->
-     ({ model | homePage = str }, Cmd.none)
+      let
+
+      in
+       ({ model | homePage = str }, Cmd.none)
 
     ContactPage str ->
-     ({ model | contactPage = str}, Cmd.none)
+      let
+
+      in
+       ({ model | contactPage = str}, Cmd.none)
 
     ServicePage str ->
+      let
+      
+      in
      ({ model | servicePage = str}, Cmd.none)
 
     AboutPage  str->
+      let
+
+      in
      ({ model | aboutPage = str}, Cmd.none)
 
 
