@@ -106,7 +106,7 @@ serviceView : Model -> Html Msg
 serviceView model =
    div [ id "service" ]
        [ h1 [] [ text "service" ] 
-       , text ""
+       , text "service"
        ]
 
  
