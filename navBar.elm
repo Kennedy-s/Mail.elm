@@ -86,7 +86,7 @@ update msg model =
      	          | projects = projects
      	          , isLoading = False
      	          }
-                  , Cmd.none
+                , Cmd.none
      	        )
 
      	   NewPage page ->
@@ -107,7 +107,7 @@ update msg model =
      	       ( { model 
      	         | searchQuery = query
      	     	 }
-                 , Cmd.none
+               , Cmd.none
      	       )
 
 
