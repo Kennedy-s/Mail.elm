@@ -56,7 +56,7 @@ update msg model  =
   case msg of
     HomePage str ->
       let
-
+        
       in
        ({ model | homePage = str }, Cmd.none)
 
@@ -68,15 +68,15 @@ update msg model  =
 
     ServicePage str ->
       let
-      
+
       in
-     ({ model | servicePage = str}, Cmd.none)
+       ({ model | servicePage = str}, Cmd.none)
 
     AboutPage  str->
       let
 
       in
-     ({ model | aboutPage = str}, Cmd.none)
+       ({ model | aboutPage = str}, Cmd.none)
 
 
 
