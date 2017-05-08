@@ -56,7 +56,8 @@ update msg model  =
   case msg of
     HomePage str ->
       let
-        
+         newPage =
+           
       in
        ({ model | homePage = str }, Cmd.none)
 
@@ -107,6 +108,7 @@ serviceView model =
    div [ id "service" ]
        [ h1 [] [ text "service" ] 
        , text "service"
+       , 
        ]
 
  
