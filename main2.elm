@@ -55,32 +55,16 @@ update : Msg -> Model -> (Model, Cmd msg)
 update msg model  =
   case msg of
     HomePage str ->
-      let
-         newPage =
-          { frontPage = frontPage
-          , backPage = backPage
-          }
-
-      in
-       ({ model | homePage = newPage }, Cmd.none)
+     ({ model | homePage = str }, Cmd.none)
 
     ContactPage str ->
-      let
-
-      in
-       ({ model | contactPage = str}, Cmd.none)
+     ({ model | contactPage = str}, Cmd.none)
 
     ServicePage str ->
-      let
-
-      in
-       ({ model | servicePage = str}, Cmd.none)
+     ({ model | servicePage = str}, Cmd.none)
 
     AboutPage  str->
-      let
-
-      in
-       ({ model | aboutPage = str}, Cmd.none)
+     ({ model | aboutPage = str}, Cmd.none)
 
 
 
@@ -110,8 +94,7 @@ serviceView : Model -> Html Msg
 serviceView model =
    div [ id "service" ]
        [ h1 [] [ text "service" ] 
-       , text "service"
-       , 
+       , text ""
        ]
 
  

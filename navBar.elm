@@ -4,31 +4,31 @@ module NavBar exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Json.Decode as Decode exposing (..)
+import Navigation
+import Http
 
 
 main = Program Never Model Msg
 main =
-    Html.program
-        (NewPage << ParsePage)
-        { init = init << parsePage
-        , view = view 
-        , update = update
-        , subcriptions = always Sub.none 
-        }
+  Html.program
+      ( NewPage << ParsePage)
+      { init = init << parsePage
+      , view = view 
+      , update = update
+      , subcriptions = always Sub.none 
+      }
 
 --Model
 
 type alias Project =
-
      { previewImageUrl : String
      , name : String
      , primaryUrl : String
-     ,description : String
+     , description : String
      , repositoryurl : String
      }
 
 type alias Model
-
      { project List Project : String
      , isLoading : Bool 
      , loadingFailed : Bool
@@ -83,17 +83,17 @@ update msg model =
 
      	   LoadProjects (Ok Projects) ->
      	        ( { model
-     	        	  | projects = projects
-     	        	  , isLoading = False
-     	        	}
-              , Cmd.none
+     	          | projects = projects
+     	          , isLoading = False
+     	          }
+                  , Cmd.none
      	        )
 
      	   NewPage page ->
      	        ( { model
-     	        	  | page = page
-     	        	} 
-              , notifyOffsetChanged
+     	      	  | page = page
+     	          } 
+                  , notifyOffsetChanged
      	        )
 
      	   Next ->
@@ -105,10 +105,10 @@ update msg model =
 
      	   UpdateSearchQuery query -> 
      	       ( { model 
-     	       	    | searchQuery = query
-     	       	  }
-              , Cmd.none
-     	       	)
+     	         | searchQuery = query
+     	     	 }
+                 , Cmd.none
+     	       )
 
 
 --View 
