@@ -73,6 +73,7 @@ homeView model =
     div [ id "home" ]
         [ h1 [] [ text "home" ]
         , text ""
+        , 
         ]
 
 
