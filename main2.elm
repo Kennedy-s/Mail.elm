@@ -56,7 +56,7 @@ update msg model  =
   case msg of
     HomePage str ->
       let
-
+        
       in
        ({ model | homePage = str }, Cmd.none)
 
@@ -74,9 +74,9 @@ update msg model  =
 
     AboutPage  str->
        let
-       
+
        in
-     ({ model | aboutPage = str}, Cmd.none)
+        ({ model | aboutPage = str}, Cmd.none)
 
 
 
@@ -84,7 +84,7 @@ homeView : Model -> Html Msg
 homeView model = 
     div [ id "home" ]
         [ h1 [] [ text "home" ]
-        , text ""
+        , text "Home"
         , 
         ]
 
@@ -93,21 +93,21 @@ aboutView : Model -> Html Msg
 aboutView model =
     div [ id "about" ]
         [ h1 [] [ text "about" ]
-        , text "" 
+        , text "About" 
         ] 
 
 contactView : Model -> Html Msg
 contactView model =
    div [ id "contact" ]
        [ h1 [] [ text "contact" ]
-       , text ""
+       , text "Contact"
        ]
 
 serviceView : Model -> Html Msg
 serviceView model =
    div [ id "service" ]
        [ h1 [] [ text "service" ] 
-       , text ""
+       , text "service"
        ]
 
  
