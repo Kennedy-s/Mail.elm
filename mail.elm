@@ -160,7 +160,7 @@ user5 =
   { username = "user5"
   , password = "2017"
   }
-
+    
 user6 : User
 user6 =
  { username = "user6"
