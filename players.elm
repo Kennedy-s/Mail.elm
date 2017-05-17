@@ -18,33 +18,38 @@ main =
 --Model
 
 type alias Model route =
-    { players : WebData (List Player)
-    , route : route
-    }
+        { players : WebData (List Player)
+        , route : route
+        }
 
 
 initialModel : Route -> Model
 initialModel route =
-    { players = RemoteData.Loading
-    , route = route
-    }
+       { players = RemoteData.Loading
+       , route = route
+       }
+
+type alias WebData =
+       { players : players
+       , id : id 
+       , level : level
+       }
+
 
 type alias PlayerId =
-    String
+      String
 
 
 
 type alias Player =
-    { id : PlayerId
-    , name : String
-    , level : Int
-    }
+       { id : PlayerId
+       , name : String
+       , level : Int
+       }
 
-type RemoteData e a 
-          = NotAsked String
-          | Loading String
-          | Failure e  String
-          | Success a String
+type Msg 
+     = OnFetchPlayers (WebData (List Player))
+     | OnLocationChange Location 
 
 
 
@@ -54,7 +59,7 @@ type RemoteData e a
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of 
-        OnFetchPlayers response ->
+        Msg.OnFetchPlayers response ->
             ({ model | players = response }, Cmd.none )
 
 --View
