@@ -7,7 +7,6 @@ import Html exposing (..)
 
 
 
-main : Program Never Model Msg
 main =
     program
         { init = init
@@ -18,13 +17,16 @@ main =
 
 --Model
 
-type  alias Model =
-     { players : List Player
-     }
+type alias Model route =
+    { players : WebData (List Player)
+    , route : route
+    }
 
-initialModel : Model
-initialModel =
-    { players = [ Player "1" "Kennedy" 1 ]
+
+initialModel : Route -> Model
+initialModel route =
+    { players = RemoteData.Loading
+    , route = route
     }
 
 type alias PlayerId =
@@ -38,13 +40,21 @@ type alias Player =
     , level : Int
     }
 
+type RemoteData e a 
+          = NotAsked String
+          | Loading String
+          | Failure e  String
+          | Success a String
+
+
+
 
 --Update
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of 
-        Msg.OnFetchPlayers response ->
+        OnFetchPlayers response ->
             ({ model | players = response }, Cmd.none )
 
 --View
@@ -55,6 +65,18 @@ view response =
         [ nav 
         , maybeList response
         ]
+
+page : Model -> Html Msg
+page model =
+    case model.route of
+        Models.PlayersRoute ->
+            Players.List.view model.players
+
+        Models.PlayerRoute id ->
+            playerEditPage model id
+
+        Models.NotFoundRoute ->
+            notFoundView
 
 
 maybeList : WebData (List Player) -> Html Msg

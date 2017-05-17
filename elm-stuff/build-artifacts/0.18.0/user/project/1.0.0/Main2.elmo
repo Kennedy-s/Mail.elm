@@ -87,7 +87,7 @@ var _user$project$Main2$serviceView = function (model) {
 				}),
 			_1: {
 				ctor: '::',
-				_0: _elm_lang$html$Html$text(''),
+				_0: _elm_lang$html$Html$text('service'),
 				_1: {ctor: '[]'}
 			}
 		});
@@ -112,7 +112,7 @@ var _user$project$Main2$contactView = function (model) {
 				}),
 			_1: {
 				ctor: '::',
-				_0: _elm_lang$html$Html$text(''),
+				_0: _elm_lang$html$Html$text('Contact'),
 				_1: {ctor: '[]'}
 			}
 		});
@@ -137,7 +137,7 @@ var _user$project$Main2$aboutView = function (model) {
 				}),
 			_1: {
 				ctor: '::',
-				_0: _elm_lang$html$Html$text(''),
+				_0: _elm_lang$html$Html$text('About'),
 				_1: {ctor: '[]'}
 			}
 		});
@@ -162,7 +162,7 @@ var _user$project$Main2$homeView = function (model) {
 				}),
 			_1: {
 				ctor: '::',
-				_0: _elm_lang$html$Html$text(''),
+				_0: _elm_lang$html$Html$text('Home'),
 				_1: {ctor: '[]'}
 			}
 		});
