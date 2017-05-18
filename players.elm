@@ -4,6 +4,7 @@ module Players exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Html exposing (..)
+import Http
 
 
 
@@ -17,8 +18,8 @@ main =
 
 --Model
 
-type alias Model route =
-        { players : WebData (List Player)
+type alias Route route =
+        { player : webData [ list player ]
         , route : route
         }
 
@@ -30,10 +31,7 @@ initialModel route =
        }
 
 type alias WebData =
-       { players : players
-       , id : id 
-       , level : level
-       }
+      String
 
 
 type alias PlayerId =
