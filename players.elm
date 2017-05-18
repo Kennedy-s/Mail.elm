@@ -4,7 +4,6 @@ module Players exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Html exposing (..)
-import Http
 
 
 
@@ -31,7 +30,10 @@ initialModel route =
        }
 
 type alias WebData =
-      String
+      { name : name
+      , id : id
+      , level : level
+      }
 
 
 type alias PlayerId =
