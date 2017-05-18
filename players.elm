@@ -19,7 +19,7 @@ main =
 --Model
 
 type alias Route route =
-        { player : webData [ list player ]
+        { player : WebData List Player
         , route : route
         }
 
