@@ -1,56 +1,36 @@
-module Players exposing (..)
+module Player exposing (..)
+
+import Html exposing (Html, div, text, program)
+import Mouse
+import Keyboard
 
 
-import Html.Attributes exposing (..)
-import Html.Events exposing (..)
-import Html exposing (..)
-import Http exposing (..)
-
+-- Main
 
 main =
-    program
-        { init = init
-        , view = view
-        , update = update
-        , subscriptions = subscriptions
-        }
+   Html.program
+         { init = init
+         , view = view
+         , update = update
+         , subscriptions = subscriptions
+         }
 
---Model
+-- Model 
 
-type alias Route route =
-        { player : WebData List Player
-        , route : route
-        }
+type alias Model =
+     Int
 
 
-initialModel : Route -> Model
-initialModel route =
-       { players = RemoteData.Loading
-       , route = route
-       }
-
-type alias WebData =
-      { name : name
-      , id : id
-      , level : level
-      }
+init : ( Model, Cmd Msg )
+init =
+    ( 0, Cmd.none )
 
 
-type alias PlayerId =
-      String
+-- Message 
 
-
-
-type alias Player =
-       { id : PlayerId
-       , name : String
-       , level : Int
-       }
-
-type Msg 
-     = OnFetchPlayers (WebData (List Player))
-     | OnLocationChange Location 
-
+type Msg
+    = MouseMsg Mouse.Position 
+    | KeyMsg Keyboard.KeyCode
 
 
 
@@ -59,48 +39,28 @@ type Msg
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of 
-        Msg.OnFetchPlayers response ->
-            ({ model | players = response }, Cmd.none )
+        MouseMsg position ->
+            ( model +1, Cmd.none )
 
---View
+        KeyMsg code -> 
+            ( model +2, Cmd.none )
 
-view : WebData (List Player) -> Html Msg
-view response =
+
+--View 
+
+view : Model -> Html Msg
+view model =
     div []
-        [ nav 
-        , maybeList response
-        ]
+        [ text (toString model) ]
+        
 
-page : Model -> Html Msg
-page model =
-    case model.route of
-        Models.PlayersRoute ->
-            Players.List.view model.players
-
-        Models.PlayerRoute id ->
-            playerEditPage model id
-
-        Models.NotFoundRoute ->
-            notFoundView
-
-
-maybeList : WebData (List Player) -> Html Msg
-maybeList response = 
-  case response of
-    RemoteData.NotAsked ->
-      text ""
-
-    RemoteData.Loading ->
-      text "Loading..."
-
-    RemoteData.Success players ->
-      maybeListst players
-
-    RemoteData.Failure error ->
-      text (toString error)
 
 --Subscriptions
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-  Sub.none
+    Sub.batch
+        [ Mouse.clicks MouseMsg
+        , Keyboard.downs KeyMsg
+        ]
+     

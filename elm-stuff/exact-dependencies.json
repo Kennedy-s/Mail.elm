@@ -1,5 +1,6 @@
 {
     "elm-lang/navigation": "2.1.0",
+    "bloom/remotedata": "1.0.1",
     "elm-lang/virtual-dom": "2.0.4",
     "elm-lang/mouse": "1.0.1",
     "elm-lang/dom": "1.1.1",
