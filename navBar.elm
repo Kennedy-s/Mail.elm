@@ -52,7 +52,7 @@ type Msg
 
 --Update
 
-update : Msg -> Model -> ( Number, Cmd Msg )
+update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of 
         MouseMsg position ->
