@@ -48,14 +48,6 @@ type Msg
     | KeyMsg Keyboard.KeyCode
 
 
---View 
-
-view : Model -> Html Msg
-view model =
-     div []
-         [ text (toString model) ]
-
-
 
 --Update
 
@@ -66,7 +58,18 @@ update msg model =
             ( model +1, Cmd.none )
 
         KeyMsg code ->
-            ( model +2, Cmd.none ) 
+            ( model +2, Cmd.none )
+
+
+--View 
+
+view : Model -> Html Msg
+view model =
+     div []
+         [ text (toString model) ]
+
+
+ 
 
 --Subscriptions
 
