@@ -5,19 +5,37 @@ import Mouse
 import Keyboard
 
 
-main : Program Never Model Msg
+
 main = 
-    program
-        { init = init
-        , view = view
-        , update = update
-        , subscriptions = subscriptions
-        } 
+  Html.program
+    { init = init
+    , view = view
+    , update = update
+    , subscriptions = subscriptions
+    } 
 
 --Model
 
 type alias Model =
+     { mouseMsg : String
+     , keyMsg : String 
+     }
+
+
+type alias KeyCode =
      Int
+
+
+type alias Position =
+    { x : Int
+    , y : Int
+    }
+
+model : Model 
+model =
+  { mouseMsg = ""
+  , keyMsg = ""
+  }
 
 init : (Model, Cmd Msg)
 init = 
