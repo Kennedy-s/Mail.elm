@@ -3,34 +3,33 @@ module Taxi exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Html exposing (..)
-import Http 
+import Http
 
 
 main =
   Html.program
-      { init = init
-      ,view = view 
-      , update = update
-      , subscriptions = subscriptions
-      }
+    { init = init
+    , view = view
+    , update = update
+    , subscriptions = subscriptions
+    }
 
---Model 
+
+type alias TaxiId = Int
+
+
+-- Model
 
 type alias Model =
-     { driverId : Int
-     , carId : String
-     , owner : String
-     , passangerNumbers : Int
-     }
-
+   { atRankCount : Int
+   , leftRankCount : Int
+   }
 
 model : Model
-model = 
-    { driverId = ""
-    , carId = ""
-    , owner = ""
-    , passangerNumbers = ""
-    }
+model =
+  { atRankCount = 0
+  , leftRankCount = 0
+  }
 
 
 init : ( Model, Cmd Msg)
@@ -38,52 +37,42 @@ init =
   ( model, Cmd.none)
 
 
+--Update
 
---Update 
+  --  Msg  - a.k.a action
 
-type Msg
-  = DriverId Int
-  | CarId String
-  | Owner String
-  | PassangerNumbers Int
-   
+type Msg 
+    = Arrival 
+    | Departure
+    | Greet String
 
-update : Msg -> Model -> (Model, Cmd msg)
-update msg model  =
+update : Msg -> Model -> (Model, Cmd Mgs)
+update msg model =
   case msg of
-    DriverId driverId ->
-     ({ model | driverId = driverId }, Cmd.none) 
- 
-    CarId carId ->
-    ({ model | carId = carId }, Cmd.none)
+    Arrival ->
+      ({ model | atRankCount = model.atRankCount + 1}, Cmd.none)
 
-    Owner owner ->
-     ({ model | owner = owner }, Cmd.none)
+   Departure ->
+     ({ model | leftRakCount = model.leftRakCount - 1}, Cmd.none)
 
-    PassangerNumbers passangerNumbers ->
-     ({ model | passangerNumbers = passangerNumbers }, Cmd.none)
+   Greet str ->
+     let
+        _ = Debug.log "debug" str
+     in
+        (model, Cmd.none)
 
-
---View
-
-
-view : Model -> Html Msg
+-- View
 view model =
-    div [ ]
-        [ input [ type_ "text" ] [ text "driverId" ]
-        , div [] [ text (toString model) ]
-        , input [ type_ "text" ] [ text "carId" ]
-        , div [] [ text (toString model) ]
-        , input [ type_ "text" ] [ text "owner" ]
-        , div [] [ text (toString model) ]
-        , input [ type_ "text" ] [ text "passangerNumbers" ]
-        , button [ onClick DriverId ] [ text "Submit" ] 
-        ]
+  div []
+  [ span [] [ text ("Number of taxi at the rank" ++ (toString model.atRankCount)) ]
+  , span [] [ text ("Number of taxi out of the rank" ++ (toString model.leftRankCount)) ]
+  , input [ onClick Arrival ][ text "clock in"]
+  , input [ onClick Departure ][ text "clock out"]
+  , input [ onClick (Greet "hello") ][ text "Greet the taxi rank chairman."]
+  ]
 
-
-
---Subscriptions 
+--Subscriptions
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-  Sub.none
+ Sub.none
