@@ -46,25 +46,26 @@ type Msg
     | Departure
     | Greet String
 
-update : Msg -> Model -> (Model, Cmd Mgs)
+update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
   case msg of
     Arrival ->
       ({ model | atRankCount = model.atRankCount + 1}, Cmd.none)
 
-   Departure ->
-     ({ model | leftRakCount = model.leftRakCount - 1}, Cmd.none)
+    Departure ->
+     ({ model | leftRankCount = model.leftRankCount - 1}, Cmd.none)
 
-   Greet str ->
+    Greet str ->
      let
         _ = Debug.log "debug" str
      in
         (model, Cmd.none)
 
 -- View
+view : Model -> Html Msg
 view model =
   div []
-  [ span [] [ text ("Number of taxi at the rank" ++ (toString model.atRankCount)) ]
+  [ span [] [ text ("Number of taxi at the rank" ++ (toString model.atRankCount)) ] 
   , span [] [ text ("Number of taxi out of the rank" ++ (toString model.leftRankCount)) ]
   , input [ onClick Arrival ][ text "clock in"]
   , input [ onClick Departure ][ text "clock out"]

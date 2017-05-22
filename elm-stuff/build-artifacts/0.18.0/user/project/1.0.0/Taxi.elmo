@@ -1,0 +1,123 @@
+var _user$project$Taxi$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$none;
+};
+var _user$project$Taxi$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		switch (_p0.ctor) {
+			case 'Arrival':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{atRankCount: model.atRankCount + 1}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'Departure':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{leftRankCount: model.leftRankCount - 1}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			default:
+				var _p1 = A2(_elm_lang$core$Debug$log, 'debug', _p0._0);
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+		}
+	});
+var _user$project$Taxi$model = {atRankCount: 0, leftRankCount: 0};
+var _user$project$Taxi$init = {ctor: '_Tuple2', _0: _user$project$Taxi$model, _1: _elm_lang$core$Platform_Cmd$none};
+var _user$project$Taxi$Model = F2(
+	function (a, b) {
+		return {atRankCount: a, leftRankCount: b};
+	});
+var _user$project$Taxi$Greet = function (a) {
+	return {ctor: 'Greet', _0: a};
+};
+var _user$project$Taxi$Departure = {ctor: 'Departure'};
+var _user$project$Taxi$Arrival = {ctor: 'Arrival'};
+var _user$project$Taxi$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$span,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							'Number of taxi at the rank',
+							_elm_lang$core$Basics$toString(model.atRankCount))),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$span,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text(
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								'Number of taxi out of the rank',
+								_elm_lang$core$Basics$toString(model.leftRankCount))),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$input,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Events$onClick(_user$project$Taxi$Arrival),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('clock in'),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$input,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Events$onClick(_user$project$Taxi$Departure),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('clock out'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$input,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Events$onClick(
+										_user$project$Taxi$Greet('hello')),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('Greet the taxi rank chairman.'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		});
+};
+var _user$project$Taxi$main = _elm_lang$html$Html$program(
+	{init: _user$project$Taxi$init, view: _user$project$Taxi$view, update: _user$project$Taxi$update, subscriptions: _user$project$Taxi$subscriptions})();
