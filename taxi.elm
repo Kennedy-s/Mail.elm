@@ -39,7 +39,7 @@ init =
 
 --Update
 
-  --  Msg  - a.k.a action
+  --  Msg  - action
 
 type Msg 
     = Arrival 
@@ -62,6 +62,7 @@ update msg model =
         (model, Cmd.none)
 
 -- View
+
 view : Model -> Html Msg
 view model =
   div []
