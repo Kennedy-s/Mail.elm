@@ -1,0 +1,62 @@
+var _user$project$NavBar$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(
+				_elm_lang$core$Basics$toString(model)),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$NavBar$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		if (_p0.ctor === 'MouseMsg') {
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_Utils.update(
+					model,
+					{mouseMsg: model.mouseMsg}),
+				_1: _elm_lang$core$Platform_Cmd$none
+			};
+		} else {
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_Utils.update(
+					model,
+					{keyMsg: model.keyMsg}),
+				_1: _elm_lang$core$Platform_Cmd$none
+			};
+		}
+	});
+var _user$project$NavBar$model = {mouseMsg: '', keyMsg: ''};
+var _user$project$NavBar$init = {ctor: '_Tuple2', _0: _user$project$NavBar$model, _1: _elm_lang$core$Platform_Cmd$none};
+var _user$project$NavBar$Model = F2(
+	function (a, b) {
+		return {mouseMsg: a, keyMsg: b};
+	});
+var _user$project$NavBar$Position = F2(
+	function (a, b) {
+		return {x: a, y: b};
+	});
+var _user$project$NavBar$KeyMsg = function (a) {
+	return {ctor: 'KeyMsg', _0: a};
+};
+var _user$project$NavBar$MouseMsg = function (a) {
+	return {ctor: 'MouseMsg', _0: a};
+};
+var _user$project$NavBar$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$batch(
+		{
+			ctor: '::',
+			_0: _elm_lang$mouse$Mouse$clicks(_user$project$NavBar$MouseMsg),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$keyboard$Keyboard$downs(_user$project$NavBar$KeyMsg),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$NavBar$main = _elm_lang$html$Html$program(
+	{init: _user$project$NavBar$init, view: _user$project$NavBar$view, update: _user$project$NavBar$update, subscriptions: _user$project$NavBar$subscriptions})();

@@ -56,10 +56,10 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of 
         MouseMsg position ->
-            ( model +1, Cmd.none )
+            ({ model | mouseMsg = model.mouseMsg +1}, Cmd.none )
 
         KeyMsg code ->
-            ( model +2, Cmd.none )
+            ({ model | keyMsg = model.keyMsg -1}, Cmd.none )
 
 
 --View 
