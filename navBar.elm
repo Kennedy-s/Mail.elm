@@ -3,6 +3,7 @@ module NavBar exposing (..)
 import Html exposing (..)
 import Mouse 
 import Keyboard
+import Http
 
 
 
@@ -51,7 +52,7 @@ type Msg
 
 --Update
 
-update : Msg -> Model -> ( Model, Cmd Msg )
+update : Msg -> Model -> ( Number, Cmd Msg )
 update msg model =
     case msg of 
         MouseMsg position ->

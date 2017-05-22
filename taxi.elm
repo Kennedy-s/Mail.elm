@@ -65,10 +65,12 @@ update msg model =
 view : Model -> Html Msg
 view model =
   div []
-  [ span [] [ text ("Number of taxi at the rank" ++ (toString model.atRankCount)) ] 
-  , span [] [ text ("Number of taxi out of the rank" ++ (toString model.leftRankCount)) ]
+  [ span [] [ text ("Number of taxis at the rank" ++ (toString model.atRankCount)) ]
   , input [ onClick Arrival ][ text "clock in"]
+  , div [] [ ] 
+  , span [] [ text ("Number of taxis out of the rank" ++ (toString model.leftRankCount)) ]
   , input [ onClick Departure ][ text "clock out"]
+  , div [] [ ]
   , input [ onClick (Greet "hello") ][ text "Greet the taxi rank chairman."]
   ]
 
