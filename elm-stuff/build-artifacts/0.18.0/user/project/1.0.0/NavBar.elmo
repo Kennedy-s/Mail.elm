@@ -5,12 +5,7 @@ var _user$project$NavBar$view = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{ctor: '[]'},
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html$text(
-				_elm_lang$core$Basics$toString(model)),
-			_1: {ctor: '[]'}
-		});
+		{ctor: '[]'});
 };
 var _user$project$NavBar$update = F2(
 	function (msg, model) {

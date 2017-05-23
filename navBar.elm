@@ -56,10 +56,10 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of 
         MouseMsg position ->
-            ({ model | mouseMsg = model.mouseMsg }, Cmd.none )
+            ({ model | mouseMsg = model.mouseMsg  }, Cmd.none )
 
         KeyMsg code ->
-            ({ model | keyMsg = model.keyMsg }, Cmd.none )
+            ({ model | keyMsg = model.keyMsg  }, Cmd.none )
 
 
 --View 
@@ -67,7 +67,7 @@ update msg model =
 view : Model -> Html Msg
 view model =
      div []
-         [ text (toString model) ]
+         [ ]
 
 
  
@@ -77,4 +77,3 @@ view model =
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.none
-      
