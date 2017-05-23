@@ -76,7 +76,5 @@ view model =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-    Sub.batch
-        [ Mouse.clicks MouseMsg
-        , Keyboard.downs KeyMsg
-        ]
+    Sub.none
+      
