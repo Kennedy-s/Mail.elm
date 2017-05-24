@@ -224,6 +224,9 @@ update msg model  =
         ({ model | inboxMessages = updatedInboxMessageList }, Cmd.none)
 
     Delete delete ->
+        let
+         
+        in
           ({ model | delete = delete }, Cmd.none)
 
     Inbox inbox ->

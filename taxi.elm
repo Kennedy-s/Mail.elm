@@ -27,8 +27,8 @@ type alias Model =
 
 model : Model
 model =
-  { atRankCount = 0
-  , leftRankCount = 0
+  { atRankCount = 1
+  , leftRankCount = 1
   }
 
 
@@ -41,10 +41,12 @@ init =
 
   --  Msg  - action
 
+
 type Msg 
     = Arrival 
     | Departure
     | Greet String
+
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
@@ -67,10 +69,10 @@ view : Model -> Html Msg
 view model =
   div []
   [ span [] [ text ("Number of taxis at the rank" ++ (toString model.atRankCount)) ]
-  , input [ onClick Arrival ][ text "clock in"]
-  , div [] [ ] 
+  , button [ onClick Arrival ][ text "clock in"]
+  , div [] [] 
   , span [] [ text ("Number of taxis out of the rank" ++ (toString model.leftRankCount)) ]
-  , input [ onClick Departure ][ text "clock out"]
+  , button [ onClick Departure ][ text "clock out"]
   , div [] [ ]
   , input [ onClick (Greet "hello") ][ text "Greet the taxi rank chairman."]
   ]
