@@ -23,12 +23,14 @@ type alias TaxiId = Int
 type alias Model =
    { atRankCount : Int
    , leftRankCount : Int
+   , greet : String
    }
 
 model : Model
 model =
-  { atRankCount = 1
-  , leftRankCount = 1
+  { atRankCount = 0
+  , leftRankCount = 0
+  , greet = ""
   }
 
 
