@@ -223,11 +223,8 @@ update msg model  =
        in
         ({ model | inboxMessages = updatedInboxMessageList }, Cmd.none)
 
-    Delete delete ->
-        let
-         
-        in
-          ({ model | delete = delete }, Cmd.none)
+    Delete delete ->   
+       ({ model | delete = delete }, Cmd.none)
 
     Inbox inbox ->
       ({ model | inbox = inbox }, Cmd.none)
@@ -308,7 +305,7 @@ view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
     True ->
-      sendView model
+      messagePage model
     False ->
       loginPage model
   
