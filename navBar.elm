@@ -2,7 +2,7 @@ module NavBar exposing (..)
 
 import Html exposing (..)
 import Mouse 
-import Keyboard
+import Keyboard 
 import Http
 
 
