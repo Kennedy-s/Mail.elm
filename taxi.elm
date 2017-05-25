@@ -75,7 +75,7 @@ view model =
   , div [] [] 
   , span [] [ text ("Number of taxis out of the rank" ++ (toString model.leftRankCount)) ]
   , button [ onClick Departure ][ text "clock out"]
-  , div [] [ ]
+  , div [] []
   , input [ onClick (Greet "hello") ][ text "Greet the taxi rank chairman."]
   ]
 
