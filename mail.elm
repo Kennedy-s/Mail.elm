@@ -305,11 +305,11 @@ view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
     True ->
-       messagePage model
-    False ->
       sendView model
+    False ->
+      loginPage model
   
-
+  
 
 -- Subscriptions
 
