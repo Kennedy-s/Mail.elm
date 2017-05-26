@@ -54,7 +54,7 @@ update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
   case msg of
     Arrival ->
-      ({ model | atRankCount = model.atRankCount + 1}, Cmd.none)
+      ({ model | atRankCount = model.atRankCount +1}, Cmd.none)
 
     Departure ->
      ({ model | leftRankCount = model.leftRankCount - 1}, Cmd.none)
