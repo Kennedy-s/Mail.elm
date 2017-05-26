@@ -307,7 +307,7 @@ view model =
     True ->
       sendView model
     False ->
-      messagePage model
+      loginPage model
   
   
 
