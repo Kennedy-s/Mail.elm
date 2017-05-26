@@ -303,9 +303,9 @@ sendView model =
 
 view : Model -> Html Msg
 view model =
-  case model.message == "Ok" of
+  case model.message == "" of
     True ->
-      sendView model
+      messagePage model
     False ->
       loginPage model
   
