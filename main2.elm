@@ -113,7 +113,9 @@ myStyle =
   style
     [ ("padding", "10px")
     , ("margin", "10px")
-    , ("backgroundColor", "blue")
+    , ("backgroundColor", "")
+    , ( "text-align", "right")
+    , ("color", "blue")
     ]
 
  
