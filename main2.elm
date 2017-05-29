@@ -116,13 +116,19 @@ myStyle =
     , ("backgroundColor", "")
     , ( "text-align", "right")
     , ("color", "#FF0000")
+    , ("display", "fixed")
+    , ("width", "100%")
+    , ("border-radius", "50%")
     ]
 
 
 myStyle2 =
   style
-    [ ("backgroundColor", "white")
+    [ ("backgroundColor", "#717171")
     , ("height", "100%")
+    , ("float", "center")
+    , ("padding", "10px")
+    , ("margin", "0px")
     ]
  
 
