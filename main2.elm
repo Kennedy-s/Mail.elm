@@ -56,6 +56,7 @@ update msg model  =
   case msg of
     HomePage str ->
     let 
+       
     in
 
         ({ model | homePage = str }, Cmd.none)

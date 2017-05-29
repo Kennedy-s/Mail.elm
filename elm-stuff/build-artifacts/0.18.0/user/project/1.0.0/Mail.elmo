@@ -99,9 +99,9 @@ var _user$project$Mail$update = F2(
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 		}
 	});
-var _user$project$Mail$user6 = {username: 'user6', password: '2010'};
-var _user$project$Mail$user5 = {username: 'user5', password: '2017'};
-var _user$project$Mail$user4 = {username: 'user4', password: '7890'};
+var _user$project$Mail$user6 = {username: 'user6', password: '2008'};
+var _user$project$Mail$user5 = {username: 'user5', password: '2014'};
+var _user$project$Mail$user4 = {username: 'user4', password: '1992'};
 var _user$project$Mail$user3 = {username: 'user3', password: '2468'};
 var _user$project$Mail$user2 = {username: 'user2', password: '5678'};
 var _user$project$Mail$user1 = {username: 'user1', password: '1234'};
@@ -659,9 +659,9 @@ var _user$project$Mail$loginPage = function (model) {
 		});
 };
 var _user$project$Mail$view = function (model) {
-	var _p2 = _elm_lang$core$Native_Utils.eq(model.message, '');
+	var _p2 = _elm_lang$core$Native_Utils.eq(model.message, 'Ok');
 	if (_p2 === true) {
-		return _user$project$Mail$messagePage(model);
+		return _user$project$Mail$sendView(model);
 	} else {
 		return _user$project$Mail$loginPage(model);
 	}

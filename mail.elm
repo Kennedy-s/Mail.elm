@@ -152,19 +152,19 @@ user3 =
 user4 : User
 user4 = 
   { username = "user4"
-  , password = "7890"
+  , password = "1992"
   }
 
 user5 : User
 user5 =
   { username = "user5"
-  , password = "2017"
+  , password = "2014"
   }
     
 user6 : User
 user6 =
  { username = "user6"
- , password = "2010"
+ , password = "2008"
  }
 
 update : Msg -> Model -> (Model, Cmd msg)
@@ -303,9 +303,9 @@ sendView model =
 
 view : Model -> Html Msg
 view model =
-  case model.message == "" of
+  case model.message == "Ok" of
     True ->
-      messagePage model
+      sendView model
     False ->
       loginPage model
   
