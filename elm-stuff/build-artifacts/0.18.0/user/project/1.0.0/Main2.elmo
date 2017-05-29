@@ -1,6 +1,16 @@
 var _user$project$Main2$subscriptions = function (model) {
 	return _elm_lang$core$Platform_Sub$none;
 };
+var _user$project$Main2$myStyle2 = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'backgroundColor', _1: 'Cyan'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
+			_1: {ctor: '[]'}
+		}
+	});
 var _user$project$Main2$myStyle = _elm_lang$html$Html_Attributes$style(
 	{
 		ctor: '::',
@@ -26,14 +36,18 @@ var _user$project$Main2$myStyle = _elm_lang$html$Html_Attributes$style(
 var _user$project$Main2$view = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
-		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _user$project$Main2$myStyle2,
+			_1: {ctor: '[]'}
+		},
 		{
 			ctor: '::',
 			_0: A2(
 				_elm_lang$html$Html$a,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$href('http://home.co.za'),
+					_0: _elm_lang$html$Html_Attributes$href(''),
 					_1: {
 						ctor: '::',
 						_0: _user$project$Main2$myStyle,
@@ -51,7 +65,7 @@ var _user$project$Main2$view = function (model) {
 					_elm_lang$html$Html$a,
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$href('http://about.co.za'),
+						_0: _elm_lang$html$Html_Attributes$href(''),
 						_1: {
 							ctor: '::',
 							_0: _user$project$Main2$myStyle,
