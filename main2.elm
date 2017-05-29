@@ -103,10 +103,10 @@ serviceView model =
 view : Model -> Html Msg
 view model =
    div [myStyle2]
-    [ a[ href "http://www.miranetworks.net", myStyle] [ text "Home" ]
-    , a[ href "http://www.sableassets.co.za", myStyle] [ text " About" ]
-    , a[ href "http://www.ilab.com", myStyle] [ text "Contact" ]
-    , a[ href "http://www.vodacom.com", myStyle] [ text "Service" ]
+    [ a[ href "http://www.miranetworks.net", myStyle, myStyle2 ] [ text "Home" ]
+    , a[ href "http://www.sableassets.co.za", myStyle, myStyle2 ] [ text " About" ]
+    , a[ href "http://www.ilab.com", myStyle, myStyle2 ] [ text "Contact" ]
+    , a[ href "http://www.vodacom.com", myStyle, myStyle2 ] [ text "Service" ]
     ]
 
 myStyle =
