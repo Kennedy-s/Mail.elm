@@ -232,8 +232,6 @@ update msg model  =
     NewMessage inboxMessage ->
       (model, Cmd.none)
       
-
-      
   
 messagePage : Model -> Html Msg
 messagePage model =
@@ -305,7 +303,7 @@ view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
     True ->
-      sendView model
+      messagePage model
     False ->
       loginPage model
   

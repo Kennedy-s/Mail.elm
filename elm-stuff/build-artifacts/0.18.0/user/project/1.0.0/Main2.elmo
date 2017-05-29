@@ -1,6 +1,20 @@
 var _user$project$Main2$subscriptions = function (model) {
 	return _elm_lang$core$Platform_Sub$none;
 };
+var _user$project$Main2$myStyle = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'padding', _1: '10px'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'margin', _1: '10px'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'backgroundColor', _1: 'blue'},
+				_1: {ctor: '[]'}
+			}
+		}
+	});
 var _user$project$Main2$view = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
@@ -8,57 +22,73 @@ var _user$project$Main2$view = function (model) {
 		{
 			ctor: '::',
 			_0: A2(
-				_elm_lang$html$Html$input,
+				_elm_lang$html$Html$a,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$type_('text'),
-					_1: {ctor: '[]'}
+					_0: _elm_lang$html$Html_Attributes$href('http://google.com'),
+					_1: {
+						ctor: '::',
+						_0: _user$project$Main2$myStyle,
+						_1: {ctor: '[]'}
+					}
 				},
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html$text('homePage'),
+					_0: _elm_lang$html$Html$text('Home'),
 					_1: {ctor: '[]'}
 				}),
 			_1: {
 				ctor: '::',
 				_0: A2(
-					_elm_lang$html$Html$input,
+					_elm_lang$html$Html$a,
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$type_('text'),
-						_1: {ctor: '[]'}
+						_0: _elm_lang$html$Html_Attributes$href('http://miranetworks.net'),
+						_1: {
+							ctor: '::',
+							_0: _user$project$Main2$myStyle,
+							_1: {ctor: '[]'}
+						}
 					},
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html$text('contactPage'),
+						_0: _elm_lang$html$Html$text(' About'),
 						_1: {ctor: '[]'}
 					}),
 				_1: {
 					ctor: '::',
 					_0: A2(
-						_elm_lang$html$Html$input,
+						_elm_lang$html$Html$a,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$type_('text'),
-							_1: {ctor: '[]'}
+							_0: _elm_lang$html$Html_Attributes$href('http://contact.com'),
+							_1: {
+								ctor: '::',
+								_0: _user$project$Main2$myStyle,
+								_1: {ctor: '[]'}
+							}
 						},
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html$text('aboutPage'),
+							_0: _elm_lang$html$Html$text('Contact'),
 							_1: {ctor: '[]'}
 						}),
 					_1: {
 						ctor: '::',
 						_0: A2(
-							_elm_lang$html$Html$input,
+							_elm_lang$html$Html$a,
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$type_('text'),
-								_1: {ctor: '[]'}
+								_0: _elm_lang$html$Html_Attributes$href('http://sableassets.com'),
+								_1: {
+									ctor: '::',
+									_0: _user$project$Main2$myStyle,
+									_1: {ctor: '[]'}
+								}
 							},
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html$text('servicePage'),
+								_0: _elm_lang$html$Html$text('Service'),
 								_1: {ctor: '[]'}
 							}),
 						_1: {ctor: '[]'}

@@ -55,11 +55,7 @@ update : Msg -> Model -> (Model, Cmd msg)
 update msg model  =
   case msg of
     HomePage str ->
-    let 
-       
-    in
-
-        ({ model | homePage = str }, Cmd.none)
+       ({ model | homePage = str }, Cmd.none)
 
     ContactPage str ->
        ({ model | contactPage = str}, Cmd.none)
@@ -107,12 +103,18 @@ serviceView model =
 view : Model -> Html Msg
 view model =
    div []
-    [ input [ type_ "text" ] [ text "homePage" ]
-    , input [ type_ "text" ] [ text "contactPage" ]
-    , input [ type_ "text" ] [ text "aboutPage" ]
-    , input [ type_ "text" ] [ text "servicePage" ]
+    [ a[ href "http://google.com", myStyle] [ text "Home"]
+    , a[ href "http://miranetworks.net", myStyle] [ text " About"]
+    , a[ href "http://contact.com", myStyle] [ text "Contact"]
+    , a[ href "http://sableassets.com", myStyle] [ text "Service"]
     ]
 
+myStyle =
+  style
+    [ ("padding", "10px")
+    , ("margin", "10px")
+    , ("backgroundColor", "blue")
+    ]
 
  
 
