@@ -16,7 +16,7 @@ var _user$project$Main2$myStyle = _elm_lang$html$Html_Attributes$style(
 					_0: {ctor: '_Tuple2', _0: 'text-align', _1: 'right'},
 					_1: {
 						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'color', _1: 'blue'},
+						_0: {ctor: '_Tuple2', _0: 'color', _1: '#FF0000'},
 						_1: {ctor: '[]'}
 					}
 				}
@@ -33,7 +33,7 @@ var _user$project$Main2$view = function (model) {
 				_elm_lang$html$Html$a,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$href('http://google.com'),
+					_0: _elm_lang$html$Html_Attributes$href('http://home.co.za'),
 					_1: {
 						ctor: '::',
 						_0: _user$project$Main2$myStyle,
@@ -51,7 +51,7 @@ var _user$project$Main2$view = function (model) {
 					_elm_lang$html$Html$a,
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$href('http://miranetworks.net'),
+						_0: _elm_lang$html$Html_Attributes$href('http://about.co.za'),
 						_1: {
 							ctor: '::',
 							_0: _user$project$Main2$myStyle,
@@ -69,7 +69,7 @@ var _user$project$Main2$view = function (model) {
 						_elm_lang$html$Html$a,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$href('http://contact.com'),
+							_0: _elm_lang$html$Html_Attributes$href('http://contact.co.za'),
 							_1: {
 								ctor: '::',
 								_0: _user$project$Main2$myStyle,
@@ -87,7 +87,7 @@ var _user$project$Main2$view = function (model) {
 							_elm_lang$html$Html$a,
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$href('http://sableassets.com'),
+								_0: _elm_lang$html$Html_Attributes$href('http://service.co.za'),
 								_1: {
 									ctor: '::',
 									_0: _user$project$Main2$myStyle,
