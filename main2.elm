@@ -129,7 +129,7 @@ myStyle2 =
   style
     [ ("backgroundColor", "lightblue")
     , ("height", "100%")
-    , ("float", "center")
+    , ("float", "")
     , ("padding", "10px")
     , ("margin", "0px")
     ]
