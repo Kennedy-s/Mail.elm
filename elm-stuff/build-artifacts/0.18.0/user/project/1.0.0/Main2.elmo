@@ -4,7 +4,7 @@ var _user$project$Main2$subscriptions = function (model) {
 var _user$project$Main2$myStyle2 = _elm_lang$html$Html_Attributes$style(
 	{
 		ctor: '::',
-		_0: {ctor: '_Tuple2', _0: 'backgroundColor', _1: '#717171'},
+		_0: {ctor: '_Tuple2', _0: 'backgroundColor', _1: ''},
 		_1: {
 			ctor: '::',
 			_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
