@@ -102,7 +102,7 @@ serviceView model =
 
 view : Model -> Html Msg
 view model =
-   div [myStyle2, myStyle3]
+   div [myStyle2 ]
     [ a[ href "http://www.miranetworks.net", myStyle, myStyle2 ] [ text "Home" ]
     , a[ href "http://www.sableassets.co.za", myStyle, myStyle2 ] [ text " About" ]
     , a[ href "http://www.ilab.com", myStyle, myStyle2 ] [ text "Contact" ]
@@ -124,21 +124,13 @@ myStyle =
 
 myStyle2 =
   style
-    [ ("backgroundColor", "")
+    [ ("backgroundColor", "lightblue")
     , ("height", "100%")
     , ("float", "center")
     , ("padding", "10px")
     , ("margin", "0px")
     ]
 
-myStyle3 =
-   style
-     [ ("backgroundColor", "")
-     , ("height", "100%")
-     , ("padding", "right")
-     , ("margin", "0px")
-     , ("color", "blue")
-     ]
 
 
 --Subscriptions

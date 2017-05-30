@@ -81,7 +81,7 @@ inboxMessages6 =
   { fromUserId =6
   , toUserId = 5
   , subject = "Gooda day"
-  , messageBody = "Life is graet and you?"
+  , messageBody = "Life is graet and there?"
   }
 
 
