@@ -2,7 +2,7 @@ module Main2 exposing (..)
 
 
 import Html.Attributes exposing (..)
-import Html.Events exposing (onClick)
+import Html.Events exposing (..)
 import Html exposing (..)
 import Http exposing (..)
 
@@ -97,7 +97,6 @@ serviceView model =
        , text "service"
        ]
 
-
  
 --View 
 
@@ -129,7 +128,7 @@ myStyle2 =
   style
     [ ("backgroundColor", "lightblue")
     , ("height", "100%")
-    , ("float", "")
+    , ("float", "center")
     , ("padding", "10px")
     , ("margin", "0px")
     ]
