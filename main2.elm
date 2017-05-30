@@ -2,7 +2,7 @@ module Main2 exposing (..)
 
 
 import Html.Attributes exposing (..)
-import Html.Events exposing (..)
+import Html.Events exposing (onClick)
 import Html exposing (..)
 import Http exposing (..)
 
@@ -96,6 +96,7 @@ serviceView model =
        [ h1 [] [ text "service" ] 
        , text "service"
        ]
+
 
  
 --View 
