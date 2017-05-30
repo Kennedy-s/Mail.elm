@@ -238,7 +238,7 @@ messagePage model =
     div [ id "message" ]
         [ h1 [] [ text "Message" ]
         , text model.message
-        , textarea [] [ text "type your message" ]
+        , textarea [] [ text "" ]
         , button  [ onClick ( Reply "delivered"), value "Reply" ] [ text "reply"]
         , button  [ onClick ( Send 1 1 "subject" "message body"), value "Send" ] [ text "send"]
         ]
