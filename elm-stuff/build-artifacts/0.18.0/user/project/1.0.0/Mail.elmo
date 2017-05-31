@@ -80,21 +80,9 @@ var _user$project$Mail$update = F2(
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			case 'Delete':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{$delete: _p0._0}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			case 'Inbox':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{inbox: _p0._0}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			default:
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 		}
@@ -160,7 +148,11 @@ var _user$project$Mail$model = {
 				_1: {
 					ctor: '::',
 					_0: _user$project$Mail$inboxMessages4,
-					_1: {ctor: '[]'}
+					_1: {
+						ctor: '::',
+						_0: _user$project$Mail$inboxMessages5,
+						_1: {ctor: '[]'}
+					}
 				}
 			}
 		}
@@ -297,7 +289,58 @@ var _user$project$Mail$messagePage = function (model) {
 			}
 		});
 };
+var _user$project$Mail$addInboxMessage = function (inboxMessage) {
+	return A2(
+		_elm_lang$html$Html$li,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(inboxMessage.messageBody),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$button,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Events$onClick(
+							_user$project$Mail$Delete('delete')),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$value('Delete'),
+							_1: {ctor: '[]'}
+						}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('delete'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$button,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Events$onClick(
+								_user$project$Mail$Reply('reply')),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$value('Reply'),
+								_1: {ctor: '[]'}
+							}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('reply'),
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}
+			}
+		});
+};
 var _user$project$Mail$inboxPage = function (model) {
+	var inboxMessages = model.inboxMessages;
 	return A2(
 		_elm_lang$html$Html$div,
 		{
@@ -317,88 +360,11 @@ var _user$project$Mail$inboxPage = function (model) {
 				}),
 			_1: {
 				ctor: '::',
-				_0: _elm_lang$html$Html$text(model.inbox),
-				_1: {
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$button,
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html_Events$onClick(
-								_user$project$Mail$Filter('filter')),
-							_1: {
-								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$value('Filter'),
-								_1: {ctor: '[]'}
-							}
-						},
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html$text('filter'),
-							_1: {ctor: '[]'}
-						}),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_elm_lang$html$Html$button,
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html_Events$onClick(
-									_user$project$Mail$Reply('reply')),
-								_1: {
-									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$value('Reply'),
-									_1: {ctor: '[]'}
-								}
-							},
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html$text('reply'),
-								_1: {ctor: '[]'}
-							}),
-						_1: {
-							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$button,
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html_Events$onClick(
-										A4(_user$project$Mail$Send, 1, 1, 'subject', 'message body')),
-									_1: {
-										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$value('Send'),
-										_1: {ctor: '[]'}
-									}
-								},
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html$text('send'),
-									_1: {ctor: '[]'}
-								}),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_elm_lang$html$Html$button,
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html_Events$onClick(
-											_user$project$Mail$Delete('delete')),
-										_1: {
-											ctor: '::',
-											_0: _elm_lang$html$Html_Attributes$value('Delete'),
-											_1: {ctor: '[]'}
-										}
-									},
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html$text('delete'),
-										_1: {ctor: '[]'}
-									}),
-								_1: {ctor: '[]'}
-							}
-						}
-					}
-				}
+				_0: A2(
+					_elm_lang$html$Html$ul,
+					{ctor: '[]'},
+					A2(_elm_lang$core$List$map, _user$project$Mail$addInboxMessage, inboxMessages)),
+				_1: {ctor: '[]'}
 			}
 		});
 };

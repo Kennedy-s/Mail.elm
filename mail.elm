@@ -84,7 +84,6 @@ inboxMessages6 =
   , messageBody = "Life is graet and there?"
   }
 
-
 model : Model
 model = 
   { username = ""
@@ -99,7 +98,7 @@ model =
   , inbox = ""
   , newMessages = ""
   , users = [ user1, user2, user3, user4, user5, user6 ]
-  , inboxMessages = [inboxMessage1, inboxMessage2, inboxMessages3, inboxMessages4]
+  , inboxMessages = [inboxMessage1, inboxMessage2, inboxMessages3, inboxMessages4, inboxMessages5]
   }
 
 
@@ -212,22 +211,38 @@ update msg model  =
 
     Send fromUserId toUserId subject messageBody ->
        let
-        newMessage =
-            { fromUserId = fromUserId 
-            , toUserId = toUserId
-            , subject = subject
-            , messageBody = messageBody
-            } 
-        updatedInboxMessageList = newMessage :: model.inboxMessages
+          newMessage =
+              { fromUserId = fromUserId 
+              , toUserId = toUserId
+              , subject = subject
+              , messageBody = messageBody
+              } 
+          updatedInboxMessageList = newMessage :: model.inboxMessages
 
        in
-        ({ model | inboxMessages = updatedInboxMessageList }, Cmd.none)
+          ({ model | inboxMessages = updatedInboxMessageList }, Cmd.none)
 
-    Delete delete ->   
-       ({ model | delete = delete }, Cmd.none)
+    Delete inboxMessage ->   
+       --let
+       --   newMessage =
+       --       { fromUserId = inboxMessage.fromUserId
+       --       }
+       --   updatedInboxMessageList = newMessage :: model.inboxMessages
+
+       --in
+       -- ({ model | inboxMessages = updatedInboxMessageList }, Cmd.none)
+       (model, Cmd.none)
 
     Inbox inbox ->
-      ({ model | inbox = inbox }, Cmd.none)
+       --let
+        --  newMessage =
+         --   { fromUserId = fromUserId
+          --  , messageBody = messageBody
+          --  }
+          --updatedInboxMessageList = newMessage :: model.inboxMessages
+       --in
+       --   ({ model | inbox = inbox }, Cmd.none)
+      (model, Cmd.none)
 
     NewMessage inboxMessage ->
       (model, Cmd.none)
@@ -245,13 +260,20 @@ messagePage model =
 
 inboxPage : Model -> Html Msg
 inboxPage model =
+  let 
+    inboxMessages = model.inboxMessages
+  in
     div [ id "inbox" ]
         [ h1 [] [ text "Inbox"]
-        , text model.inbox 
-        , button [ onClick ( Filter "filter"), value "Filter" ] [ text "filter"]
-        , button [ onClick ( Reply "reply"), value "Reply" ] [ text "reply"] 
-        , button [ onClick ( Send 1 1 "subject" "message body"), value "Send" ] [ text "send"]
-        , button [ onClick ( Delete "delete"), value "Delete" ] [ text "delete"]
+        , ul []
+             (List.map addInboxMessage inboxMessages)
+        ]
+
+
+addInboxMessage inboxMessage = 
+  li [] [ text inboxMessage.messageBody
+        , button [onClick ( Delete "delete"), value "Delete" ] [ text "delete"]
+        , button [onClick ( Reply "reply"), value "Reply" ] [ text "reply"]
         ]
 
            
