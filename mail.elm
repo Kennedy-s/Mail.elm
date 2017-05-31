@@ -61,27 +61,27 @@ inboxMessages3 =
   { fromUserId = 3 
   , toUserId = 4
   , subject = "Hello"
-  , messageBody = "Good day"
+  , messageBody = "Hi, are you ok"
   }
 
 inboxMessages4 =
   { fromUserId = 4
-  , toUserId = 5
+  , toUserId = 3
   , subject = "Hello"
   , messageBody = "How are you doing?"} 
 
 inboxMessages5 =
   { fromUserId = 5
-  , toUserId = 6
+  , toUserId = 4
   , subject = "Hi"
-  , messageBody = "how is life" 
+  , messageBody = "hi, How is life" 
   }
 
 inboxMessages6 =
   { fromUserId =5
   , toUserId = 6
   , subject = "Good day"
-  , messageBody = "Life is graet and there?"
+  , messageBody = "Hi, Life is great and there?"
   }
 
 model : Model
@@ -98,7 +98,7 @@ model =
   , inbox = ""
   , newMessages = ""
   , users = [ user1, user2, user3, user4, user5, user6 ]
-  , inboxMessages = [inboxMessage1, inboxMessage2, inboxMessages3, inboxMessages4, inboxMessages5]
+  , inboxMessages = [inboxMessage1, inboxMessage2, inboxMessages3, inboxMessages4, inboxMessages5, inboxMessages6]
   }
 
 
@@ -222,16 +222,9 @@ update msg model  =
        in
           ({ model | inboxMessages = updatedInboxMessageList }, Cmd.none)
 
-    Delete inboxMessage ->   
-       --let
-       --   newMessage =
-       --       { fromUserId = inboxMessage.fromUserId
-       --       }
-       --   updatedInboxMessageList = newMessage :: model.inboxMessages
-
-       --in
-       -- ({ model | inboxMessages = updatedInboxMessageList }, Cmd.none)
-       (model, Cmd.none)
+    Delete delete ->   
+      ({ model | delete = delete }, Cmd.none)
+      
 
     Inbox inbox ->
        --let
@@ -272,8 +265,8 @@ inboxPage model =
 
 addInboxMessage inboxMessage = 
   li [] [ text inboxMessage.messageBody
-        , button [onClick ( Delete "delete"), value "Delete" ] [ text "delete"]
-        , button [onClick ( Reply "reply"), value "Reply" ] [ text "reply"]
+        , button [onClick ( Delete  "") ] [ text "delete"]
+        , button [onClick ( Reply "") ] [ text "reply"]
         ]
 
            

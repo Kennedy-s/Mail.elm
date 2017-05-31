@@ -80,7 +80,13 @@ var _user$project$Mail$update = F2(
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			case 'Delete':
-				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{$delete: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
 			case 'Inbox':
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			default:
@@ -93,10 +99,10 @@ var _user$project$Mail$user4 = {username: 'user4', password: '1992'};
 var _user$project$Mail$user3 = {username: 'user3', password: '2468'};
 var _user$project$Mail$user2 = {username: 'user2', password: '5678'};
 var _user$project$Mail$user1 = {username: 'user1', password: '1234'};
-var _user$project$Mail$inboxMessages6 = {fromUserId: 5, toUserId: 6, subject: 'Good day', messageBody: 'Life is graet and there?'};
-var _user$project$Mail$inboxMessages5 = {fromUserId: 5, toUserId: 6, subject: 'Hi', messageBody: 'how is life'};
-var _user$project$Mail$inboxMessages4 = {fromUserId: 4, toUserId: 5, subject: 'Hello', messageBody: 'How are you doing?'};
-var _user$project$Mail$inboxMessages3 = {fromUserId: 3, toUserId: 4, subject: 'Hello', messageBody: 'Good day'};
+var _user$project$Mail$inboxMessages6 = {fromUserId: 5, toUserId: 6, subject: 'Good day', messageBody: 'Hi, Life is great and there?'};
+var _user$project$Mail$inboxMessages5 = {fromUserId: 5, toUserId: 4, subject: 'Hi', messageBody: 'hi, How is life'};
+var _user$project$Mail$inboxMessages4 = {fromUserId: 4, toUserId: 3, subject: 'Hello', messageBody: 'How are you doing?'};
+var _user$project$Mail$inboxMessages3 = {fromUserId: 3, toUserId: 4, subject: 'Hello', messageBody: 'Hi, are you ok'};
 var _user$project$Mail$inboxMessage2 = {fromUserId: 2, toUserId: 1, subject: 'Hello', messageBody: 'Hi, I am doing great.'};
 var _user$project$Mail$inboxMessage1 = {fromUserId: 1, toUserId: 2, subject: 'Hello', messageBody: 'Hi, How are you doing?'};
 var _user$project$Mail$model = {
@@ -151,7 +157,11 @@ var _user$project$Mail$model = {
 					_1: {
 						ctor: '::',
 						_0: _user$project$Mail$inboxMessages5,
-						_1: {ctor: '[]'}
+						_1: {
+							ctor: '::',
+							_0: _user$project$Mail$inboxMessages6,
+							_1: {ctor: '[]'}
+						}
 					}
 				}
 			}
@@ -303,12 +313,8 @@ var _user$project$Mail$addInboxMessage = function (inboxMessage) {
 					{
 						ctor: '::',
 						_0: _elm_lang$html$Html_Events$onClick(
-							_user$project$Mail$Delete('delete')),
-						_1: {
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$value('Delete'),
-							_1: {ctor: '[]'}
-						}
+							_user$project$Mail$Delete('')),
+						_1: {ctor: '[]'}
 					},
 					{
 						ctor: '::',
@@ -322,12 +328,8 @@ var _user$project$Mail$addInboxMessage = function (inboxMessage) {
 						{
 							ctor: '::',
 							_0: _elm_lang$html$Html_Events$onClick(
-								_user$project$Mail$Reply('reply')),
-							_1: {
-								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$value('Reply'),
-								_1: {ctor: '[]'}
-							}
+								_user$project$Mail$Reply('')),
+							_1: {ctor: '[]'}
 						},
 						{
 							ctor: '::',
