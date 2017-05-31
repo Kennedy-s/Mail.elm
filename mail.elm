@@ -78,9 +78,9 @@ inboxMessages5 =
   }
 
 inboxMessages6 =
-  { fromUserId =6
-  , toUserId = 5
-  , subject = "Gooda day"
+  { fromUserId =5
+  , toUserId = 6
+  , subject = "Good day"
   , messageBody = "Life is graet and there?"
   }
 
