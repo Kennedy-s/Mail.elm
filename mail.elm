@@ -68,7 +68,7 @@ inboxMessages4 =
   { fromUserId = 4
   , toUserId = 3
   , subject = "Hello"
-  , messageBody = "How are you doing?"} 
+  , messageBody = "Hi, I am ok and you?"} 
 
 inboxMessages5 =
   { fromUserId = 5
@@ -265,8 +265,8 @@ inboxPage model =
 
 addInboxMessage inboxMessage = 
   li [] [ text inboxMessage.messageBody
-        , button [onClick ( Delete  "") ] [ text "delete"]
-        , button [onClick ( Reply "") ] [ text "reply"]
+        , button [onClick ( Delete  "delete"), value "Delete" ] [ text "delete"]
+        , button [onClick ( Reply   "reply"), value "Reply" ] [ text "reply"]
         ]
 
            

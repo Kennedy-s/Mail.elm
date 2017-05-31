@@ -1,72 +1,295 @@
 var _user$project$Main$subscriptions = function (model) {
 	return _elm_lang$core$Platform_Sub$none;
 };
+var _user$project$Main$menuStyle = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'float', _1: 'right'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'backgroundColor', _1: '#FFF'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'padding', _1: '4px 0'},
+				_1: {ctor: '[]'}
+			}
+		}
+	});
+var _user$project$Main$myStyle2 = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'backgroundColor', _1: 'lightblue'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'float', _1: 'center'},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'padding', _1: '10px'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'margin', _1: '0px'},
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		}
+	});
+var _user$project$Main$myStyle = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'padding', _1: '10px'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'margin', _1: '10px'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'backgroundColor', _1: ''},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'text-align', _1: 'right'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'color', _1: '#FF0000'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'display', _1: 'fixed'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'width', _1: '100%'},
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}
+			}
+		}
+	});
+var _user$project$Main$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _user$project$Main$myStyle2,
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _user$project$Main$menuStyle,
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$a,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$href('http://www.miranetworks.net'),
+							_1: {
+								ctor: '::',
+								_0: _user$project$Main$myStyle,
+								_1: {ctor: '[]'}
+							}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('Home'),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$a,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$href('http://www.sableassets.co.za'),
+								_1: {
+									ctor: '::',
+									_0: _user$project$Main$myStyle,
+									_1: {ctor: '[]'}
+								}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(' About'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$a,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$href('http://www.ilab.com'),
+									_1: {
+										ctor: '::',
+										_0: _user$project$Main$myStyle,
+										_1: {ctor: '[]'}
+									}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('Contact'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$a,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$href('http://www.vodacom.com'),
+										_1: {
+											ctor: '::',
+											_0: _user$project$Main$myStyle,
+											_1: {ctor: '[]'}
+										}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('Service'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Main$serviceView = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('service'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('service'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('service'),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Main$contactView = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('contact'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('contact'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('Contact'),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Main$aboutView = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('about'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('about'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('About'),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Main$homeView = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('home'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('home'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('Home'),
+				_1: {ctor: '[]'}
+			}
+		});
+};
 var _user$project$Main$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
 		switch (_p0.ctor) {
-			case 'Username':
+			case 'HomePage':
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
 						model,
-						{username: _p0._0}),
+						{homePage: _p0._0}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
-			case 'Password':
+			case 'ContactPage':
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
 						model,
-						{password: _p0._0}),
+						{contactPage: _p0._0}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
-			case 'Login':
-				var validate = function (user) {
-					return _elm_lang$core$Native_Utils.eq(user.username, model.username) && _elm_lang$core$Native_Utils.eq(user.password, model.password);
-				};
-				var justUser = function (maybeUser) {
-					var _p1 = maybeUser;
-					if (_p1.ctor === 'Just') {
-						return 'Ok';
-					} else {
-						return 'Invalid username/password';
-					}
-				};
-				var validationMessage = justUser(
-					_elm_lang$core$List$head(
-						A2(_elm_lang$core$List$filter, validate, model.users)));
+			case 'ServicePage':
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
 						model,
-						{message: validationMessage}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
-			case 'Logout':
-				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-			case 'Message':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{message: _p0._0}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
-			case 'Reply':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{reply: _p0._0}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
-			case 'Filter':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{filter: _p0._0}),
+						{servicePage: _p0._0}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			default:
@@ -74,330 +297,28 @@ var _user$project$Main$update = F2(
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
 						model,
-						{send: _p0._0}),
+						{aboutPage: _p0._0}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 		}
 	});
-var _user$project$Main$mks = {username: 'mks', password: '2010'};
-var _user$project$Main$kennedy = {username: 'kennedy', password: '1991'};
-var _user$project$Main$user4 = {username: 'user4', password: '7890'};
-var _user$project$Main$user3 = {username: 'user3', password: '2468'};
-var _user$project$Main$user2 = {username: 'user2', password: '5678'};
-var _user$project$Main$user1 = {username: 'user1', password: '1234'};
-var _user$project$Main$model = {
-	username: '',
-	password: '',
-	login: '',
-	logout: '',
-	message: '',
-	reply: '',
-	filter: '',
-	send: '',
-	users: {
-		ctor: '::',
-		_0: _user$project$Main$user1,
-		_1: {
-			ctor: '::',
-			_0: _user$project$Main$user2,
-			_1: {
-				ctor: '::',
-				_0: _user$project$Main$user3,
-				_1: {
-					ctor: '::',
-					_0: _user$project$Main$user4,
-					_1: {
-						ctor: '::',
-						_0: _user$project$Main$kennedy,
-						_1: {
-							ctor: '::',
-							_0: _user$project$Main$mks,
-							_1: {ctor: '[]'}
-						}
-					}
-				}
-			}
-		}
-	}
-};
+var _user$project$Main$model = {homePage: '', contactPage: '', aboutPage: '', servicePage: ''};
 var _user$project$Main$init = {ctor: '_Tuple2', _0: _user$project$Main$model, _1: _elm_lang$core$Platform_Cmd$none};
-var _user$project$Main$Model = F9(
-	function (a, b, c, d, e, f, g, h, i) {
-		return {username: a, password: b, login: c, logout: d, message: e, reply: f, filter: g, send: h, users: i};
-	});
-var _user$project$Main$User = F2(
-	function (a, b) {
-		return {username: a, password: b};
-	});
-var _user$project$Main$Send = function (a) {
-	return {ctor: 'Send', _0: a};
-};
-var _user$project$Main$Filter = function (a) {
-	return {ctor: 'Filter', _0: a};
-};
-var _user$project$Main$Reply = function (a) {
-	return {ctor: 'Reply', _0: a};
-};
-var _user$project$Main$messagePage = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$id('message'),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$h1,
-				{ctor: '[]'},
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html$text('Message'),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: _elm_lang$html$Html$text(model.message),
-				_1: {
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$textarea,
-						{ctor: '[]'},
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html$text('type your message'),
-							_1: {ctor: '[]'}
-						}),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_elm_lang$html$Html$button,
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html_Events$onClick(
-									_user$project$Main$Filter('filter')),
-								_1: {
-									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$value('Filter'),
-									_1: {ctor: '[]'}
-								}
-							},
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html$text('filter'),
-								_1: {ctor: '[]'}
-							}),
-						_1: {
-							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$button,
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html_Events$onClick(
-										_user$project$Main$Reply('delivered')),
-									_1: {
-										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$value('Reply'),
-										_1: {ctor: '[]'}
-									}
-								},
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html$text('reply'),
-									_1: {ctor: '[]'}
-								}),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_elm_lang$html$Html$button,
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html_Events$onClick(
-											_user$project$Main$Send('sent')),
-										_1: {
-											ctor: '::',
-											_0: _elm_lang$html$Html_Attributes$value('Send'),
-											_1: {ctor: '[]'}
-										}
-									},
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html$text('send'),
-										_1: {ctor: '[]'}
-									}),
-								_1: {ctor: '[]'}
-							}
-						}
-					}
-				}
-			}
-		});
-};
-var _user$project$Main$Message = function (a) {
-	return {ctor: 'Message', _0: a};
-};
-var _user$project$Main$Logout = {ctor: 'Logout'};
-var _user$project$Main$Login = {ctor: 'Login'};
-var _user$project$Main$Password = function (a) {
-	return {ctor: 'Password', _0: a};
-};
-var _user$project$Main$Username = function (a) {
-	return {ctor: 'Username', _0: a};
-};
-var _user$project$Main$loginPage = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$id('login-form'),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$h1,
-				{ctor: '[]'},
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html$text('Login Form'),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_elm_lang$html$Html$div,
-					{ctor: '[]'},
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html$text(model.message),
-						_1: {ctor: '[]'}
-					}),
-				_1: {
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$label,
-						{ctor: '[]'},
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html$text('username'),
-							_1: {ctor: '[]'}
-						}),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_elm_lang$html$Html$input,
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$id('username-filed'),
-								_1: {
-									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$type_('text'),
-									_1: {
-										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$value(model.username),
-										_1: {
-											ctor: '::',
-											_0: A2(
-												_elm_lang$html$Html_Events$on,
-												'input',
-												A2(
-													_elm_lang$core$Json_Decode$map,
-													function (str) {
-														return _user$project$Main$Username(str);
-													},
-													_elm_lang$html$Html_Events$targetValue)),
-											_1: {ctor: '[]'}
-										}
-									}
-								}
-							},
-							{ctor: '[]'}),
-						_1: {
-							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$label,
-								{ctor: '[]'},
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html$text('password: '),
-									_1: {ctor: '[]'}
-								}),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_elm_lang$html$Html$input,
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$id('password-field'),
-										_1: {
-											ctor: '::',
-											_0: _elm_lang$html$Html_Attributes$type_('password'),
-											_1: {
-												ctor: '::',
-												_0: _elm_lang$html$Html_Attributes$value(model.password),
-												_1: {
-													ctor: '::',
-													_0: A2(
-														_elm_lang$html$Html_Events$on,
-														'input',
-														A2(
-															_elm_lang$core$Json_Decode$map,
-															function (str) {
-																return _user$project$Main$Password(str);
-															},
-															_elm_lang$html$Html_Events$targetValue)),
-													_1: {ctor: '[]'}
-												}
-											}
-										}
-									},
-									{ctor: '[]'}),
-								_1: {
-									ctor: '::',
-									_0: A2(
-										_elm_lang$html$Html$button,
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Login),
-											_1: {ctor: '[]'}
-										},
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html$text('Login'),
-											_1: {ctor: '[]'}
-										}),
-									_1: {
-										ctor: '::',
-										_0: A2(
-											_elm_lang$html$Html$button,
-											{
-												ctor: '::',
-												_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Logout),
-												_1: {ctor: '[]'}
-											},
-											{
-												ctor: '::',
-												_0: _elm_lang$html$Html$text('Logout'),
-												_1: {ctor: '[]'}
-											}),
-										_1: {ctor: '[]'}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		});
-};
-var _user$project$Main$view = function (model) {
-	var _p2 = _elm_lang$core$Native_Utils.eq(model.message, 'Ok');
-	if (_p2 === true) {
-		return _user$project$Main$messagePage(model);
-	} else {
-		return _user$project$Main$loginPage(model);
-	}
-};
 var _user$project$Main$main = _elm_lang$html$Html$program(
 	{init: _user$project$Main$init, view: _user$project$Main$view, update: _user$project$Main$update, subscriptions: _user$project$Main$subscriptions})();
+var _user$project$Main$Model = F4(
+	function (a, b, c, d) {
+		return {homePage: a, contactPage: b, aboutPage: c, servicePage: d};
+	});
+var _user$project$Main$AboutPage = function (a) {
+	return {ctor: 'AboutPage', _0: a};
+};
+var _user$project$Main$ServicePage = function (a) {
+	return {ctor: 'ServicePage', _0: a};
+};
+var _user$project$Main$ContactPage = function (a) {
+	return {ctor: 'ContactPage', _0: a};
+};
+var _user$project$Main$HomePage = function (a) {
+	return {ctor: 'HomePage', _0: a};
+};
