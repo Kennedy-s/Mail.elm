@@ -344,27 +344,7 @@ var _user$project$Mail$addInboxMessage = function (inboxMessage) {
 							_0: _elm_lang$html$Html$text('reply'),
 							_1: {ctor: '[]'}
 						}),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_elm_lang$html$Html$button,
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html_Events$onClick(
-									A4(_user$project$Mail$Send, 1, 1, 'subject', 'message body')),
-								_1: {
-									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$value('Send'),
-									_1: {ctor: '[]'}
-								}
-							},
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html$text('send'),
-								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
-					}
+					_1: {ctor: '[]'}
 				}
 			}
 		});

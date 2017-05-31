@@ -267,7 +267,6 @@ addInboxMessage inboxMessage =
   li [] [ text inboxMessage.messageBody
         , button [onClick ( Delete  "delete"), value "Delete" ] [ text "delete"]
         , button [onClick ( Reply   "reply"), value "Reply" ] [ text "reply"]
-        , button  [ onClick ( Send 1 1 "subject" "message body"), value "Send" ] [ text "send"]
         ]
 
            
