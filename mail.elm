@@ -222,7 +222,7 @@ update msg model  =
        in
           ({ model | inboxMessages = updatedInboxMessageList }, Cmd.none)
 
-    Delete delete ->   
+    Delete delete ->  
       ({ model | delete = delete }, Cmd.none)
       
 
@@ -261,6 +261,9 @@ inboxPage model =
         , ul []
              (List.map addInboxMessage inboxMessages)
         ]
+
+
+
 
 
 addInboxMessage inboxMessage = 
