@@ -32,13 +32,11 @@ type alias Model =
   , newMessages : String
   , users : List User
   , inboxMessages : List InboxMessage 
-  , lstMsg : ListMsg
   }
 
 
 type alias InboxMessage = 
-  { id : Int
-  , fromUserId : Int
+  { fromUserId : Int
   , toUserId : Int
   , subject : String
   , messageBody : String
@@ -46,7 +44,7 @@ type alias InboxMessage =
 
 
 inboxMessage1 = 
-  { id = 1
+  {  id = 1
   , fromUserId = 1
   , toUserId = 2
   , subject = "Hello"
@@ -70,7 +68,7 @@ inboxMessages3 =
   }
 
 inboxMessages4 =
-  { id = 4 
+  { id = 4
   , fromUserId = 4
   , toUserId = 3
   , subject = "Hello"
@@ -133,14 +131,14 @@ type Msg
     | DeleteMessage InboxMessage
 
 
-type ListMsg
-  { id : Int
-  , fromUserId : Int
-  , toUserId : Id
-  , subject : String
-  , messageBody : String
-  }
 
+type alias ListMsg
+   { id : Int
+   , fromUserId : Int
+   , toUserId : Int
+   , subject : String 
+   , messageBody : String 
+   }
 
 type alias User =
    { username : String 
@@ -240,7 +238,7 @@ update msg model  =
        in
           ({ model | inboxMessages = updatedInboxMessageList }, Cmd.none)
 
-    Delete msgId -> 
+        Delete msgId -> 
         let
            -- get current list of inbox newMessages
            -- filter out inbox message with id matching msgId
@@ -249,7 +247,7 @@ update msg model  =
            deleteMessage =
               (List.filter pre listMsg)
         in
-          ({ model | inboxMessages =  updatedInboxMessages },  Cmd.none)
+          ({ model | inboxMessages = updatedInboxMessages }, Cmd.none)
       
 
     Inbox inbox ->
