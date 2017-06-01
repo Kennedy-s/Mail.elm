@@ -204,10 +204,10 @@ update msg model  =
       ({ model | message = message }, Cmd.none)
 
     Reply reply -> 
-      ({ model | reply = reply }, Cmd.none)
+      ( model, Cmd.none)
 
     Filter filter ->
-      ({ model | filter = filter }, Cmd.none)
+      ( model, Cmd.none)
 
     Send fromUserId toUserId subject messageBody ->
        let
@@ -223,18 +223,10 @@ update msg model  =
           ({ model | inboxMessages = updatedInboxMessageList }, Cmd.none)
 
     Delete delete ->  
-      ({ model | delete = delete }, Cmd.none)
+      ( model , Cmd.none)
       
 
     Inbox inbox ->
-       --let
-        --  newMessage =
-         --   { fromUserId = fromUserId
-          --  , messageBody = messageBody
-          --  }
-          --updatedInboxMessageList = newMessage :: model.inboxMessages
-       --in
-       --   ({ model | inbox = inbox }, Cmd.none)
       (model, Cmd.none)
 
     NewMessage inboxMessage ->
