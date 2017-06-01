@@ -32,11 +32,13 @@ type alias Model =
   , newMessages : String
   , users : List User
   , inboxMessages : List InboxMessage 
+  , lstMsg : ListMsg
   }
 
 
 type alias InboxMessage = 
-  { fromUserId : Int
+  { id : Int
+  , fromUserId : Int
   , toUserId : Int
   , subject : String
   , messageBody : String
@@ -44,41 +46,47 @@ type alias InboxMessage =
 
 
 inboxMessage1 = 
-  { fromUserId = 1
+  { id = 1
+  , fromUserId = 1
   , toUserId = 2
   , subject = "Hello"
   , messageBody = "Hi, How are you doing?"
   } 
 
 inboxMessage2 = 
-  { fromUserId = 2
+  { id = 2
+  , fromUserId = 2
   , toUserId = 1
   , subject = "Hello"
   , messageBody = "Hi, I am doing great."
   } 
 
 inboxMessages3 =
-  { fromUserId = 3 
+  { id = 3
+  , fromUserId = 3 
   , toUserId = 4
   , subject = "Hello"
   , messageBody = "Hi, are you ok"
   }
 
 inboxMessages4 =
-  { fromUserId = 4
+  { id = 4 
+  , fromUserId = 4
   , toUserId = 3
   , subject = "Hello"
   , messageBody = "Hi, I am ok and you?"} 
 
 inboxMessages5 =
-  { fromUserId = 5
+  { id = 5
+  , fromUserId = 5
   , toUserId = 4
   , subject = "Hi"
   , messageBody = "hi, How is life" 
   }
 
 inboxMessages6 =
-  { fromUserId =5
+  { id = 6
+  , fromUserId =5
   , toUserId = 6
   , subject = "Good day"
   , messageBody = "Hi, Life is great and there?"
@@ -122,6 +130,16 @@ type Msg
     | Delete String
     | Inbox String
     | NewMessage InboxMessage
+    | DeleteMessage InboxMessage
+
+
+type ListMsg
+  { id : Int
+  , fromUserId : Int
+  , toUserId : Id
+  , subject : String
+  , messageBody : String
+  }
 
 
 type alias User =
@@ -222,8 +240,16 @@ update msg model  =
        in
           ({ model | inboxMessages = updatedInboxMessageList }, Cmd.none)
 
-    Delete delete ->  
-      ( model , Cmd.none)
+    Delete msgId -> 
+        let
+           -- get current list of inbox newMessages
+           -- filter out inbox message with id matching msgId
+           -- update model with new inbox message list
+
+           deleteMessage =
+              (List.filter pre listMsg)
+        in
+          ({ model | inboxMessages =  updatedInboxMessages },  Cmd.none)
       
 
     Inbox inbox ->
