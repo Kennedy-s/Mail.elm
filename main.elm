@@ -128,7 +128,6 @@ myStyle =
     , ("color", "#FF0000")
     , ("font-style", "italic")
     , ("border", "5px")
-    , ("text-decoration", "")
     , ("position", "relative")
     , ("display", "")
     ]
