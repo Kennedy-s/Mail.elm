@@ -16,12 +16,8 @@ var _user$project$Main2$footerStyle = _elm_lang$html$Html_Attributes$style(
 					_0: {ctor: '_Tuple2', _0: 'text-align', _1: 'justify'},
 					_1: {
 						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'background-color', _1: ' powderblue'},
-						_1: {
-							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'display', _1: 'fixed'},
-							_1: {ctor: '[]'}
-						}
+						_0: {ctor: '_Tuple2', _0: 'display', _1: 'fixed'},
+						_1: {ctor: '[]'}
 					}
 				}
 			}
@@ -84,7 +80,7 @@ var _user$project$Main2$myStyle = _elm_lang$html$Html_Attributes$style(
 							_0: {ctor: '_Tuple2', _0: 'font-style', _1: 'italic'},
 							_1: {
 								ctor: '::',
-								_0: {ctor: '_Tuple2', _0: 'border', _1: '5px solid gray'},
+								_0: {ctor: '_Tuple2', _0: 'border', _1: '5px'},
 								_1: {
 									ctor: '::',
 									_0: {ctor: '_Tuple2', _0: 'text-decoration', _1: ''},

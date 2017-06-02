@@ -15,15 +15,21 @@ main =
    }
 
 
---Model 
+--Model
 
 type alias Model
-    { players : List Player
-    }
+   { players : List Player
+   }
+
+model : Model
+model = 
+   { players = ""
+   }
+
 
 initialModel : Model
 initialModel =
-    { players = [ Player "1" "Kennedy" 1]
+    { players = [ Player "1" "Kennedy" 1 ]
     }
 
 type alias PlayerId =
@@ -37,7 +43,7 @@ type alias Player =
     }
 
 
---Update 
+--Update
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
@@ -56,11 +62,11 @@ view model =
 
 page : Model -> Html Msg
 page model =
-    players.List.view model.players    
+    players.List.view model.players
 
 
---Subscriptions 
+--Subscriptions
 
 subscriptions : Model -> Sub Msg
 subscriptions model=
-  Sub.none      
+  Sub.none

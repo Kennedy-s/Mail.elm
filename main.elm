@@ -127,7 +127,7 @@ myStyle =
     , ("text-align", "justify")
     , ("color", "#FF0000")
     , ("font-style", "italic")
-    , ("border", "5px solid gray")
+    , ("border", "5px")
     , ("text-decoration", "")
     , ("position", "relative")
     , ("display", "")
@@ -158,7 +158,6 @@ footerStyle =
    , ("margin", "10px")
    , ("float", "")
    , ("text-align", "justify")
-   , ("background-color", " powderblue")
    , ("display", "fixed")
    ]
 
