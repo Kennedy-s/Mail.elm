@@ -81,7 +81,7 @@ var _user$project$Main2$myStyle = _elm_lang$html$Html_Attributes$style(
 						_0: {ctor: '_Tuple2', _0: 'color', _1: '#FF0000'},
 						_1: {
 							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'font-style', _1: 'oblique'},
+							_0: {ctor: '_Tuple2', _0: 'font-style', _1: 'italic'},
 							_1: {
 								ctor: '::',
 								_0: {ctor: '_Tuple2', _0: 'border', _1: '5px solid gray'},
@@ -90,8 +90,12 @@ var _user$project$Main2$myStyle = _elm_lang$html$Html_Attributes$style(
 									_0: {ctor: '_Tuple2', _0: 'text-decoration', _1: ''},
 									_1: {
 										ctor: '::',
-										_0: {ctor: '_Tuple2', _0: 'font-weight', _1: 'bold'},
-										_1: {ctor: '[]'}
+										_0: {ctor: '_Tuple2', _0: 'position', _1: 'relative'},
+										_1: {
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'display', _1: ''},
+											_1: {ctor: '[]'}
+										}
 									}
 								}
 							}

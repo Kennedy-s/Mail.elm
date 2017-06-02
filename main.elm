@@ -124,10 +124,11 @@ myStyle =
     , ("backgroundColor", "")
     , ("text-align", "justify")
     , ("color", "#FF0000")
-    , ("font-style", "oblique")
+    , ("font-style", "italic")
     , ("border", "5px solid gray")
     , ("text-decoration", "")
-    , ("font-weight", "bold")
+    , ("position", "relative")
+    , ("display", "")
     ]
 
 
