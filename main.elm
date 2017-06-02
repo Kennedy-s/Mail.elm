@@ -109,6 +109,7 @@ view model =
            , a[ href "http://www.ilab.com", myStyle] [ text "Contact" ]
            , a[ href "http://www.vodacom.com", myStyle ] [ text "Service" ]
            ]
+
     ]
 
 myStyle =
@@ -121,6 +122,7 @@ myStyle =
     , ("display", "fixed")
     , ("width", "100%")
     , ("border-radius", "50%")
+    , ("float", "" )
     ]
 
 
@@ -140,6 +142,7 @@ menuStyle =
     , ("backgroundColor", "#FFF")
     , ("padding", "4px 0")
     ]
+
 
 
 --Subscriptions
