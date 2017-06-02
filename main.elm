@@ -110,6 +110,11 @@ view model =
            , a[ href "http://www.vodacom.com", myStyle ] [ text "Service" ]
            ]
 
+    , div [ footerStyle]
+          [ h1 [] [ text ""]
+          ]
+
+    , text "Copyright@miranetworks.net"
     ]
 
 myStyle =
@@ -117,12 +122,12 @@ myStyle =
     [ ("padding", "10px")
     , ("margin", "10px")
     , ("backgroundColor", "")
-    , ( "text-align", "right")
+    , ("text-align", "justify")
     , ("color", "#FF0000")
-    , ("display", "fixed")
-    , ("width", "100%")
-    , ("border-radius", "50%")
-    , ("float", "" )
+    , ("font-style", "oblique")
+    , ("border", "5px solid gray")
+    , ("text-decoration", "")
+    , ("font-weight", "bold")
     ]
 
 
@@ -143,6 +148,16 @@ menuStyle =
     , ("padding", "4px 0")
     ]
 
+
+footerStyle =
+ style 
+   [ ("padding", "10px")
+   , ("margin", "10px")
+   , ("float", "")
+   , ("text-align", "justify")
+   , ("background-color", " powderblue")
+   , ("display", "fixed")
+   ]
 
 
 --Subscriptions
