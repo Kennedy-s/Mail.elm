@@ -120,7 +120,7 @@ myStyle =
     , ("color", "#FF0000")
     , ("display", "fixed")
     , ("width", "100%")
-    --, ("border-radius", "50%")
+    , ("border-radius", "50%")
     ]
 
 
