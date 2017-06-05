@@ -148,6 +148,16 @@ menuStyle =
     ]
 
 
+footerStyle =
+ style 
+   [ ("padding", "10px")
+   , ("margin", "10px")
+   , ("float", "")
+   , ("text-align", "justify")
+   , ("background-color", "")
+   , ("display", "fixed")
+   ]
+
 --Subscriptions
 
 subscriptions : Model -> Sub Msg
