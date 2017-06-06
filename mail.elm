@@ -124,7 +124,7 @@ type Msg
     | Message String
     | Reply String
     | Filter String
-    | Send Int Int String String
+    | Send  String
     | Delete String
     | Inbox String
     | NewMessage InboxMessage
