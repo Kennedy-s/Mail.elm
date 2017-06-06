@@ -31,7 +31,7 @@ type alias Model =
   , inbox : String
   , newMessages : String
   , users : List User
-  , inboxMessages : List InboxMessage 
+  , inboxMessages : List InboxMessage
   }
 
 
@@ -40,7 +40,7 @@ type alias InboxMessage =
   , toUserId : Int
   , subject : String
   , messageBody : String
-  } 
+  }
 
 
 inboxMessage1 =

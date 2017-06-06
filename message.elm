@@ -5,7 +5,7 @@ import Html.Events exposing (onClick)
 
 
 main =
-   program 
+   program
       { init = init
       , view = view
       , update = update
@@ -32,11 +32,11 @@ type Msg
 
 
 
---Update 
+--Update
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    case msg of 
+    case msg of
          Expand ->
              ( True, Cmd.none )
 
@@ -49,15 +49,15 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    if model then 
+    if model then
        div []
            [ button [ onClick Collapse ] [ text "Collapse" ]
            , text "Siwadawada"
            ]
 
-    else 
+    else
        div []
-           [ button [ onClick Expand ] [ text "Expand" ]  
+           [ button [ onClick Expand ] [ text "Expand" ]
            , text "Kennedy"
            ]
 

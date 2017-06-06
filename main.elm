@@ -9,17 +9,17 @@ import Keyboard exposing (..)
 import Json.Decode as Json
 
 
-main = 
+main =
  Html.program
   { init = init
-  , view = view 
+  , view = view
   , update = update
   , subscriptions = subscriptions
   }
 
 
 foo: String -> String -> Int -> String
-foo str1 str2 num = 
+foo str1 str2 num =
   str1 ++ str2 ++ toString(num)
 
 
@@ -36,12 +36,11 @@ type alias Model =
    , logout : String
    , users : List User
    , message : String
-
    }
 
 
 model : Model
-model = 
+model =
    { homePage = ""
    , contactPage = ""
    , aboutPage = ""
@@ -57,14 +56,14 @@ model =
 
 
 init : ( Model, Cmd Msg)
-init = 
+init =
   ( model, Cmd.none)
 
 
 
 --Update
 
-type Msg 
+type Msg
     = HomePage String
     | ContactPage String
     | ServicePage String
@@ -78,13 +77,13 @@ type Msg
 
 
 type alias User =
-   { username : String 
+   { username : String
    , password : String
    }
 
 
 user1 : User
-user1 = 
+user1 =
   { username = "user1"
   , password = "1234"
   }
@@ -104,7 +103,7 @@ user3 =
 
 update : Msg -> Model -> (Model, Cmd msg)
 update msg model  =
-  case msg of 
+  case msg of
     Username str ->
       ({ model | username = str }, Cmd.none)
     
@@ -112,22 +111,22 @@ update msg model  =
       ({ model | password = str }, Cmd.none)
 
     Login ->
-      let 
+      let
         -- validation
 
-        validationMessage = 
+        validationMessage =
           List.filter validate model.users
             |> List.head
             |> justUser
 
-        justUser maybeUser = 
-          case maybeUser of 
+        justUser maybeUser =
+          case maybeUser of
             Just user ->
               "Ok"
             Nothing ->
               "Invalid username/password"
 
-        validate user = 
+        validate user =
           (user.username == model.username && user.password == model.password)
 
       in
@@ -136,7 +135,7 @@ update msg model  =
     Logout ->
       (model, Cmd.none)
     
-    Message message -> 
+    Message message ->
       ({ model | message = message }, Cmd.none)
     HomePage str ->
       ({ model | homePage = str }, Cmd.none)
@@ -147,31 +146,31 @@ update msg model  =
     ServicePage str ->
       ({ model | servicePage = str }, Cmd.none)
 
-    AboutPage  str->    
+    AboutPage  str->
       ({ model | aboutPage = str }, Cmd.none)
 
  
 --View 
 
 loginPage : Model -> Html Msg
-loginPage model = 
-  div  [ id "login-form" ] 
+loginPage model =
+  div  [ id "login-form" ]
        [ h1 [] [ text "Login Form" ]
        , div [] [text model.message]
        , label []
                [ text "username" ]
        , input [ id "username-filed"
                , type_ "text"
-               , value model.username 
+               , value model.username
                , on "input" (Json.map (\str -> Username str) targetValue)
-               ] 
+               ]
                []
-       , label [] 
+       , label []
                [ text "password: " ]
        , input [ id "password-field"
                , type_ "password"
-               , value model.password    
-               , on "input" (Json.map (\str -> Password str) targetValue)          
+               , value model.password
+               , on "input" (Json.map (\str -> Password str) targetValue)      
                ]
                []
        , button [ onClick Login ] [ text "Login" ]
@@ -182,7 +181,7 @@ loginPage model =
 view : Model -> Html Msg
 view model =
    div [myStyle2 ]
-    [  div [ menuStyle] 
+    [  div [ menuStyle]
            [ a[ href "http://www.miranetworks.net", myStyle ] [ text "Home" ]
            , a[ href "http://www.ibm.net", myStyle ] [ text " About" ]
            , a[ href "http://www.ilab.com", myStyle] [ text "Contact" ]
@@ -219,7 +218,7 @@ myStyle2 =
     ]
 
 
-menuStyle = 
+menuStyle =
  style
     [ ("float", "right")
     , ("backgroundColor", "")
@@ -228,7 +227,7 @@ menuStyle =
 
 
 footerStyle =
- style 
+ style
    [ ("padding", "10px")
    , ("margin", "10px")
    , ("float", "")
