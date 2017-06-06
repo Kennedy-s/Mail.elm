@@ -6,6 +6,7 @@ import Html.Events exposing (..)
 import Html exposing (..)
 import Http exposing (..)
 import Keyboard exposing (..)
+import Json.Decode as Json
 
 
 main = 
@@ -17,14 +18,25 @@ main =
   }
 
 
+foo: String -> String -> Int -> String
+foo str1 str2 num = 
+  str1 ++ str2 ++ toString(num)
+
+
 --Model
 
 type alias Model =
-   
-   { homePage : String 
+   { homePage : String
    , contactPage : String
    , aboutPage : String
    , servicePage : String
+   , username : String
+   , password : String
+   , login : String
+   , logout : String
+   , users : List User
+   , message : String
+
    }
 
 
@@ -34,6 +46,12 @@ model =
    , contactPage = ""
    , aboutPage = ""
    , servicePage = ""
+   , username = ""
+   , password = ""
+   , login = ""
+   , logout = ""
+   , users = [ user1, user2, user3 ]
+   , message = ""
    }
 
 
@@ -51,25 +69,115 @@ type Msg
     | ContactPage String
     | ServicePage String
     | AboutPage String
+    | Username String
+    | Password String
+    | Login
+    | Logout
+    | Message String
+
+
+
+type alias User =
+   { username : String 
+   , password : String
+   }
+
+
+user1 : User
+user1 = 
+  { username = "user1"
+  , password = "1234"
+  }
+
+user2 : User
+user2 =
+  { username = "user2"
+  , password = "5678"
+  }
+
+user3 : User
+user3 =
+  { username = "user3"
+  , password = "2468"
+  }
 
 
 update : Msg -> Model -> (Model, Cmd msg)
 update msg model  =
-  case msg of
+  case msg of 
+    Username str ->
+      ({ model | username = str }, Cmd.none)
+    
+    Password str ->
+      ({ model | password = str }, Cmd.none)
+
+    Login ->
+      let 
+        -- validation
+
+        validationMessage = 
+          List.filter validate model.users
+            |> List.head
+            |> justUser
+
+        justUser maybeUser = 
+          case maybeUser of 
+            Just user ->
+              "Ok"
+            Nothing ->
+              "Invalid username/password"
+
+        validate user = 
+          (user.username == model.username && user.password == model.password)
+
+      in
+        ({ model | message = validationMessage }, Cmd.none)
+    
+    Logout ->
+      (model, Cmd.none)
+    
+    Message message -> 
+      ({ model | message = message }, Cmd.none)
     HomePage str ->
       ({ model | homePage = str }, Cmd.none)
 
     ContactPage str ->
-      ({ model | contactPage = str}, Cmd.none)
+      ({ model | contactPage = str }, Cmd.none)
 
     ServicePage str ->
-      ({ model | servicePage = str}, Cmd.none)
+      ({ model | servicePage = str }, Cmd.none)
 
     AboutPage  str->    
-      ({ model | aboutPage = str}, Cmd.none)
+      ({ model | aboutPage = str }, Cmd.none)
 
  
 --View 
+
+loginPage : Model -> Html Msg
+loginPage model = 
+  div  [ id "login-form" ] 
+       [ h1 [] [ text "Login Form" ]
+       , div [] [text model.message]
+       , label []
+               [ text "username" ]
+       , input [ id "username-filed"
+               , type_ "text"
+               , value model.username 
+               , on "input" (Json.map (\str -> Username str) targetValue)
+               ] 
+               []
+       , label [] 
+               [ text "password: " ]
+       , input [ id "password-field"
+               , type_ "password"
+               , value model.password    
+               , on "input" (Json.map (\str -> Password str) targetValue)          
+               ]
+               []
+       , button [ onClick Login ] [ text "Login" ]
+       , button [ onClick Logout ] [ text "Logout" ]
+       ]
+
 
 view : Model -> Html Msg
 view model =
@@ -131,6 +239,9 @@ footerStyle =
    , ("display", "fixed")
    ]
 
+
+
+  
 
 --Subscriptions
 
