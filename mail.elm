@@ -3,7 +3,7 @@ module Mail exposing (..)
 import Html.Attributes exposing (id, class, value, type_)
 import Html.Events exposing (..)
 import Html exposing (..)
-import Http 
+import Http
 import Json.Decode as Json
 
 main =
@@ -35,7 +35,7 @@ type alias Model =
   }
 
 
-type alias InboxMessage = 
+type alias InboxMessage =
   { fromUserId : Int
   , toUserId : Int
   , subject : String
@@ -43,15 +43,15 @@ type alias InboxMessage =
   } 
 
 
-inboxMessage1 = 
+inboxMessage1 =
   {  id = 1
   , fromUserId = 1
   , toUserId = 2
   , subject = "Hello"
   , messageBody = "Hi, How are you doing?"
-  } 
+  }
 
-inboxMessage2 = 
+inboxMessage2 =
   { id = 2
   , fromUserId = 2
   , toUserId = 1
@@ -61,7 +61,7 @@ inboxMessage2 =
 
 inboxMessages3 =
   { id = 3
-  , fromUserId = 3 
+  , fromUserId = 3
   , toUserId = 4
   , subject = "Hello"
   , messageBody = "Hi, are you ok"
@@ -72,14 +72,14 @@ inboxMessages4 =
   , fromUserId = 4
   , toUserId = 3
   , subject = "Hello"
-  , messageBody = "Hi, I am ok and you?"} 
+  , messageBody = "Hi, I am ok and you?"}
 
 inboxMessages5 =
   { id = 5
   , fromUserId = 5
   , toUserId = 4
   , subject = "Hi"
-  , messageBody = "hi, How is life" 
+  , messageBody = "hi, How is life"
   }
 
 inboxMessages6 =
@@ -109,7 +109,7 @@ model =
 
 
 init : ( Model, Cmd Msg)
-init = 
+init =
   ( model, Cmd.none)
 
 
@@ -119,8 +119,8 @@ init =
 type Msg
     = Username  String
     | Password  String
-    | Login  
-    | Logout 
+    | Login
+    | Logout
     | Message String
     | Reply String
     | Filter String
@@ -136,12 +136,12 @@ type alias ListMsg
    { id : Int
    , fromUserId : Int
    , toUserId : Int
-   , subject : String 
-   , messageBody : String 
+   , subject : String
+   , messageBody : String
    }
 
 type alias User =
-   { username : String 
+   { username : String
    , password : String
    }
 

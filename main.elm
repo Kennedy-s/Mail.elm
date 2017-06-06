@@ -184,7 +184,7 @@ view model =
    div [myStyle2 ]
     [  div [ menuStyle] 
            [ a[ href "http://www.miranetworks.net", myStyle ] [ text "Home" ]
-           , a[ href "http://www.sableassets.co.za", myStyle ] [ text " About" ]
+           , a[ href "http://www.ibm.net", myStyle ] [ text " About" ]
            , a[ href "http://www.ilab.com", myStyle] [ text "Contact" ]
            , a[ href "http://www.vodacom.com", myStyle ] [ text "Service" ]
            ]
@@ -201,13 +201,11 @@ myStyle =
     [ ("padding", "10px")
     , ("margin", "10px")
     , ("backgroundColor", "blue")
-    , ("text-align", "justify")
-    , ("color", "")
-    , ("font-style", "italic")
-    , ("border", "5px")
-    , ("text-decoration", "")
-    , ("position", "relative")
-    , ("display", "")
+    , ( "text-align", "right")
+    , ("color", "#FF0000")
+    , ("display", "fixed")
+    , ("width", "100%")
+    , ("border-radius", "50%")
     ]
 
 
