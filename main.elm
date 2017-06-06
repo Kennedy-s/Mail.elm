@@ -114,19 +114,19 @@ view model =
           ]
 
     , text "Copyright@miranetworks.net"
-
     ]
+
 
 myStyle =
   style
     [ ("padding", "10px")
     , ("margin", "10px")
-    , ("backgroundColor", "")
+    , ("backgroundColor", "blue")
     , ( "text-align", "right")
     , ("color", "#FF0000")
     , ("display", "fixed")
     , ("width", "100%")
-    --, ("border-radius", "50%")
+    , ("border-radius", "50%")
     ]
 
 
@@ -143,7 +143,7 @@ myStyle2 =
 menuStyle = 
  style
     [ ("float", "right")
-    , ("backgroundColor", "#FFF")
+    , ("backgroundColor", "")
     , ("padding", "4px 0")
     ]
 
