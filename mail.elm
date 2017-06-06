@@ -321,7 +321,7 @@ view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
     True ->
-      sendView model
+      inboxPage model
     False ->
       loginPage model
   
