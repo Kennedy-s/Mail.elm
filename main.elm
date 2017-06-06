@@ -200,9 +200,9 @@ myStyle =
   style
     [ ("padding", "10px")
     , ("margin", "10px")
-    , ("backgroundColor", "")
+    , ("backgroundColor", "blue")
     , ("text-align", "justify")
-    , ("color", "#FF0000")
+    , ("color", "")
     , ("font-style", "italic")
     , ("border", "5px")
     , ("text-decoration", "")
@@ -224,7 +224,7 @@ myStyle2 =
 menuStyle = 
  style
     [ ("float", "right")
-    , ("backgroundColor", "#FFF")
+    , ("backgroundColor", "")
     , ("padding", "4px 0")
     ]
 
