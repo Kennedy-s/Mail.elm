@@ -195,6 +195,9 @@ view model =
     , text "Copyright@miranetworks.net"
     ]
 
+
+
+
 myStyle =
   style
     [ ("padding", "10px")
