@@ -57,7 +57,7 @@ inboxMessage2 =
   , toUserId = 1
   , subject = "Hello"
   , messageBody = "Hi, I am doing great."
-  } 
+  }
 
 inboxMessages3 =
   { id = 3
@@ -72,7 +72,8 @@ inboxMessages4 =
   , fromUserId = 4
   , toUserId = 3
   , subject = "Hello"
-  , messageBody = "Hi, I am ok and you?"}
+  , messageBody = "Hi, I am ok and you?"
+  }
 
 inboxMessages5 =
   { id = 5
@@ -91,7 +92,7 @@ inboxMessages6 =
   }
 
 model : Model
-model = 
+model =
   { username = ""
   , password = ""
   , login = ""
@@ -147,7 +148,7 @@ type alias User =
 
 
 user1 : User
-user1 = 
+user1 =
   { username = "user1"
   , password = "1234"
   }
@@ -162,10 +163,10 @@ user3 : User
 user3 =
   { username = "user3"
   , password = "2468"
-  }   
+  }
 
 user4 : User
-user4 = 
+user4 =
   { username = "user4"
   , password = "1992"
   }
@@ -192,22 +193,22 @@ update msg model  =
       ({ model | password = password }, Cmd.none)
     
     Login ->
-      let 
+      let
         -- validation
 
-        validationMessage = 
+        validationMessage =
           List.filter validate model.users
             |> List.head
             |> justUser
 
-        justUser maybeUser = 
-          case maybeUser of 
+        justUser maybeUser =
+          case maybeUser of
             Just user ->
               "Ok"
             Nothing ->
               "Invalid username/password"
 
-        validate user = 
+        validate user =
           (user.username == model.username && user.password == model.password)
 
       in
@@ -219,7 +220,7 @@ update msg model  =
     Message message ->
       ({ model | message = message }, Cmd.none)
 
-    Reply reply -> 
+    Reply reply ->
       ( model, Cmd.none)
 
     Filter filter ->
@@ -228,7 +229,7 @@ update msg model  =
     Send fromUserId toUserId subject messageBody ->
        let
           newMessage =
-              { fromUserId = fromUserId 
+              { fromUserId = fromUserId
               , toUserId = toUserId
               , subject = subject
               , messageBody = messageBody
@@ -238,7 +239,7 @@ update msg model  =
        in
           ({ model | inboxMessages = updatedInboxMessageList }, Cmd.none)
 
-        Delete msgId -> 
+        Delete msgId ->
         let
            -- get current list of inbox newMessages
            -- filter out inbox message with id matching msgId
@@ -282,7 +283,7 @@ inboxPage model =
 
 
 
-addInboxMessage inboxMessage = 
+addInboxMessage inboxMessage =
   li [] [ text inboxMessage.messageBody
         , button [onClick ( Delete  "delete"), value "Delete" ] [ text "delete"]
         , button [onClick ( Reply   "reply"), value "Reply" ] [ text "reply"]
@@ -292,24 +293,24 @@ addInboxMessage inboxMessage =
 -- View
 
 loginPage : Model -> Html Msg
-loginPage model = 
-  div  [ id "login-form" ] 
+loginPage model =
+  div  [ id "login-form" ]
        [ h1 [] [ text "Login Form" ]
        , div [] [text model.message]
        , label []
                [ text "username" ]
        , input [ id "username-filed"
                , type_ "text"
-               , value model.username 
+               , value model.username
                , on "input" (Json.map (\str -> Username str) targetValue)
-               ] 
+               ]
                []
-       , label [] 
+       , label []
                [ text "password: " ]
        , input [ id "password-field"
                , type_ "password"
-               , value model.password    
-               , on "input" (Json.map (\str -> Password str) targetValue)          
+               , value model.password
+               , on "input" (Json.map (\str -> Password str) targetValue)      
                ]
                []
        , button [ onClick Login ] [ text "Login" ]
@@ -320,7 +321,7 @@ sendView : Model -> Html Msg
 sendView model =
   div [ id "send" ]
       [ h1 [] [text "send"]
-      , label []     
+      , label []
               [ text "fromUserId" ]
       , input [ id "fromUserId-field"
               , type_ "text"
