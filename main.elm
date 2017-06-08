@@ -229,6 +229,7 @@ menuStyle =
     , ("backgroundColor", "")
     , ("padding", "4px 0")
     , ("border-radius", "120%")
+    , ("margin", "20px")
     ]
 
 

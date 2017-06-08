@@ -269,7 +269,7 @@ messagePage model =
 
 inboxPage : Model -> Html Msg
 inboxPage model =
-  let 
+  let
     inboxMessages = model.inboxMessages
   in
     div [ id "inbox" ]
