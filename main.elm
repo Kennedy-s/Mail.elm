@@ -208,6 +208,7 @@ myStyle =
     , ("display", "fixed")
     , ("width", "100%")
     , ("border-radius", "50%")
+    , ("boxSizing", "borderBox")
     ]
 
 
@@ -218,6 +219,7 @@ myStyle2 =
     , ("float", "center")
     , ("padding", "10px")
     , ("margin", "0px")
+    , ("border-radius", "")
     ]
 
 
@@ -226,6 +228,7 @@ menuStyle =
     [ ("float", "right")
     , ("backgroundColor", "")
     , ("padding", "4px 0")
+    , ("border-radius", "120%")
     ]
 
 
