@@ -134,12 +134,12 @@ type Msg
 
 
 
-type alias ListMsg
-   { id : Int
-   , fromUserId : Int
-   , toUserId : Int
-   , subject : String
-   , messageBody : String
+type alias ListMsg    
+   { id : Int    
+   , fromUserId : Int   
+   , toUserId : Int   
+   , subject : String    
+   , messageBody : String   
    }
 
 type alias User =
