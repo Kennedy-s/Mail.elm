@@ -48,6 +48,7 @@ type Msg
     = Arrival
     | Departure
     | Greet String
+    | Submit
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
@@ -65,6 +66,9 @@ update msg model =
      in
         (model, Cmd.none)
 
+    Submit ->
+      (model, Cmd.none)
+
 -- View
 
 view : Model -> Html Msg
@@ -77,6 +81,7 @@ view model =
   , button [ onClick Departure ][ text "clock out"]
   , div [] [ ]
   , input [ onClick (Greet "hello") ][ text "Greet the taxi rank chairman."]
+  , button [ onClick Submit ] [ text "Submit" ] 
   ]
 
 --Subscriptions
