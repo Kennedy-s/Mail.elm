@@ -35,7 +35,7 @@ model =
 
 
 init : ( Model, Cmd Msg)
-init = 
+init =
   ( model, Cmd.none)
 
 
@@ -44,8 +44,8 @@ init =
   --  Msg  - action
 
 
-type Msg 
-    = Arrival 
+type Msg
+    = Arrival
     | Departure
     | Greet String
 
@@ -72,7 +72,7 @@ view model =
   div []
   [ span [] [ text ("Number of taxis at the rank" ++ (toString model.atRankCount)) ]
   , button [ onClick Arrival ][ text "clock in"]
-  , div [] [ ] 
+  , div [] [ ]
   , span [] [ text ("Number of taxis out of the rank" ++ (toString model.leftRankCount)) ]
   , button [ onClick Departure ][ text "clock out"]
   , div [] [ ]
