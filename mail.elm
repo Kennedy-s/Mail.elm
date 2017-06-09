@@ -142,21 +142,21 @@ type alias ListMsg
    , messageBody : String   
    }
 
-type alias User =
-   { username : String
-   , password : String
+type alias User =   
+   { username : String  
+   , password : String   
    }
 
 
-user1 : User
-user1 =
-  { username = "user1"
-  , password = "1234"
-  }
-
-user2 : User
-user2 =
-  { username = "user2"
+user1 : User  
+user1 =  
+  { username = "user1"  
+  , password = "1234"   
+  }   
+   
+user2 : User   
+user2 =  
+  { username = "user2"  
   , password = "5678"
   }
 

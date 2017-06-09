@@ -47,29 +47,29 @@ init =
 type Msg
     = Arrival
     | Departure
-    | Greet String
-    | Submit
+    | Greet String      
+    | Submit      
+        
 
+update : Msg -> Model -> (Model, Cmd Msg)                          
+update msg model =         
+  case msg of             
+    Arrival ->              
+      ({ model | atRankCount = model.atRankCount +1}, Cmd.none)        
+  
+    Departure ->                                                     
+     ({ model | leftRankCount = model.leftRankCount - 1}, Cmd.none)         
 
-update : Msg -> Model -> (Model, Cmd Msg)
-update msg model =
-  case msg of
-    Arrival ->
-      ({ model | atRankCount = model.atRankCount +1}, Cmd.none)
-
-    Departure ->
-     ({ model | leftRankCount = model.leftRankCount - 1}, Cmd.none)
-
-    Greet str ->
-     let
-        _ = Debug.log "debug" str
-     in
-        (model, Cmd.none)
-
-    Submit ->
-      (model, Cmd.none)
-
--- View
+    Greet str ->   
+     let                          
+        _ = Debug.log "debug" str    
+     in                  
+        (model, Cmd.none)             
+             
+    Submit ->           
+      (model, Cmd.none)            
+       
+-- View 
 
 view : Model -> Html Msg
 view model =

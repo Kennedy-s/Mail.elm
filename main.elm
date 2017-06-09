@@ -147,13 +147,13 @@ update msg model  =
       ({ model | servicePage = str }, Cmd.none)
 
     AboutPage  str->
-      ({ model | aboutPage = str }, Cmd.none)
+      ({ model | aboutPage = str }, Cmd.none)     
 
  
 --View 
 
-loginPage : Model -> Html Msg
-loginPage model =
+loginPage : Model -> Html Msg          
+loginPage model =                
   div  [ id "login-form" ]
        [ h1 [] [ text "Login Form" ]
        , div [] [text model.message]
