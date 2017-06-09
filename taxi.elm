@@ -30,7 +30,7 @@ model : Model
 model =
   { atRankCount = 0
   , leftRankCount = 0
-  , greet = ""
+  , greet = "hi"
   }
 
 

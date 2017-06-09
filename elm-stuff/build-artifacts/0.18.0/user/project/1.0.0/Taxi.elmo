@@ -26,7 +26,7 @@ var _user$project$Taxi$update = F2(
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 		}
 	});
-var _user$project$Taxi$model = {atRankCount: 0, leftRankCount: 0, greet: ''};
+var _user$project$Taxi$model = {atRankCount: 0, leftRankCount: 0, greet: 'hi'};
 var _user$project$Taxi$init = {ctor: '_Tuple2', _0: _user$project$Taxi$model, _1: _elm_lang$core$Platform_Cmd$none};
 var _user$project$Taxi$Model = F3(
 	function (a, b, c) {
