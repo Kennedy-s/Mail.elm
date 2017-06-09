@@ -18,17 +18,17 @@ main =
 --Model 
  
 type alias Model =
-  { accceptError : String    
-  , confirmedPassword : String  
-  , email : String               
-  , emailValidation : EmailStatus    
-  , matchError : String      
-  , maatch : String         
-  , password : String           
-  , passwordMatch : Bool            
-  , passwordTooShort : String             
-  , emailErro : String                 
-  , passwordValidation : PasswordStatus   
+  { accceptError : String
+  , confirmedPassword : String
+  , email : String
+  , emailValidation : EmailStatus
+  , matchError : String
+  , maatch : String
+  , password : String
+  , passwordMatch : Bool
+  , passwordTooShort : String
+  , emailErro : String
+  , passwordValidation : PasswordStatus
   , tool : Bool
   }
 
