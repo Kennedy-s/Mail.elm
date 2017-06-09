@@ -18,19 +18,18 @@ main =
 --Model 
  
 type alias Model =
-  { email : String 
-  , emailValidation : EmailStatus
-  , password : String
-  , passwordValidation : PasswordStatus
+  { accceptError : String 
   , confirmedPassword : String
-  , passwordMatch : Bool
-  , tool : Bool
+  , email : String
+  , emailValidation : EmailStatus
   , matchError : String
-  , acceptError : String
-  , emailErro : String
-  , passwordTooLong : String
+  , maatch : String
+  , password : String
+  , passwordMatch : Bool
   , passwordTooShort : String
-  , matching : String
+  , emailErro : String
+  , passwordValidation : PasswordStatus
+  , tool : Bool
   }
 
 type EmailStatus
@@ -46,20 +45,18 @@ type PasswordStatus
 
 model : Model
 model =
-   { email = ""
-   , emailValidation = ""
-   , password = ""
-   , passwordValidation = ""
+   { accceptError = "" 
    , confirmedPassword = ""
-   , passwordMatch = ""
-   , tool = ""
+   , email = ""
+   , emailValidation = ""
    , matchError = ""
-   , passwordError = ""
-   , acceptError = ""
+   , maatch = ""
+   , password = ""
+   , passwordMatch = ""
+   , passwordTooShort = ""
    , emailErro = ""
-   , form = ""
-   , passwordTooLong = ""
-   , matching = ""
+   , passwordValidation = ""
+   , tool = ""
    }
 
 init : ( Model, Cmd Msg)
@@ -73,7 +70,7 @@ init =
 --Update
 
 type Msg
-    = ChanheEmail String
+    = ChangeEmail String
     | ChangePassword String
     | ConfirmedPassword String
     | ToogleTOS Bool
@@ -81,8 +78,6 @@ type Msg
     | Validate String
     | ValidEmail String
     | PasswrdTooLong String
-    | Form String
-    | ChangeEmail String
     | EmailErro String
     | PasswordError String
     | MatchError String
@@ -103,9 +98,8 @@ update msg model =
       ConfirmedPassword confirmed ->
           { model | confirmedPassword = confirmed }
 
-      ToogleTOS bool ->
-          ({ model | tos = bool })
-
+      ToogleTOS str ->
+         ( model, Cmd.none )
 
 
 validate model =
@@ -131,17 +125,17 @@ validate model =
                 model.password == model.confirmedPassword
 
           ready =
-                (passwordStatus == ValidPassword)
-                    && (emailStatus == ValidEmail)
+                ( passwordStatus = ValidPassword )
+                    && ( emailStatus = ValidEmail )
                     && matching
       
       in
-            { model
+                { model
                 | emailValidation = emailStatus
                 , passwordValidation = passwordStatus
                 , passswordMatch = matching
                 , ready = ready
-            }
+                }
                
 
 --View
