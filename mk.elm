@@ -126,7 +126,7 @@ validate model =
 
           ready =
                 ( passwordStatus = ValidPassword )
-                    && ( emailStatus = ValidEmail )
+                    && ( emailStatus == ValidEmail )
                     && matching
       
       in
