@@ -26,7 +26,7 @@ type alias Model =
   , passwordMatch : Bool
   , tool : Bool
   , matchError : String
-  , acceptError : String 
+  , acceptError : String
   , emailErro : String
   , passwordTooLong : String
   , passwordTooShort : String
@@ -72,11 +72,11 @@ init =
 
 --Update
 
-type Msg 
+type Msg
     = ChanheEmail String
     | ChangePassword String
     | ConfirmedPassword String
-    | ToogleTOS Bool 
+    | ToogleTOS Bool
     | AcceptErro String
     | Validate String
     | ValidEmail String
@@ -84,7 +84,7 @@ type Msg
     | Form String
     | ChangeEmail String
     | EmailErro String
-    | PasswordError String 
+    | PasswordError String
     | MatchError String
 
 
@@ -92,8 +92,8 @@ type Msg
 
 
 update : Msg -> Model -> (Model, Cmd msg)
-update msg model  =
-  case msg of 
+update msg model =
+  case msg of
       ChangeEmail email ->
           { model | email = email }
 
@@ -104,7 +104,7 @@ update msg model  =
           { model | confirmedPassword = confirmed }
 
       ToogleTOS bool ->
-          { model | tos = bool }
+          ({ model | tos = bool })
 
 
 
@@ -112,11 +112,11 @@ validate model =
       let
           emailStatus =
               if model.email == "" then
-                    EmptyEmail 
+                    EmptyEmail
                 else if String.contains "@" model.email then
-                    ValidEmail
-                else 
-                    InvalidEmail
+                    model.validEmail
+                else
+                    model.invalidEmail
 
           passwordStatus =
                 if String.length model.password < 8 then 
@@ -124,8 +124,8 @@ validate model =
                 else if String.length model.password > 120 then
                     model.passwordTooLong
 
-                else 
-                    ValidPassword
+                else
+                    model.validPassword
 
           matching =
                 model.password == model.confirmedPassword
@@ -135,7 +135,7 @@ validate model =
                     && (emailStatus == ValidEmail)
                     && matching
       
-      in 
+      in
             { model
                 | emailValidation = emailStatus
                 , passwordValidation = passwordStatus
