@@ -18,7 +18,7 @@ main =
 --Model 
  
 type alias Model =
-  { accceptError : String
+  { accceptError : String 
   , confirmedPassword : String
   , email : String
   , emailValidation : EmailStatus
