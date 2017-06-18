@@ -3,8 +3,9 @@ module Mail exposing (..)
 import Html.Attributes exposing (id, class, value, type_)
 import Html.Events exposing (..)
 import Html exposing (..)
-import Http 
+import Http
 import Json.Decode as Json
+
 
 main =
   Html.program
@@ -31,61 +32,68 @@ type alias Model =
   , inbox : String
   , newMessages : String
   , users : List User
-  , inboxMessages : List InboxMessage 
+  , inboxMessages : List InboxMessage
   }
 
 
-type alias InboxMessage = 
+type alias InboxMessage =
   { fromUserId : Int
   , toUserId : Int
   , subject : String
   , messageBody : String
-  } 
+  }
 
 
-inboxMessage1 = 
-  { fromUserId = 1
+inboxMessage1 =
+  {  id = 1
+  , fromUserId = 1
   , toUserId = 2
   , subject = "Hello"
   , messageBody = "Hi, How are you doing?"
-  } 
+  }
 
-inboxMessage2 = 
-  { fromUserId = 2
+inboxMessage2 =
+  { id = 2
+  , fromUserId = 2
   , toUserId = 1
   , subject = "Hello"
   , messageBody = "Hi, I am doing great."
-  } 
+  }
 
 inboxMessages3 =
-  { fromUserId = 3 
+  { id = 3
+  , fromUserId = 3
   , toUserId = 4
   , subject = "Hello"
   , messageBody = "Hi, are you ok"
   }
 
 inboxMessages4 =
-  { fromUserId = 4
+  { id = 4
+  , fromUserId = 4
   , toUserId = 3
   , subject = "Hello"
-  , messageBody = "Hi, I am ok and you?"} 
+  , messageBody = "Hi, I am ok and you?"
+  }
 
 inboxMessages5 =
-  { fromUserId = 5
+  { id = 5
+  , fromUserId = 5
   , toUserId = 4
   , subject = "Hi"
-  , messageBody = "hi, How is life" 
+  , messageBody = "hi, How is life"
   }
 
 inboxMessages6 =
-  { fromUserId =5
+  { id = 6
+  , fromUserId =5
   , toUserId = 6
   , subject = "Good day"
   , messageBody = "Hi, Life is great and there?"
   }
 
 model : Model
-model = 
+model =
   { username = ""
   , password = ""
   , login = ""
@@ -103,7 +111,7 @@ model =
 
 
 init : ( Model, Cmd Msg)
-init = 
+init =
   ( model, Cmd.none)
 
 
@@ -113,25 +121,35 @@ init =
 type Msg
     = Username  String
     | Password  String
-    | Login  
-    | Logout 
+    | Login
+    | Logout
     | Message String
     | Reply String
     | Filter String
-    | Send Int Int String String
+    | Send  String
     | Delete String
     | Inbox String
     | NewMessage InboxMessage
+    | DeleteMessage InboxMessage
 
+
+
+type alias ListMsg
+   { id : Int
+   , fromUserId : Int
+   , toUserId : Int
+   , subject : String
+   , messageBody : String
+   }
 
 type alias User =
-   { username : String 
+   { username : String
    , password : String
    }
 
 
 user1 : User
-user1 = 
+user1 =
   { username = "user1"
   , password = "1234"
   }
@@ -146,10 +164,10 @@ user3 : User
 user3 =
   { username = "user3"
   , password = "2468"
-  }   
+  }
 
 user4 : User
-user4 = 
+user4 =
   { username = "user4"
   , password = "1992"
   }
@@ -176,22 +194,22 @@ update msg model  =
       ({ model | password = password }, Cmd.none)
     
     Login ->
-      let 
+      let
         -- validation
 
-        validationMessage = 
+        validationMessage =
           List.filter validate model.users
             |> List.head
             |> justUser
 
-        justUser maybeUser = 
-          case maybeUser of 
+        justUser maybeUser =
+          case maybeUser of
             Just user ->
               "Ok"
             Nothing ->
               "Invalid username/password"
 
-        validate user = 
+        validate user =
           (user.username == model.username && user.password == model.password)
 
       in
@@ -203,16 +221,16 @@ update msg model  =
     Message message ->
       ({ model | message = message }, Cmd.none)
 
-    Reply reply -> 
-      ({ model | reply = reply }, Cmd.none)
+    Reply reply ->
+      ( model, Cmd.none)
 
     Filter filter ->
-      ({ model | filter = filter }, Cmd.none)
+      ( model, Cmd.none)
 
     Send fromUserId toUserId subject messageBody ->
        let
           newMessage =
-              { fromUserId = fromUserId 
+              { fromUserId = fromUserId
               , toUserId = toUserId
               , subject = subject
               , messageBody = messageBody
@@ -222,19 +240,19 @@ update msg model  =
        in
           ({ model | inboxMessages = updatedInboxMessageList }, Cmd.none)
 
-    Delete delete ->  
-       ( model, Cmd.none)
+        Delete msgId ->
+        let
+           -- get current list of inbox newMessages
+           -- filter out inbox message with id matching msgId
+           -- update model with new inbox message list
+
+           deleteMessage =
+              (List.filter pre listMsg)
+        in
+          ({ model | inboxMessages = updatedInboxMessages }, Cmd.none)
       
 
     Inbox inbox ->
-       --let
-        --  newMessage =
-         --   { fromUserId = fromUserId
-          --  , messageBody = messageBody
-          --  }
-          --updatedInboxMessageList = newMessage :: model.inboxMessages
-       --in
-       --   ({ model | inbox = inbox }, Cmd.none)
       (model, Cmd.none)
 
     NewMessage inboxMessage ->
@@ -253,7 +271,7 @@ messagePage model =
 
 inboxPage : Model -> Html Msg
 inboxPage model =
-  let 
+  let
     inboxMessages = model.inboxMessages
   in
     div [ id "inbox" ]
@@ -266,34 +284,34 @@ inboxPage model =
 
 
 
-addInboxMessage inboxMessage = 
+addInboxMessage inboxMessage =
   li [] [ text inboxMessage.messageBody
         , button [onClick ( Delete  "delete"), value "Delete" ] [ text "delete"]
-        , button [onClick ( Reply   "reply"), value "Reply"  ] [ text "reply"]
+        , button [onClick ( Reply   "reply"), value "Reply" ] [ text "reply"]
         ]
 
            
 -- View
 
 loginPage : Model -> Html Msg
-loginPage model = 
-  div  [ id "login-form" ] 
+loginPage model =
+  div  [ id "login-form" ]
        [ h1 [] [ text "Login Form" ]
        , div [] [text model.message]
        , label []
                [ text "username" ]
        , input [ id "username-filed"
                , type_ "text"
-               , value model.username 
+               , value model.username
                , on "input" (Json.map (\str -> Username str) targetValue)
-               ] 
+               ]
                []
-       , label [] 
+       , label []
                [ text "password: " ]
        , input [ id "password-field"
                , type_ "password"
-               , value model.password    
-               , on "input" (Json.map (\str -> Password str) targetValue)          
+               , value model.password
+               , on "input" (Json.map (\str -> Password str) targetValue)      
                ]
                []
        , button [ onClick Login ] [ text "Login" ]
@@ -304,7 +322,7 @@ sendView : Model -> Html Msg
 sendView model =
   div [ id "send" ]
       [ h1 [] [text "send"]
-      , label []     
+      , label []
               [ text "fromUserId" ]
       , input [ id "fromUserId-field"
               , type_ "text"

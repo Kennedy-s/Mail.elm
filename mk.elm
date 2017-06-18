@@ -81,6 +81,7 @@ type Msg
     | EmailErro String
     | PasswordError String
     | MatchError String
+    | PAssword String
 
 
 
@@ -122,11 +123,11 @@ validate model =
                     model.validPassword
 
           matching =
-                model.password == model.confirmedPassword
+                model.password = model.confirmedPassword
 
           ready =
                 ( passwordStatus = ValidPassword )
-                    && ( emailStatus == ValidEmail )
+                    && ( emailStatus = ValidEmail )
                     && matching
       
       in
@@ -145,25 +146,25 @@ view model =
     Html.form []
          [ label []
              [ input [ onInput ChangeEmail ] []
-             , text "email error"
-             , text model.emailValidation
+             , Html.text "email error"
+             , Html.text model.emailValidation
              ]
          , label []
              [ input [ onInput ChangePassword ] []
-             , text "password error"
-             , text model.passwordValidation
+             , Html.text "password error"
+             , Html.text model.passwordValidation
              ]
          , label []
              [ input [ onInput ConfirmedPassword ] []
-             , text "cofirm password"
-             , text model.matching
+             , Html.text "cofirm password"
+             , Html.text model.matching
              ]
          , label []
              [ input [ type_ "checkbox", onClick ToogleTOS ] []
-             , text "accept terms of service"
-             ,  text model.acceptError
+             , Html.text "accept terms of service"
+             ,  Html.text model.acceptError
              ]
-         , button [ type_ "submit" ] [ text "Sign up"]
+         , button [ type_ "Sign Up" ] [ text "Sign up"]
          ]
 
 
