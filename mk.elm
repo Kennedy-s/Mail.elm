@@ -50,7 +50,7 @@ model =
    , email = ""
    , emailValidation = ""
    , matchError = ""
-   , maatch = ""
+   , maatching = ""
    , password = ""
    , passwordMatch = ""
    , passwordTooShort = ""
@@ -109,33 +109,33 @@ validate model =
               if model.email == "" then
                     EmptyEmail
                 else if String.contains "@" model.email then
-                    model.validEmail
+                    ValidEmail
                 else
-                    model.invalidEmail
+                    InvalidEmail
 
           passwordStatus =
                 if String.length model.password < 8 then 
                     model.passwordTooShort
                 else if String.length model.password > 120 then
-                    model.passwordTooLong
+                    PasswordTooLong
 
                 else
-                    model.validPassword
+                    ValidPassword
 
           matching =
-                model.password = model.confirmedPassword
+              model.password == model.confirmedPassword
 
           ready =
-                ( passwordStatus = ValidPassword )
-                    && ( emailStatus = ValidEmail )
+                ( passwordStatus == ValidPassword )
+                    && ( emailStatus == ValidEmail )
                     && matching
       
       in
-                { model
-                , emailValidation = emailStatus
-                , passwordValidation = passwordStatus
-                , passswordMatch = matching
-                , ready = ready
+                { model 
+                    | emailValidation = emailStatus
+                    , passwordValidation = passwordStatus
+                    , passswordMatch = matching
+                    , ready = ready
                 }
                
 
@@ -146,23 +146,23 @@ view model =
     Html.form []
          [ label []
              [ input [ onInput ChangeEmail ] []
-             , Html.text "email error"
-             , Html.text model.emailValidation
+             , text "email error"
+             , text model.emailValidation
              ]
          , label []
              [ input [ onInput ChangePassword ] []
-             , Html.text "password error"
-             , Html.text model.passwordValidation
+             , text "password error"
+             , text model.passwordValidation
              ]
          , label []
              [ input [ onInput ConfirmedPassword ] []
-             , Html.text "cofirm password"
-             , Html.text model.matching
+             , text "cofirm password"
+             , text model.matching
              ]
          , label []
              [ input [ type_ "checkbox", onClick ToogleTOS ] []
-             , Html.text "accept terms of service"
-             ,  Html.text model.acceptError
+             , text "accept terms of service"
+             , text model.acceptError
              ]
          , button [ type_ "Sign Up" ] [ text "Sign up"]
          ]

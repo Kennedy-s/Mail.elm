@@ -1,4 +1,4 @@
-module Main2 exposing (..)
+module Main exposing (..)
 
 
 import Html.Attributes exposing (..)
