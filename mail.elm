@@ -134,10 +134,6 @@ type Msg
     | NewMessage InboxMessage
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 type alias User =
    { username : String
    , password : String
@@ -218,7 +214,6 @@ update msg model  =
       (model, Cmd.none)
 
     Reply reply ->
-<<<<<<< HEAD
       ({ model | reply = reply}, Cmd.none)
 
     Filter filter ->
@@ -229,8 +224,6 @@ update msg model  =
 
     Delete delete ->
       ({ model | delete = delete}, Cmd.none)
-=======
-      (model, Cmd.none)
 
     Filter filter ->
       (model, Cmd.none)
@@ -240,9 +233,7 @@ update msg model  =
 
     Delete delete ->
       (model, Cmd.none)
->>>>>>> master
       
-
     Inbox inbox ->
       ({ model | inbox = inbox}, Cmd.none)
 
