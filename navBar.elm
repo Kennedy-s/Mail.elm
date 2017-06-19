@@ -11,7 +11,7 @@ main =
   Html.program
     { init = init
     , view = view
-    , update = update
+    , update = update   
     , subscriptions = subscriptions
     } 
 
@@ -32,14 +32,14 @@ type alias Position =
     , y : Int
     }
 
-model : Model 
+model : Model
 model =
   { mouseMsg = ""
   , keyMsg = ""
   }
 
 init : (Model, Cmd Msg)
-init = 
+init =
   ( model, Cmd.none )
 
 -- Message
@@ -54,7 +54,7 @@ type Msg
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    case msg of 
+    case msg of
         MouseMsg position ->
             ({ model | mouseMsg = model.mouseMsg  }, Cmd.none )
 
@@ -62,7 +62,7 @@ update msg model =
             ({ model | keyMsg = model.keyMsg  }, Cmd.none )
 
 
---View 
+--View
 
 view : Model -> Html Msg
 view model =

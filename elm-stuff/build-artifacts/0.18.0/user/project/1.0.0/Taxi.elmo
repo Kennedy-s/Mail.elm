@@ -21,17 +21,20 @@ var _user$project$Taxi$update = F2(
 						{leftRankCount: model.leftRankCount - 1}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
-			default:
+			case 'Greet':
 				var _p1 = A2(_elm_lang$core$Debug$log, 'debug', _p0._0);
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			default:
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 		}
 	});
-var _user$project$Taxi$model = {atRankCount: 0, leftRankCount: 0, greet: ''};
+var _user$project$Taxi$model = {atRankCount: 0, leftRankCount: 0, greet: 'hi'};
 var _user$project$Taxi$init = {ctor: '_Tuple2', _0: _user$project$Taxi$model, _1: _elm_lang$core$Platform_Cmd$none};
 var _user$project$Taxi$Model = F3(
 	function (a, b, c) {
 		return {atRankCount: a, leftRankCount: b, greet: c};
 	});
+var _user$project$Taxi$Submit = {ctor: 'Submit'};
 var _user$project$Taxi$Greet = function (a) {
 	return {ctor: 'Greet', _0: a};
 };
@@ -124,7 +127,22 @@ var _user$project$Taxi$view = function (model) {
 											_0: _elm_lang$html$Html$text('Greet the taxi rank chairman.'),
 											_1: {ctor: '[]'}
 										}),
-									_1: {ctor: '[]'}
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$button,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Events$onClick(_user$project$Taxi$Submit),
+												_1: {ctor: '[]'}
+											},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('Submit'),
+												_1: {ctor: '[]'}
+											}),
+										_1: {ctor: '[]'}
+									}
 								}
 							}
 						}

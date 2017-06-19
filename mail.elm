@@ -49,8 +49,8 @@ model =
   , delete = ""
   , inbox = ""
   , newMessages = ""
-  , users = [ user1, user2, user3, user4, user5, user6, user6 ]
-  , inboxMessages = [inboxMessage1, inboxMessage2, inboxMessages3, inboxMessages4, inboxMessages5, inboxMessages6, inboxMessages7]
+  , users = [ user1, user2, user3, user4, user5, user6 ]
+  , inboxMessages = [inboxMessage1, inboxMessage2, inboxMessages3, inboxMessages4, inboxMessages5, inboxMessages6]
   }
 
 type alias InboxMessage =
@@ -110,14 +110,6 @@ inboxMessages6 =
   , messageBody = "Hi, Life is great and there?"
   }
 
-inboxMessages7 =
-  { id = 7
-  , fromUserId = 6
-  , toUserId = 7
-  , subject = "hello"
-  , messageBody = "Hi, I will come today after work neh!!"
-  }
-
 
 
 
@@ -130,14 +122,14 @@ init =
 -- Update
  
 type Msg
-    = Username String
-    | Password String
+    = Username  String
+    | Password  String
     | Login
     | Logout
     | Message String
     | Reply String
     | Filter String
-    | Send String
+    | Send  String
     | Delete String
     | Inbox String
     | NewMessage InboxMessage
@@ -184,12 +176,6 @@ user6 : User
 user6 =
  { username = "user6"
  , password = "2008"
- }
-
-user7 : User
-user = 
- { username = "user7"
- , password = "2010"
  }
 
 update : Msg -> Model -> (Model, Cmd msg)

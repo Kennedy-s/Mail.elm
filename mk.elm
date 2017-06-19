@@ -132,7 +132,7 @@ validate model =
       
       in
                 { model
-                | emailValidation = emailStatus
+                , emailValidation = emailStatus
                 , passwordValidation = passwordStatus
                 , passswordMatch = matching
                 , ready = ready

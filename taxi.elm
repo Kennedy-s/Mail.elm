@@ -30,12 +30,12 @@ model : Model
 model =
   { atRankCount = 0
   , leftRankCount = 0
-  , greet = ""
+  , greet = "hi"
   }
 
 
 init : ( Model, Cmd Msg)
-init = 
+init =
   ( model, Cmd.none)
 
 
@@ -44,10 +44,11 @@ init =
   --  Msg  - action
 
 
-type Msg 
-    = Arrival 
+type Msg
+    = Arrival
     | Departure
     | Greet String
+    | Submit
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
@@ -65,18 +66,22 @@ update msg model =
      in
         (model, Cmd.none)
 
+    Submit ->
+      (model, Cmd.none)
+
 -- View
 
 view : Model -> Html Msg
 view model =
   div []
   [ span [] [ text ("Number of taxis at the rank" ++ (toString model.atRankCount)) ]
-  , button [ onClick Arrival ][ text "clock in"]
-  , div [] [ ] 
+  , button [ onClick Arrival ][ text "clock in" ]
+  , div [] []
   , span [] [ text ("Number of taxis out of the rank" ++ (toString model.leftRankCount)) ]
   , button [ onClick Departure ][ text "clock out"]
-  , div [] [ ]
+  , div [] []
   , input [ onClick (Greet "hello") ][ text "Greet the taxi rank chairman."]
+  , button [ onClick Submit ] [ text "Submit" ] 
   ]
 
 --Subscriptions
