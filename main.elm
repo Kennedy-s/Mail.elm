@@ -156,6 +156,7 @@ footerStyle =
    , ("text-align", "justify")
    , ("background-color", "")
    , ("display", "fixed")
+   , ("", "")
    ]
 
 --Subscriptions
