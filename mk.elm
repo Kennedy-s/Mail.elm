@@ -23,13 +23,15 @@ type alias Model =
   , email : String
   , emailValidation : EmailStatus
   , matchError : String
-  , maatch : String
+  , match : String
   , password : String
   , passwordMatch : Bool
+  , passwordTooLong : String
   , passwordTooShort : String
   , emailErro : String
   , passwordValidation : PasswordStatus
   , tool : Bool
+  , invalid : String
   }
 
 type EmailStatus
@@ -57,6 +59,7 @@ model =
    , emailErro = ""
    , passwordValidation = ""
    , tool = ""
+   , invalid = ""
    }
 
 init : ( Model, Cmd Msg)
@@ -81,7 +84,8 @@ type Msg
     | EmailErro String
     | PasswordError String
     | MatchError String
-    | PAssword String
+    | Password String
+    | Invalid String
 
 
 
@@ -137,7 +141,17 @@ validate model =
                     , passswordMatch = matching
                     , ready = ready
                 }
-               
+emailStatus =
+    if model.email == "" then
+        EmptyEmail
+    else if String.contains "" "@" model.email then
+        ValidEmail
+    else 
+       Invalid
+
+changeEmail email =
+     Validate { model | email = email }
+
 
 --View
 
@@ -167,6 +181,14 @@ view model =
          , button [ type_ "Sign Up" ] [ text "Sign up"]
          ]
 
+emailErro status =
+    case status of
+        ValidEmail ->
+            empty
+
+        InvalidEmail ->
+            div [ class "error" ]
+                [ text "that doesn't look like an email"]
 
 --Subscriptions
 
