@@ -54,9 +54,21 @@ var _user$project$Mail$update = F2(
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			case 'Reply':
-				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{reply: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
 			case 'Filter':
-				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{filter: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
 			case 'Send':
 				var newMessage = {fromUserId: _p0._0, toUserId: _p0._1, subject: _p0._2, messageBody: _p0._3};
 				var updatedInboxMessageList = {ctor: '::', _0: newMessage, _1: model.inboxMessages};

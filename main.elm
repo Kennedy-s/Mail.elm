@@ -187,16 +187,12 @@ view model =
            , a[ href "http://www.ilab.com", myStyle] [ text "Contact" ]
            , a[ href "http://www.vodacom.com", myStyle ] [ text "Service" ]
            ]
-
-    , div [ footerStyle]
+     , div [ footerStyle]
           [ h1 [] [ text ""]
           ]
 
     , text "Copyright@miranetworks.net"
     ]
-
-
-
 
 myStyle =
   style
@@ -243,9 +239,6 @@ footerStyle =
    , ("display", "fixed")
    ]
 
-
-
-  
 
 --Subscriptions
 

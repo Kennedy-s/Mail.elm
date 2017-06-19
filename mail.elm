@@ -134,14 +134,6 @@ type Msg
 
 
 
-type alias ListMsg
-   { id : Int
-   , fromUserId : Int
-   , toUserId : Int
-   , subject : String
-   , messageBody : String
-   }
-
 type alias User =
    { username : String
    , password : String
@@ -227,29 +219,11 @@ update msg model  =
     Filter filter ->
       ( model, Cmd.none)
 
-    Send fromUserId toUserId subject messageBody ->
-       let
-          newMessage =
-              { fromUserId = fromUserId
-              , toUserId = toUserId
-              , subject = subject
-              , messageBody = messageBody
-              } 
-          updatedInboxMessageList = newMessage :: model.inboxMessages
+    Send send ->
+          (model, Cmd.none)
 
-       in
-          ({ model | inboxMessages = updatedInboxMessageList }, Cmd.none)
-
-        Delete msgId ->
-        let
-           -- get current list of inbox newMessages
-           -- filter out inbox message with id matching msgId
-           -- update model with new inbox message list
-
-           deleteMessage =
-              (List.filter pre listMsg)
-        in
-          ({ model | inboxMessages = updatedInboxMessages }, Cmd.none)
+        Delete delete ->
+          (model, Cmd.none)
       
 
     Inbox inbox ->
