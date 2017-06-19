@@ -46,39 +46,13 @@ var _user$project$Mail$update = F2(
 			case 'Logout':
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			case 'Message':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{message: _p0._0}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			case 'Reply':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{reply: _p0._0}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			case 'Filter':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{filter: _p0._0}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			case 'Send':
-				var newMessage = {fromUserId: _p0._0, toUserId: _p0._1, subject: _p0._2, messageBody: _p0._3};
-				var updatedInboxMessageList = {ctor: '::', _0: newMessage, _1: model.inboxMessages};
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{inboxMessages: updatedInboxMessageList}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			case 'Delete':
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			case 'Inbox':
@@ -93,12 +67,12 @@ var _user$project$Mail$user4 = {username: 'user4', password: '1992'};
 var _user$project$Mail$user3 = {username: 'user3', password: '2468'};
 var _user$project$Mail$user2 = {username: 'user2', password: '5678'};
 var _user$project$Mail$user1 = {username: 'user1', password: '1234'};
-var _user$project$Mail$inboxMessages6 = {fromUserId: 5, toUserId: 6, subject: 'Good day', messageBody: 'Hi, Life is great and there?'};
-var _user$project$Mail$inboxMessages5 = {fromUserId: 5, toUserId: 4, subject: 'Hi', messageBody: 'hi, How is life'};
-var _user$project$Mail$inboxMessages4 = {fromUserId: 4, toUserId: 3, subject: 'Hello', messageBody: 'Hi, I am ok and you?'};
-var _user$project$Mail$inboxMessages3 = {fromUserId: 3, toUserId: 4, subject: 'Hello', messageBody: 'Hi, are you ok'};
-var _user$project$Mail$inboxMessage2 = {fromUserId: 2, toUserId: 1, subject: 'Hello', messageBody: 'Hi, I am doing great.'};
-var _user$project$Mail$inboxMessage1 = {fromUserId: 1, toUserId: 2, subject: 'Hello', messageBody: 'Hi, How are you doing?'};
+var _user$project$Mail$inboxMessages6 = {id: 6, fromUserId: 5, toUserId: 6, subject: 'Good day', messageBody: 'Hi, Life is great and there?'};
+var _user$project$Mail$inboxMessages5 = {id: 5, fromUserId: 5, toUserId: 4, subject: 'Hi', messageBody: 'hi, How is life'};
+var _user$project$Mail$inboxMessages4 = {id: 4, fromUserId: 4, toUserId: 3, subject: 'Hello', messageBody: 'Hi, I am ok and you?'};
+var _user$project$Mail$inboxMessages3 = {id: 3, fromUserId: 3, toUserId: 4, subject: 'Hello', messageBody: 'Hi, are you ok'};
+var _user$project$Mail$inboxMessage2 = {id: 2, fromUserId: 2, toUserId: 1, subject: 'Hello', messageBody: 'Hi, I am doing great.'};
+var _user$project$Mail$inboxMessage1 = {id: 1, fromUserId: 1, toUserId: 2, subject: 'Hello', messageBody: 'Hi, How are you doing?'};
 var _user$project$Mail$model = {
 	username: '',
 	password: '',
@@ -190,9 +164,9 @@ var _user$project$Mail$Model = function (a) {
 		};
 	};
 };
-var _user$project$Mail$InboxMessage = F4(
-	function (a, b, c, d) {
-		return {fromUserId: a, toUserId: b, subject: c, messageBody: d};
+var _user$project$Mail$InboxMessage = F5(
+	function (a, b, c, d, e) {
+		return {id: a, fromUserId: b, toUserId: c, subject: d, messageBody: e};
 	});
 var _user$project$Mail$User = F2(
 	function (a, b) {
@@ -207,10 +181,9 @@ var _user$project$Mail$Inbox = function (a) {
 var _user$project$Mail$Delete = function (a) {
 	return {ctor: 'Delete', _0: a};
 };
-var _user$project$Mail$Send = F4(
-	function (a, b, c, d) {
-		return {ctor: 'Send', _0: a, _1: b, _2: c, _3: d};
-	});
+var _user$project$Mail$Send = function (a) {
+	return {ctor: 'Send', _0: a};
+};
 var _user$project$Mail$Filter = function (a) {
 	return {ctor: 'Filter', _0: a};
 };
@@ -274,7 +247,7 @@ var _user$project$Mail$messagePage = function (model) {
 								{
 									ctor: '::',
 									_0: _elm_lang$html$Html_Events$onClick(
-										A4(_user$project$Mail$Send, 1, 1, 'subject', 'message body')),
+										_user$project$Mail$Send('sent')),
 									_1: {
 										ctor: '::',
 										_0: _elm_lang$html$Html_Attributes$value('Send'),
@@ -425,7 +398,7 @@ var _user$project$Mail$sendView = function (model) {
 							{
 								ctor: '::',
 								_0: _elm_lang$html$Html_Events$onClick(
-									A4(_user$project$Mail$Send, 1, 1, '', '')),
+									_user$project$Mail$Send('')),
 								_1: {ctor: '[]'}
 							},
 							{

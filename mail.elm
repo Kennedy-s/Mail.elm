@@ -36,16 +36,34 @@ type alias Model =
   }
 
 
+model : Model
+model =
+  { username = ""
+  , password = ""
+  , login = ""
+  , logout =  ""
+  , message = ""
+  , reply = ""
+  , filter = ""
+  , send = ""
+  , delete = ""
+  , inbox = ""
+  , newMessages = ""
+  , users = [ user1, user2, user3, user4, user5, user6 ]
+  , inboxMessages = [inboxMessage1, inboxMessage2, inboxMessages3, inboxMessages4, inboxMessages5, inboxMessages6]
+  }
+
 type alias InboxMessage =
-  { fromUserId : Int
+  { id : Int
+  , fromUserId : Int
   , toUserId : Int
   , subject : String
   , messageBody : String
   }
 
-
+inboxMessage1: InboxMessage
 inboxMessage1 =
-  {  id = 1
+  { id = 1
   , fromUserId = 1
   , toUserId = 2
   , subject = "Hello"
@@ -92,22 +110,7 @@ inboxMessages6 =
   , messageBody = "Hi, Life is great and there?"
   }
 
-model : Model
-model =
-  { username = ""
-  , password = ""
-  , login = ""
-  , logout =  ""
-  , message = ""
-  , reply = ""
-  , filter = ""
-  , send = ""
-  , delete = ""
-  , inbox = ""
-  , newMessages = ""
-  , users = [ user1, user2, user3, user4, user5, user6 ]
-  , inboxMessages = [inboxMessage1, inboxMessage2, inboxMessages3, inboxMessages4, inboxMessages5, inboxMessages6]
-  }
+
 
 
 init : ( Model, Cmd Msg)
@@ -129,10 +132,12 @@ type Msg
     | Delete String
     | Inbox String
     | NewMessage InboxMessage
-    | DeleteMessage InboxMessage
 
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
 type alias User =
    { username : String
    , password : String
@@ -210,9 +215,10 @@ update msg model  =
       (model, Cmd.none)
 
     Message message ->
-      ({ model | message = message }, Cmd.none)
+      (model, Cmd.none)
 
     Reply reply ->
+<<<<<<< HEAD
       ({ model | reply = reply}, Cmd.none)
 
     Filter filter ->
@@ -223,6 +229,18 @@ update msg model  =
 
     Delete delete ->
       ({ model | delete = delete}, Cmd.none)
+=======
+      (model, Cmd.none)
+
+    Filter filter ->
+      (model, Cmd.none)
+
+    Send send ->
+      (model, Cmd.none)
+
+    Delete delete ->
+      (model, Cmd.none)
+>>>>>>> master
       
 
     Inbox inbox ->
@@ -239,7 +257,7 @@ messagePage model =
         , text model.message
         , textarea [] [ text "" ]
         , button  [ onClick ( Reply "delivered"), value "Reply" ] [ text "reply"]
-        , button  [ onClick ( Send 1 1 "subject" "message body"), value "Send" ] [ text "send"]
+        , button  [ onClick ( Send "sent"), value "Send" ] [ text "send"]
         ]
 
 inboxPage : Model -> Html Msg
@@ -298,7 +316,7 @@ sendView model =
               , value ""
               ]
               []
-      , button [ onClick (Send 1 1 "" "") ] [ text "Send"]
+      , button [ onClick (Send "") ] [ text "Send"]
       , button [ onClick (Delete "")] [ text "Delete"]
       , button [ onClick (Reply "")] [ text "Reply"]
       ]
