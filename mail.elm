@@ -115,7 +115,6 @@ init =
   ( model, Cmd.none)
 
 
-
 -- Update
  
 type Msg
@@ -214,20 +213,20 @@ update msg model  =
       ({ model | message = message }, Cmd.none)
 
     Reply reply ->
-      ( model, Cmd.none)
+      ({ model | reply = reply}, Cmd.none)
 
     Filter filter ->
-      ( model, Cmd.none)
+      ({ model | filter = filter}, Cmd.none)
 
     Send send ->
-          (model, Cmd.none)
+      ({ model | sendView = send}, Cmd.none)
 
-        Delete delete ->
-          (model, Cmd.none)
+    Delete delete ->
+      ({ model | delete = delete}, Cmd.none)
       
 
     Inbox inbox ->
-      (model, Cmd.none)
+      ({ model | inbox = inbox}, Cmd.none)
 
     NewMessage inboxMessage ->
       (model, Cmd.none)
@@ -254,15 +253,11 @@ inboxPage model =
              (List.map addInboxMessage inboxMessages)
         ]
 
-
-
-
-
-addInboxMessage inboxMessage =
-  li [] [ text inboxMessage.messageBody
-        , button [onClick ( Delete  "delete"), value "Delete" ] [ text "delete"]
-        , button [onClick ( Reply   "reply"), value "Reply" ] [ text "reply"]
-        ]
+    addInboxMessage inboxMessage ->
+      li [] [ text inboxMessage.messageBody
+            , button [onClick ( Delete  "delete"), value "Delete" ] [ text "delete"]
+            , button [onClick ( Reply   "reply"), value "Reply" ] [ text "reply"]
+            ]
 
            
 -- View
