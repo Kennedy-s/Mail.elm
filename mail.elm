@@ -50,7 +50,7 @@ model =
   , inbox = ""
   , newMessages = ""
   , users = [ user1, user2, user3, user4, user5, user6 ]
-  , inboxMessages = [inboxMessage1, inboxMessage2, inboxMessages3, inboxMessages4, inboxMessages5, inboxMessages6]
+  , inboxMessages = [inboxMessage1, inboxMessage2, inboxMessages3, inboxMessages4, inboxMessages5, inboxMessages6, inboxMessages7]
   }
 
 type alias InboxMessage =
@@ -110,6 +110,14 @@ inboxMessages6 =
   , messageBody = "Hi, Life is great and there?"
   }
 
+inboxMessages7 =
+  { id = 7
+  , fromUserId = 6
+  , toUserId = 7
+  , subject = "hello"
+  , messageBody = "Hi, I will come today after work neh!!"
+  }
+
 
 
 
@@ -122,14 +130,14 @@ init =
 -- Update
  
 type Msg
-    = Username  String
-    | Password  String
+    = Username String
+    | Password String
     | Login
     | Logout
     | Message String
     | Reply String
     | Filter String
-    | Send  String
+    | Send String
     | Delete String
     | Inbox String
     | NewMessage InboxMessage

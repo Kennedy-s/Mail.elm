@@ -67,6 +67,7 @@ var _user$project$Mail$user4 = {username: 'user4', password: '1992'};
 var _user$project$Mail$user3 = {username: 'user3', password: '2468'};
 var _user$project$Mail$user2 = {username: 'user2', password: '5678'};
 var _user$project$Mail$user1 = {username: 'user1', password: '1234'};
+var _user$project$Mail$inboxMessages7 = {id: 7, fromUserId: 6, toUserId: 7, subject: 'hello', messageBody: 'Hi, I will come today after work neh!!'};
 var _user$project$Mail$inboxMessages6 = {id: 6, fromUserId: 5, toUserId: 6, subject: 'Good day', messageBody: 'Hi, Life is great and there?'};
 var _user$project$Mail$inboxMessages5 = {id: 5, fromUserId: 5, toUserId: 4, subject: 'Hi', messageBody: 'hi, How is life'};
 var _user$project$Mail$inboxMessages4 = {id: 4, fromUserId: 4, toUserId: 3, subject: 'Hello', messageBody: 'Hi, I am ok and you?'};
@@ -128,7 +129,11 @@ var _user$project$Mail$model = {
 						_1: {
 							ctor: '::',
 							_0: _user$project$Mail$inboxMessages6,
-							_1: {ctor: '[]'}
+							_1: {
+								ctor: '::',
+								_0: _user$project$Mail$inboxMessages7,
+								_1: {ctor: '[]'}
+							}
 						}
 					}
 				}

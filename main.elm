@@ -35,11 +35,9 @@ model =
    }
 
 
-
 init : ( Model, Cmd Msg)
 init =
   ( model, Cmd.none)
-
 
 
 --Update
