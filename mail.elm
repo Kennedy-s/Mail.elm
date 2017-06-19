@@ -36,16 +36,34 @@ type alias Model =
   }
 
 
+model : Model
+model =
+  { username = ""
+  , password = ""
+  , login = ""
+  , logout =  ""
+  , message = ""
+  , reply = ""
+  , filter = ""
+  , send = ""
+  , delete = ""
+  , inbox = ""
+  , newMessages = ""
+  , users = [ user1, user2, user3, user4, user5, user6 ]
+  , inboxMessages = [inboxMessage1, inboxMessage2, inboxMessages3, inboxMessages4, inboxMessages5, inboxMessages6]
+  }
+
 type alias InboxMessage =
-  { fromUserId : Int
+  { id : Int
+  , fromUserId : Int
   , toUserId : Int
   , subject : String
   , messageBody : String
   }
 
-
+inboxMessage1: InboxMessage
 inboxMessage1 =
-  {  id = 1
+  { id = 1
   , fromUserId = 1
   , toUserId = 2
   , subject = "Hello"
@@ -92,22 +110,7 @@ inboxMessages6 =
   , messageBody = "Hi, Life is great and there?"
   }
 
-model : Model
-model =
-  { username = ""
-  , password = ""
-  , login = ""
-  , logout =  ""
-  , message = ""
-  , reply = ""
-  , filter = ""
-  , send = ""
-  , delete = ""
-  , inbox = ""
-  , newMessages = ""
-  , users = [ user1, user2, user3, user4, user5, user6 ]
-  , inboxMessages = [inboxMessage1, inboxMessage2, inboxMessages3, inboxMessages4, inboxMessages5, inboxMessages6]
-  }
+
 
 
 init : ( Model, Cmd Msg)
@@ -130,17 +133,8 @@ type Msg
     | Delete String
     | Inbox String
     | NewMessage InboxMessage
-    | DeleteMessage InboxMessage
 
 
-
-type alias ListMsg
-   { id : Int
-   , fromUserId : Int
-   , toUserId : Int
-   , subject : String
-   , messageBody : String
-   }
 
 type alias User =
    { username : String
@@ -219,37 +213,19 @@ update msg model  =
       (model, Cmd.none)
 
     Message message ->
-      ({ model | message = message }, Cmd.none)
+      (model, Cmd.none)
 
     Reply reply ->
-      ( model, Cmd.none)
+      (model, Cmd.none)
 
     Filter filter ->
-      ( model, Cmd.none)
+      (model, Cmd.none)
 
-    Send fromUserId toUserId subject messageBody ->
-       let
-          newMessage =
-              { fromUserId = fromUserId
-              , toUserId = toUserId
-              , subject = subject
-              , messageBody = messageBody
-              } 
-          updatedInboxMessageList = newMessage :: model.inboxMessages
+    Send send ->
+      (model, Cmd.none)
 
-       in
-          ({ model | inboxMessages = updatedInboxMessageList }, Cmd.none)
-
-        Delete msgId ->
-        let
-           -- get current list of inbox newMessages
-           -- filter out inbox message with id matching msgId
-           -- update model with new inbox message list
-
-           deleteMessage =
-              (List.filter pre listMsg)
-        in
-          ({ model | inboxMessages = updatedInboxMessages }, Cmd.none)
+    Delete delete ->
+      (model, Cmd.none)
       
 
     Inbox inbox ->
@@ -266,7 +242,7 @@ messagePage model =
         , text model.message
         , textarea [] [ text "" ]
         , button  [ onClick ( Reply "delivered"), value "Reply" ] [ text "reply"]
-        , button  [ onClick ( Send 1 1 "subject" "message body"), value "Send" ] [ text "send"]
+        , button  [ onClick ( Send "sent"), value "Send" ] [ text "send"]
         ]
 
 inboxPage : Model -> Html Msg
@@ -329,7 +305,7 @@ sendView model =
               , value ""
               ]
               []
-      , button [ onClick (Send 1 1 "" "") ] [ text "Send"]
+      , button [ onClick (Send "") ] [ text "Send"]
       , button [ onClick (Delete "")] [ text "Delete"]
       , button [ onClick (Reply "")] [ text "Reply"]
       ]
