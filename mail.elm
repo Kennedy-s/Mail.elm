@@ -49,7 +49,7 @@ model =
   , delete = ""
   , inbox = ""
   , newMessages = ""
-  , users = [ user1, user2, user3, user4, user5, user6 ]
+  , users = [ user1, user2, user3, user4, user5, user6, user6 ]
   , inboxMessages = [inboxMessage1, inboxMessage2, inboxMessages3, inboxMessages4, inboxMessages5, inboxMessages6, inboxMessages7]
   }
 
@@ -184,6 +184,12 @@ user6 : User
 user6 =
  { username = "user6"
  , password = "2008"
+ }
+
+user7 : User
+user = 
+ { username = "user7"
+ , password = "2010"
  }
 
 update : Msg -> Model -> (Model, Cmd msg)
