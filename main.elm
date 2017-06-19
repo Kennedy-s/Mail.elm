@@ -9,7 +9,7 @@ import Http exposing (..)
 main = 
  Html.program
   { init = init
-  , view = view 
+  , view = view
   , update = update
   , subscriptions = subscriptions
   }
@@ -19,7 +19,7 @@ main =
 
 type alias Model =
    
-   { homePage : String 
+   { homePage : String
    , contactPage : String
    , aboutPage : String
    , servicePage : String
@@ -27,7 +27,7 @@ type alias Model =
 
 
 model : Model
-model = 
+model =
    { homePage = ""
    , contactPage = ""
    , aboutPage = ""
@@ -37,14 +37,14 @@ model =
 
 
 init : ( Model, Cmd Msg)
-init = 
+init =
   ( model, Cmd.none)
 
 
 
 --Update
 
-type Msg 
+type Msg
     = HomePage String
     | ContactPage String
     | ServicePage String
@@ -63,13 +63,13 @@ update msg model  =
     ServicePage str ->
        ({ model | servicePage = str}, Cmd.none)
 
-    AboutPage  str->    
+    AboutPage  str->
         ({ model | aboutPage = str}, Cmd.none)
 
 
 
 homeView : Model -> Html Msg
-homeView model = 
+homeView model =
     div [ id "home" ]
         [ h1 [] [ text "home" ]
         , text "Home"
@@ -80,7 +80,7 @@ aboutView : Model -> Html Msg
 aboutView model =
     div [ id "about" ]
         [ h1 [] [ text "about" ]
-        , text "About" 
+        , text "About"
         ] 
 
 contactView : Model -> Html Msg
@@ -93,17 +93,17 @@ contactView model =
 serviceView : Model -> Html Msg
 serviceView model =
    div [ id "service" ]
-       [ h1 [] [ text "service" ] 
+       [ h1 [] [ text "service" ]
        , text "service"
        ]
 
  
---View 
+--View
 
 view : Model -> Html Msg
 view model =
    div [myStyle2 ]
-    [  div [ menuStyle] 
+    [  div [ menuStyle]
            [ a[ href "http://www.miranetworks.net", myStyle ] [ text "Home" ]
            , a[ href "http://www.sableassets.co.za", myStyle ] [ text " About" ]
            , a[ href "http://www.ilab.com", myStyle] [ text "Contact" ]
@@ -140,7 +140,7 @@ myStyle2 =
     ]
 
 
-menuStyle = 
+menuStyle =
  style
     [ ("float", "right")
     , ("backgroundColor", "")
@@ -149,7 +149,7 @@ menuStyle =
 
 
 footerStyle =
- style 
+ style
    [ ("padding", "10px")
    , ("margin", "10px")
    , ("float", "")
