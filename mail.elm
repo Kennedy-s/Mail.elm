@@ -256,7 +256,6 @@ inboxPage model =
              (List.map addInboxMessage inboxMessages)
         ]
 
-
 addInboxMessage inboxMessage =
   li [] [ text inboxMessage.messageBody
         , button [onClick ( Delete  "delete"), value "Delete" ] [ text "delete"]

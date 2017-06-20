@@ -8,19 +8,17 @@ import Http exposing (..)
 
 main =
  Html.program
-  { init = init 
+  { init = init
   , view = view
   , update = update
   , subscriptions = subscriptions
   }
 
 
---Model 
+--Model
   
 type alias Model =
    { 
-
-
    }
 
 model : Model
@@ -38,6 +36,8 @@ init =
 
 type Msg 
     =
+    
+    
 
 update : Msg -> Model -> (Model, Cmd msg)
 update msg model  =
