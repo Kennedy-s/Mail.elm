@@ -9,7 +9,7 @@ import Http exposing (..)
 main = 
  Html.program
   { init = init
-  , view = view 
+  , view = view
   , update = update
   , subscriptions = subscriptions
   }
@@ -19,7 +19,7 @@ main =
 
 type alias Model =
    
-   { homePage : String 
+   { homePage : String
    , contactPage : String
    , aboutPage : String
    , servicePage : String
@@ -27,7 +27,7 @@ type alias Model =
 
 
 model : Model
-model = 
+model =
    { homePage = ""
    , contactPage = ""
    , aboutPage = ""
@@ -37,7 +37,7 @@ model =
 
 
 init : ( Model, Cmd Msg)
-init = 
+init =
   ( model, Cmd.none)
 
 
@@ -69,7 +69,7 @@ update msg model  =
 
 
 homeView : Model -> Html Msg
-homeView model = 
+homeView model =
     div [ id "home" ]
         [ h1 [] [ text "home" ]
         , text "Home"
