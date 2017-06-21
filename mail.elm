@@ -19,7 +19,6 @@ main =
 -- Model
 
 type alias Model =
-
   { username : String
   , password : String
   , login : String
@@ -311,7 +310,7 @@ view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
     True ->
-      inboxPage model
+      messagePage model
     False ->
       loginPage model
   

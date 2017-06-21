@@ -118,6 +118,7 @@ validate model =
 emailStatus = 
     let model.email == "" then
        EmptyEmail
+
     else if String.contant "@" model.email then
         ValidEmail
 
