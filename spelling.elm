@@ -4,6 +4,7 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import String 
 import Html exposing (..)
+import Http exposing (..)
 
 main =
      program
@@ -77,4 +78,4 @@ port suggestions : (List String -> msg) -> Sub Msg
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
- Sub.none
+ suggestions Suggest
