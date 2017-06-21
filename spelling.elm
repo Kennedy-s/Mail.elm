@@ -2,7 +2,7 @@ port module Spelling exposing (..)
 
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
-import String
+import String (..)
 import Html exposing (..)
 
 main =
@@ -24,7 +24,7 @@ type alias Model =
 
 model : Model
 model =
-  {  word = ""
+  { word = ""
   , suggestions = ""
   , check = ""
   }
@@ -49,7 +49,7 @@ type Msg
 update : Msg -> Model -> (Model, Cmd msg)
 update msg model  =
   case msg of
-    Change newWord ->
+    Change newWord ->0
       ( Model newWord [], Cmd.none )
 
     Check  check->
@@ -77,4 +77,4 @@ port suggestions : (List String -> msg) -> Sub Msg
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
- suggestions Suggest
+ Sub.none
