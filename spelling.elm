@@ -2,7 +2,7 @@ port module Spelling exposing (..)
 
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
-import String (..)
+import String 
 import Html exposing (..)
 
 main =
@@ -52,7 +52,7 @@ update msg model  =
     Change newWord ->0
       ( Model newWord [], Cmd.none )
 
-    Check  check->
+    Check check->
       ( model, check model.word )
 
     Suggest newSuggestions ->
