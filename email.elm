@@ -45,7 +45,7 @@ type EmailsStatus
 
 type PasswordStatus
   = EmptyPassword
-  | PAsswordTooShort
+  | PasswordTooShort
   | PasswordTooLong
   | ValidPassword
 
@@ -116,19 +116,19 @@ validate model =
 
 
 emailStatus = 
-  let model.email == "" then
+    let model.email == "" then
        EmptyEmail
-  else if String.contant "@" model.email then
+    else if String.contant "@" model.email then
         ValidEmail
 
-  else 
+    else 
         Invalid
 
 ChangeEmail email ->
      validate { model | email = email }
 
 
---View 
+--View
 
 view : Model -> Html Msg
 view model =
@@ -144,9 +144,21 @@ view model =
             , passwordError model.passwordValidation
             ]
         , label []
+            [ input [ onInput ConfirmPassword ] []
+            , text "confirm password"
+            , matchingError model.matching
+            ]
+        , label []
             [ input [ type_ "checkBox", onClick ToogleTOS ] []
             , text "accept terms of service"
             , acceptError model
             ]
-        , button [ type_ "submit" ] [ text "Sign up" ]
+        , button [ type_ "submit" ] [ text "Sign up!" ]
         ]
+
+
+--Subscriptions
+
+subscriptions : Model -> Sub Msg
+subscriptions model=
+  Sub.none
