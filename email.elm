@@ -163,7 +163,7 @@ emailError status =
 
         InvalidEmail ->
             div [ style errorStyle ]
-                [ text "that doesn't look like an email" ]
+                [ text "that  doesn't look like an email" ]
 
         EmptyEmail ->
             div [ style errorStyle ]

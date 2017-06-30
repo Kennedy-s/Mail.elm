@@ -142,7 +142,7 @@ var _user$project$Main$emailError = function (status) {
 				},
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html$text('that doesn\'t look like an email'),
+					_0: _elm_lang$html$Html$text('that  doesn\'t look like an email'),
 					_1: {ctor: '[]'}
 				});
 		default:
