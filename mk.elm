@@ -184,10 +184,10 @@ view model =
 emailErro status =
     case status of
         ValidEmail ->
-            empty
+          empty
 
         InvalidEmail ->
-            div [ class "error" ]
+          div [ class "error" ]
                 [ text "that doesn't look like an email"]
 
 --Subscriptions
