@@ -1,168 +1,232 @@
-module Email exposing (..)
+module Main exposing (..)
 
+import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
-import Html exposing (..)
-import Http exposing (..)
+
 
 main =
-  Html.program
-    { init = init
-    , view = view
-    , update = update
-    , subscriptions = subscriptions
+    Html.beginnerProgram
+        { model = model
+        , update = update
+        , view = view
+        }
+
+
+model =
+    { email = ""
+    , emailValidation = EmptyEmail
+    , password = ""
+    , passwordValidation = EmptyPassword
+    , confirmedPassword = ""
+    , passwordsMatch = True
+    , tos = False
+    , ready = False
+    , showErrors = False
     }
 
---Model
 
 type alias Model =
-  { email : String 
-  , emailValidation : EmailsStatus
-  , password : String
-  , passwordValidation : PasswordStatus
-  , confirmedPassword : String
-  , passwordMatch : Bool
-  , tos : Bool
-  }
-
-model : Model
-model =
-  { email = ""
-  , emailValidation = ""
-  , password = ""
-  , passwordValidation = ""
-  , confirmedPassword = ""
-  , passwordMatch = ""
-  , tos = ""
-  }
+    { email : String
+    , emailValidation : EmailStatus
+    , password : String
+    , passwordValidation : PasswordStatus
+    , confirmedPassword : String
+    , passwordsMatch : Bool
+    , tos : Bool
+    , ready : Bool
+    , showErrors : Bool
+    }
 
 
-type EmailsStatus
-  = EmptyEmail
-  | ValidEmail
-  | InvalidEmail
+type EmailStatus
+    = EmptyEmail
+    | ValidEmail
+    | InvalidEmail
 
 
 type PasswordStatus
-  = EmptyPassword
-  | PasswordTooShort
-  | PasswordTooLong
-  | ValidPassword
+    = EmptyPassword
+    | PasswordTooShort
+    | PasswordTooLong
+    | ValidPassword
 
-
-init : ( Model, Cmd Msg)
-init =
-  ( model, Cmd.none)
-
-
---Update
 
 type Msg
-  = ChangeEmail String
-  | ChangePassword String
-  | ConfirmPassword String
-  | ToogleTOs Bool
+    = ChangeEmail String
+    | ChangePassword String
+    | ConfirmPassword String
+    | ToggleTOS Bool
+    | Submit
 
 
-update : Msg -> Model -> (Model, Cmd msg)
 update msg model =
-  case msg of 
-      ChangeEmail email ->
-          { model | email = email }
+    case msg of
+        ChangeEmail email ->
+            validate { model | email = email }
 
-      ChangePassword password ->
-          { model | password = password }
+        ChangePassword password ->
+            validate { model | password = password }
 
-      ConfirmPassword confirmed ->
-          { model | confirmedPassword = confirmed }
+        ConfirmPassword confirmed ->
+            validate { model | confirmedPassword = confirmed }
 
-      ToogleTOs bool ->
-          { model | tos = bool }
+        ToggleTOS bool ->
+            validate { model | tos = bool }
+
+        Submit ->
+            validate { model | showErrors = True }
+
 
 validate model =
-  let
-      emailStatus =
-          if model.email == "" then
-              EmptyEmail
-          else if String.contains "@" model.email then
-              ValidEmail
+    let
+        emailStatus =
+            if model.email == "" then
+                EmptyEmail
+            else if String.contains "@" model.email then
+                ValidEmail
+            else
+                InvalidEmail
 
-          else 
-              InvalidEmail
-      passwordStatus =
-          if String.length model.password < 8 then
-              PasswordTooShort
+        passwordStatus =
+            if String.length model.password < 8 then
+                PasswordTooShort
+            else if String.length model.password > 120 then
+                PasswordTooLong
+            else
+                ValidPassword
 
-          else if String.length model.password > 120 then
-              PasswordTooLong
+        matching =
+            model.password == model.confirmedPassword
 
-          else
-              ValidPassword
-
-      matching =
-          model.password == model.confirmedPassword
-
-      ready =
-          (passwordStatus == ValidPassword)
-              && (emailStatus == ValidEmail)
-              && matching
-
-  in
-      { model 
-          | emailValidation = emailStatus
-          , passwordMatch = matching
-          , ready = ready
-      }
-
-
-emailStatus =
-    let model.email == "" then
-       EmptyEmail
-
-      if String.contant "@" model.email then
-        ValidEmail
-
-      else
-        Invalid
-
+        ready =
+            (passwordStatus == ValidPassword)
+                && (emailStatus == ValidEmail)
+                && matching
     in
-      true
+        { model
+            | emailValidation = emailStatus
+            , passwordValidation = passwordStatus
+            , passwordsMatch = matching
+            , ready = ready
+        }
 
-ChangeEmail email ->
-     validate { model | email = email }
 
-
---View
-
-view : Model -> Html Msg
 view model =
-    form []
-        [ label []
-            [ input [ onInput ChangeEmail ] []
-            , text "email"
-            , emailError model.emailValidation
+    Html.div []
+        [ label [ style inputStyle ]
+            [ text "email "
+            , input [ type_ "text", onInput ChangeEmail ] []
+            , if model.showErrors then
+                emailError model.emailValidation
+              else
+                empty
             ]
-        , label []
-            [ input [ onInput ChangePassword ] []
-            , text "password"
-            , passwordError model.passwordValidation
+        , label [ style inputStyle ]
+            [ text "password "
+            , input [ type_ "text", onInput ChangePassword ] []
+            , if model.showErrors then
+                passwordError model.passwordValidation
+              else
+                empty
             ]
-        , label []
-            [ input [ onInput ConfirmPassword ] []
-            , text "confirm password"
-            , matchingError model.matching
+        , label [ style inputStyle ]
+            [ text "confirm password "
+            , input [ type_ "text", onInput ConfirmPassword ] []
+            , if model.showErrors then
+                matchingError model.passwordsMatch
+              else
+                empty
             ]
-        , label []
-            [ input [ type_ "checkBox", onClick ToogleTOS ] []
+        , label [ style inputStyle ]
+            [ input [ type_ "checkbox", onCheck ToggleTOS ] []
             , text "accept terms of service"
-            , acceptError model
+            , if model.showErrors then
+                acceptError model
+              else
+                empty
             ]
-        , button [ type_ "submit" ] [ text "Sign up!" ]
+        , br [] []
+        , button [ style buttonStyleReady, onClick Submit ]
+            [ if not model.ready then
+                text "Sign up!"
+              else
+                text "You signed up!"
+            ]
         ]
 
 
---Subscriptions
+emailError status =
+    case status of
+        ValidEmail ->
+            div [ class "processing" ] [ text "looks good" ]
 
-subscriptions : Model -> Sub Msg
-subscriptions model=
-  Sub.none
+        InvalidEmail ->
+            div [ style errorStyle ]
+                [ text "that doesn't look like an email" ]
+
+        EmptyEmail ->
+            div [ style errorStyle ]
+                [ text "email is required" ]
+
+
+passwordError status =
+    case status of
+        EmptyPassword ->
+            div [ style errorStyle ]
+                [ text "password is required" ]
+
+        PasswordTooShort ->
+            div [ style errorStyle ]
+                [ text "password is too short" ]
+
+        PasswordTooLong ->
+            div [ style errorStyle ]
+                [ text "password is too long" ]
+
+        ValidPassword ->
+            empty
+
+
+matchingError matching =
+    if not matching then
+        div [ style errorStyle ] [ text "passwords don't match" ]
+    else
+        empty
+
+
+acceptError model =
+    if not model.tos then
+        div [ style errorStyle ]
+            [ text "accept the Terms of Service to sign up!" ]
+    else
+        empty
+
+
+
+-- Some basic inline styles.
+
+
+inputStyle =
+    [ ( "display", "block" )
+    , ( "color", "#111" )
+    , ( "padding", "10px 10px" )
+    ]
+
+
+errorStyle =
+    [ ( "color", "red" ) ]
+
+
+buttonStyleReady =
+    [ ( "border-width", "0" )
+    , ( "border-radius", "2px" )
+    , ( "background-color", "#379CFF" )
+    , ( "width", "100%" )
+    , ( "color", "white" )
+    , ( "padding", "8px 10px" )
+    ]
+
+
+empty =
+    text ""
