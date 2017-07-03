@@ -257,8 +257,8 @@ inboxPage model =
 
 addInboxMessage inboxMessage =
   li [] [ text inboxMessage.messageBody
-        , button [onClick ( Delete "delete"), [ text "delete"]
-        , button [onClick ( Reply "reply"), [ text "reply"]
+        , button [onClick ( Delete "delete"), value "Delete" ] [ text "delete"]
+        , button [onClick ( Reply "reply"), value "Reply" ] [ text "reply"]
         ]
 
            
