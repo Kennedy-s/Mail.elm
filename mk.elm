@@ -86,6 +86,7 @@ type Msg
     | MatchError String
     | Password String
     | Invalid String
+    | Empty String
 
 
 
@@ -183,7 +184,7 @@ view model =
 
 emailErro status =
     case status of
-        ValidEmail ->
+        ValidEmail email ->
           empty
 
         InvalidEmail ->
