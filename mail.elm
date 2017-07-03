@@ -257,8 +257,8 @@ inboxPage model =
 
 addInboxMessage inboxMessage =
   li [] [ text inboxMessage.messageBody
-        , button [onClick ( Delete "delete"), value "Delete" ] [ text "delete"]
-        , button [onClick ( Reply "reply"), value "Reply" ] [ text "reply"]
+        , button [onClick ( Delete "delete"), [ text "delete"]
+        , button [onClick ( Reply "reply"), [ text "reply"]
         ]
 
            
@@ -310,7 +310,7 @@ view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
     True ->
-      messagePage model
+      inboxPage model
     False ->
       loginPage model
   
