@@ -185,7 +185,7 @@ view model =
 emailErro status =
     case status of
         ValidEmail email ->
-          empty
+          (model | email = validEmail)
 
         InvalidEmail ->
           div [ class "error" ]

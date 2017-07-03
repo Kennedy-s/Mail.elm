@@ -112,6 +112,9 @@ validate model =
         }
 
 
+
+
+
 view model =
     Html.div []
         [ label [ style inputStyle ]
@@ -230,3 +233,10 @@ buttonStyleReady =
 
 empty =
     text ""
+
+
+--Subscriptions
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Sub.none
