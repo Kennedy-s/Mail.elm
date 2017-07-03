@@ -68,8 +68,6 @@ init =
 
 
 
-
-
 --Update
 
 type Msg
@@ -106,6 +104,7 @@ update msg model =
 
       ToogleTOS str ->
          ( model, Cmd.none )
+
 
 
 validate model =
@@ -185,7 +184,7 @@ view model =
 emailErro status =
     case status of
         ValidEmail email ->
-          (model | email = validEmail)
+          (model || email == ValidEmail)
 
         InvalidEmail ->
           div [ class "error" ]
