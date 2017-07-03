@@ -239,7 +239,7 @@ messagePage model =
     div [ id "message" ]
         [ h1 [] [ text "Message" ]
         , text model.message
-        , textarea [] [ text "" ]
+        , textarea [] [ text "type your message" ]
         , button  [ onClick ( Reply "delivered"), value "Reply" ] [ text "reply"]
         , button  [ onClick ( Send "sent"), value "Send" ] [ text "send"]
         ]
@@ -310,7 +310,7 @@ view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
     True ->
-      inboxPage model
+      messagePage model
     False ->
       loginPage model
   
