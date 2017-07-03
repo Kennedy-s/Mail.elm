@@ -6,7 +6,7 @@ import Html.Events exposing (..)
 import Html exposing (..)
 import Http exposing (..)
 
-main = 
+main =
  Html.program
   { init = init
   , view = view
@@ -63,7 +63,7 @@ update msg model  =
     ServicePage str ->
        ({ model | servicePage = str}, Cmd.none)
 
-    AboutPage  str->    
+    AboutPage  str->
         ({ model | aboutPage = str}, Cmd.none)
 
 
@@ -80,7 +80,7 @@ aboutView : Model -> Html Msg
 aboutView model =
     div [ id "about" ]
         [ h1 [] [ text "about" ]
-        , text "About" 
+        , text "About"
         ] 
 
 contactView : Model -> Html Msg
@@ -93,17 +93,17 @@ contactView model =
 serviceView : Model -> Html Msg
 serviceView model =
    div [ id "service" ]
-       [ h1 [] [ text "service" ] 
+       [ h1 [] [ text "service" ]
        , text "service"
        ]
 
  
---View 
+--View
 
 view : Model -> Html Msg
 view model =
    div [myStyle2 ]
-    [  div [ menuStyle] 
+    [  div [ menuStyle]
            [ a[ href "http://www.miranetworks.net", myStyle ] [ text "Home" ]
            , a[ href "http://www.sableassets.co.za", myStyle ] [ text " About" ]
            , a[ href "http://www.ilab.com", myStyle] [ text "Contact" ]
