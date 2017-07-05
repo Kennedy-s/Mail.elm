@@ -73,6 +73,7 @@ type Msg
    | Draft String
    | MailPage String
    | Message String
+   | Submit String
 
 
 
@@ -165,6 +166,7 @@ view model =
     [ input [ type_ "text" ] [ text "mailPage" ]
     , input [ type_ "text" ] [ text "sentPage" ]
     , input [ type_ "text" ] [ text "filterpage" ]
+    , button [ onClick Submit ] [ text "Submit" ]
     ]
 
 

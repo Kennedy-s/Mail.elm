@@ -1,380 +1,404 @@
 var _user$project$Main$subscriptions = function (model) {
 	return _elm_lang$core$Platform_Sub$none;
 };
-var _user$project$Main$footerStyle = _elm_lang$html$Html_Attributes$style(
-	{
+var _user$project$Main$empty = _elm_lang$html$Html$text('');
+var _user$project$Main$buttonStyleReady = {
+	ctor: '::',
+	_0: {ctor: '_Tuple2', _0: 'border-width', _1: '0'},
+	_1: {
 		ctor: '::',
-		_0: {ctor: '_Tuple2', _0: 'padding', _1: '10px'},
+		_0: {ctor: '_Tuple2', _0: 'border-radius', _1: '2px'},
 		_1: {
 			ctor: '::',
-			_0: {ctor: '_Tuple2', _0: 'margin', _1: '10px'},
+			_0: {ctor: '_Tuple2', _0: 'background-color', _1: '#379CFF'},
 			_1: {
 				ctor: '::',
-				_0: {ctor: '_Tuple2', _0: 'float', _1: ''},
+				_0: {ctor: '_Tuple2', _0: 'width', _1: '10%'},
 				_1: {
 					ctor: '::',
-					_0: {ctor: '_Tuple2', _0: 'text-align', _1: 'justify'},
+					_0: {ctor: '_Tuple2', _0: 'color', _1: 'white'},
 					_1: {
 						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'background-color', _1: ''},
-						_1: {
-							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'display', _1: 'fixed'},
-							_1: {ctor: '[]'}
-						}
-					}
-				}
-			}
-		}
-	});
-var _user$project$Main$menuStyle = _elm_lang$html$Html_Attributes$style(
-	{
-		ctor: '::',
-		_0: {ctor: '_Tuple2', _0: 'float', _1: 'right'},
-		_1: {
-			ctor: '::',
-			_0: {ctor: '_Tuple2', _0: 'backgroundColor', _1: ''},
-			_1: {
-				ctor: '::',
-				_0: {ctor: '_Tuple2', _0: 'padding', _1: '4px 0'},
-				_1: {ctor: '[]'}
-			}
-		}
-	});
-var _user$project$Main$myStyle2 = _elm_lang$html$Html_Attributes$style(
-	{
-		ctor: '::',
-		_0: {ctor: '_Tuple2', _0: 'backgroundColor', _1: 'lightblue'},
-		_1: {
-			ctor: '::',
-			_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
-			_1: {
-				ctor: '::',
-				_0: {ctor: '_Tuple2', _0: 'float', _1: 'center'},
-				_1: {
-					ctor: '::',
-					_0: {ctor: '_Tuple2', _0: 'padding', _1: '10px'},
-					_1: {
-						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'margin', _1: '0px'},
+						_0: {ctor: '_Tuple2', _0: 'padding', _1: '8px 10px'},
 						_1: {ctor: '[]'}
 					}
 				}
 			}
 		}
-	});
-var _user$project$Main$myStyle = _elm_lang$html$Html_Attributes$style(
-	{
+	}
+};
+var _user$project$Main$errorStyle = {
+	ctor: '::',
+	_0: {ctor: '_Tuple2', _0: 'color', _1: 'red'},
+	_1: {ctor: '[]'}
+};
+var _user$project$Main$inputStyle = {
+	ctor: '::',
+	_0: {ctor: '_Tuple2', _0: 'display', _1: 'block'},
+	_1: {
 		ctor: '::',
-		_0: {ctor: '_Tuple2', _0: 'padding', _1: '10px'},
+		_0: {ctor: '_Tuple2', _0: 'color', _1: '#111'},
 		_1: {
 			ctor: '::',
-			_0: {ctor: '_Tuple2', _0: 'margin', _1: '10px'},
-			_1: {
-				ctor: '::',
-				_0: {ctor: '_Tuple2', _0: 'backgroundColor', _1: 'blue'},
-				_1: {
-					ctor: '::',
-					_0: {ctor: '_Tuple2', _0: 'text-align', _1: 'right'},
-					_1: {
-						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'color', _1: '#FF0000'},
-						_1: {
-							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'display', _1: 'fixed'},
-							_1: {
-								ctor: '::',
-								_0: {ctor: '_Tuple2', _0: 'width', _1: '100%'},
-								_1: {
-									ctor: '::',
-									_0: {ctor: '_Tuple2', _0: 'border-radius', _1: '50%'},
-									_1: {ctor: '[]'}
-								}
-							}
-						}
-					}
-				}
-			}
+			_0: {ctor: '_Tuple2', _0: 'padding', _1: '10px 10px'},
+			_1: {ctor: '[]'}
 		}
-	});
-var _user$project$Main$view = function (model) {
-	return A2(
+	}
+};
+var _user$project$Main$acceptError = function (model) {
+	return (!model.tos) ? A2(
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _user$project$Main$myStyle2,
+			_0: _elm_lang$html$Html_Attributes$style(_user$project$Main$errorStyle),
 			_1: {ctor: '[]'}
 		},
 		{
 			ctor: '::',
-			_0: A2(
+			_0: _elm_lang$html$Html$text('accept the Terms of Service to sign up!'),
+			_1: {ctor: '[]'}
+		}) : _user$project$Main$empty;
+};
+var _user$project$Main$matchingError = function (matching) {
+	return (!matching) ? A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(_user$project$Main$errorStyle),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text('passwords don\'t match'),
+			_1: {ctor: '[]'}
+		}) : _user$project$Main$empty;
+};
+var _user$project$Main$passwordError = function (status) {
+	var _p0 = status;
+	switch (_p0.ctor) {
+		case 'EmptyPassword':
+			return A2(
 				_elm_lang$html$Html$div,
 				{
 					ctor: '::',
-					_0: _user$project$Main$menuStyle,
+					_0: _elm_lang$html$Html_Attributes$style(_user$project$Main$errorStyle),
 					_1: {ctor: '[]'}
 				},
 				{
 					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$a,
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$href('http://www.miranetworks.net'),
-							_1: {
-								ctor: '::',
-								_0: _user$project$Main$myStyle,
-								_1: {ctor: '[]'}
-							}
-						},
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html$text('Home'),
-							_1: {ctor: '[]'}
-						}),
+					_0: _elm_lang$html$Html$text('password is required'),
+					_1: {ctor: '[]'}
+				});
+		case 'PasswordTooShort':
+			return A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$style(_user$project$Main$errorStyle),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('password is too short'),
+					_1: {ctor: '[]'}
+				});
+		case 'PasswordTooLong':
+			return A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$style(_user$project$Main$errorStyle),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('password is too long'),
+					_1: {ctor: '[]'}
+				});
+		default:
+			return _user$project$Main$empty;
+	}
+};
+var _user$project$Main$emailError = function (status) {
+	var _p1 = status;
+	switch (_p1.ctor) {
+		case 'ValidEmail':
+			return A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('processing'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('looks good'),
+					_1: {ctor: '[]'}
+				});
+		case 'InvalidEmail':
+			return A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$style(_user$project$Main$errorStyle),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('that  doesn\'t look like an email'),
+					_1: {ctor: '[]'}
+				});
+		default:
+			return A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$style(_user$project$Main$errorStyle),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('email is required'),
+					_1: {ctor: '[]'}
+				});
+	}
+};
+var _user$project$Main$Model = F9(
+	function (a, b, c, d, e, f, g, h, i) {
+		return {email: a, emailValidation: b, password: c, passwordValidation: d, confirmedPassword: e, passwordsMatch: f, tos: g, ready: h, showErrors: i};
+	});
+var _user$project$Main$InvalidEmail = {ctor: 'InvalidEmail'};
+var _user$project$Main$ValidEmail = {ctor: 'ValidEmail'};
+var _user$project$Main$EmptyEmail = {ctor: 'EmptyEmail'};
+var _user$project$Main$ValidPassword = {ctor: 'ValidPassword'};
+var _user$project$Main$PasswordTooLong = {ctor: 'PasswordTooLong'};
+var _user$project$Main$PasswordTooShort = {ctor: 'PasswordTooShort'};
+var _user$project$Main$validate = function (model) {
+	var matching = _elm_lang$core$Native_Utils.eq(model.password, model.confirmedPassword);
+	var passwordStatus = (_elm_lang$core$Native_Utils.cmp(
+		_elm_lang$core$String$length(model.password),
+		8) < 0) ? _user$project$Main$PasswordTooShort : ((_elm_lang$core$Native_Utils.cmp(
+		_elm_lang$core$String$length(model.password),
+		120) > 0) ? _user$project$Main$PasswordTooLong : _user$project$Main$ValidPassword);
+	var emailStatus = _elm_lang$core$Native_Utils.eq(model.email, '') ? _user$project$Main$EmptyEmail : (A2(_elm_lang$core$String$contains, '@', model.email) ? _user$project$Main$ValidEmail : _user$project$Main$InvalidEmail);
+	var ready = _elm_lang$core$Native_Utils.eq(passwordStatus, _user$project$Main$ValidPassword) && (_elm_lang$core$Native_Utils.eq(emailStatus, _user$project$Main$ValidEmail) && matching);
+	return _elm_lang$core$Native_Utils.update(
+		model,
+		{emailValidation: emailStatus, passwordValidation: passwordStatus, passwordsMatch: matching, ready: ready});
+};
+var _user$project$Main$update = F2(
+	function (msg, model) {
+		var _p2 = msg;
+		switch (_p2.ctor) {
+			case 'ChangeEmail':
+				return _user$project$Main$validate(
+					_elm_lang$core$Native_Utils.update(
+						model,
+						{email: _p2._0}));
+			case 'ChangePassword':
+				return _user$project$Main$validate(
+					_elm_lang$core$Native_Utils.update(
+						model,
+						{password: _p2._0}));
+			case 'ConfirmPassword':
+				return _user$project$Main$validate(
+					_elm_lang$core$Native_Utils.update(
+						model,
+						{confirmedPassword: _p2._0}));
+			case 'ToggleTOS':
+				return _user$project$Main$validate(
+					_elm_lang$core$Native_Utils.update(
+						model,
+						{tos: _p2._0}));
+			default:
+				return _user$project$Main$validate(
+					_elm_lang$core$Native_Utils.update(
+						model,
+						{showErrors: true}));
+		}
+	});
+var _user$project$Main$EmptyPassword = {ctor: 'EmptyPassword'};
+var _user$project$Main$model = {email: '', emailValidation: _user$project$Main$EmptyEmail, password: '', passwordValidation: _user$project$Main$EmptyPassword, confirmedPassword: '', passwordsMatch: true, tos: false, ready: false, showErrors: false};
+var _user$project$Main$Submit = {ctor: 'Submit'};
+var _user$project$Main$ToggleTOS = function (a) {
+	return {ctor: 'ToggleTOS', _0: a};
+};
+var _user$project$Main$ConfirmPassword = function (a) {
+	return {ctor: 'ConfirmPassword', _0: a};
+};
+var _user$project$Main$ChangePassword = function (a) {
+	return {ctor: 'ChangePassword', _0: a};
+};
+var _user$project$Main$ChangeEmail = function (a) {
+	return {ctor: 'ChangeEmail', _0: a};
+};
+var _user$project$Main$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$label,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$style(_user$project$Main$inputStyle),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('email '),
 					_1: {
 						ctor: '::',
 						_0: A2(
-							_elm_lang$html$Html$a,
+							_elm_lang$html$Html$input,
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$href('http://www.sableassets.co.za'),
+								_0: _elm_lang$html$Html_Attributes$type_('text'),
 								_1: {
 									ctor: '::',
-									_0: _user$project$Main$myStyle,
+									_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$ChangeEmail),
 									_1: {ctor: '[]'}
 								}
 							},
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html$text(' About'),
-								_1: {ctor: '[]'}
-							}),
+							{ctor: '[]'}),
 						_1: {
 							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$a,
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$href('http://www.ilab.com'),
-									_1: {
-										ctor: '::',
-										_0: _user$project$Main$myStyle,
-										_1: {ctor: '[]'}
-									}
-								},
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html$text('Contact'),
-									_1: {ctor: '[]'}
-								}),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_elm_lang$html$Html$a,
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$href('http://www.vodacom.com'),
-										_1: {
-											ctor: '::',
-											_0: _user$project$Main$myStyle,
-											_1: {ctor: '[]'}
-										}
-									},
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html$text('Service'),
-										_1: {ctor: '[]'}
-									}),
-								_1: {ctor: '[]'}
-							}
+							_0: model.showErrors ? _user$project$Main$emailError(model.emailValidation) : _user$project$Main$empty,
+							_1: {ctor: '[]'}
 						}
 					}
 				}),
 			_1: {
 				ctor: '::',
 				_0: A2(
-					_elm_lang$html$Html$div,
+					_elm_lang$html$Html$label,
 					{
 						ctor: '::',
-						_0: _user$project$Main$footerStyle,
+						_0: _elm_lang$html$Html_Attributes$style(_user$project$Main$inputStyle),
 						_1: {ctor: '[]'}
 					},
 					{
 						ctor: '::',
-						_0: A2(
-							_elm_lang$html$Html$h1,
-							{ctor: '[]'},
-							{
+						_0: _elm_lang$html$Html$text('password '),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$input,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$type_('text'),
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$ChangePassword),
+										_1: {ctor: '[]'}
+									}
+								},
+								{ctor: '[]'}),
+							_1: {
 								ctor: '::',
-								_0: _elm_lang$html$Html$text(''),
+								_0: model.showErrors ? _user$project$Main$passwordError(model.passwordValidation) : _user$project$Main$empty,
 								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
+							}
+						}
 					}),
 				_1: {
 					ctor: '::',
-					_0: _elm_lang$html$Html$text('Copyright@miranetworks.net'),
-					_1: {ctor: '[]'}
+					_0: A2(
+						_elm_lang$html$Html$label,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$style(_user$project$Main$inputStyle),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('confirm password '),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$input,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$type_('text'),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$ConfirmPassword),
+											_1: {ctor: '[]'}
+										}
+									},
+									{ctor: '[]'}),
+								_1: {
+									ctor: '::',
+									_0: model.showErrors ? _user$project$Main$matchingError(model.passwordsMatch) : _user$project$Main$empty,
+									_1: {ctor: '[]'}
+								}
+							}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$label,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$style(_user$project$Main$inputStyle),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$input,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$type_('checkbox'),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Events$onCheck(_user$project$Main$ToggleTOS),
+											_1: {ctor: '[]'}
+										}
+									},
+									{ctor: '[]'}),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('accept terms of service'),
+									_1: {
+										ctor: '::',
+										_0: model.showErrors ? _user$project$Main$acceptError(model) : _user$project$Main$empty,
+										_1: {ctor: '[]'}
+									}
+								}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$br,
+								{ctor: '[]'},
+								{ctor: '[]'}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$button,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$style(_user$project$Main$buttonStyleReady),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Submit),
+											_1: {ctor: '[]'}
+										}
+									},
+									{
+										ctor: '::',
+										_0: (!model.ready) ? _elm_lang$html$Html$text('Sign up!') : _elm_lang$html$Html$text('You signed up!'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
 				}
 			}
 		});
 };
-var _user$project$Main$serviceView = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$id('service'),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$h1,
-				{ctor: '[]'},
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html$text('service'),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: _elm_lang$html$Html$text('service'),
-				_1: {ctor: '[]'}
-			}
-		});
-};
-var _user$project$Main$contactView = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$id('contact'),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$h1,
-				{ctor: '[]'},
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html$text('contact'),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: _elm_lang$html$Html$text('Contact'),
-				_1: {ctor: '[]'}
-			}
-		});
-};
-var _user$project$Main$aboutView = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$id('about'),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$h1,
-				{ctor: '[]'},
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html$text('about'),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: _elm_lang$html$Html$text('About'),
-				_1: {ctor: '[]'}
-			}
-		});
-};
-var _user$project$Main$homeView = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$id('home'),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$h1,
-				{ctor: '[]'},
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html$text('home'),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: _elm_lang$html$Html$text('Home'),
-				_1: {ctor: '[]'}
-			}
-		});
-};
-var _user$project$Main$update = F2(
-	function (msg, model) {
-		var _p0 = msg;
-		switch (_p0.ctor) {
-			case 'HomePage':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{homePage: _p0._0}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
-			case 'ContactPage':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{contactPage: _p0._0}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
-			case 'ServicePage':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{servicePage: _p0._0}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
-			default:
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{aboutPage: _p0._0}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
-		}
-	});
-var _user$project$Main$model = {homePage: '', contactPage: '', aboutPage: '', servicePage: ''};
-var _user$project$Main$init = {ctor: '_Tuple2', _0: _user$project$Main$model, _1: _elm_lang$core$Platform_Cmd$none};
-var _user$project$Main$main = _elm_lang$html$Html$program(
-	{init: _user$project$Main$init, view: _user$project$Main$view, update: _user$project$Main$update, subscriptions: _user$project$Main$subscriptions})();
-var _user$project$Main$Model = F4(
-	function (a, b, c, d) {
-		return {homePage: a, contactPage: b, aboutPage: c, servicePage: d};
-	});
-var _user$project$Main$AboutPage = function (a) {
-	return {ctor: 'AboutPage', _0: a};
-};
-var _user$project$Main$ServicePage = function (a) {
-	return {ctor: 'ServicePage', _0: a};
-};
-var _user$project$Main$ContactPage = function (a) {
-	return {ctor: 'ContactPage', _0: a};
-};
-var _user$project$Main$HomePage = function (a) {
-	return {ctor: 'HomePage', _0: a};
-};
+var _user$project$Main$main = _elm_lang$html$Html$beginnerProgram(
+	{model: _user$project$Main$model, update: _user$project$Main$update, view: _user$project$Main$view})();
