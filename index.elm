@@ -89,7 +89,7 @@ update msg model  =
     DraftPage str ->
       ({ model | draftPage = str }, Cmd.none)
 
-    FilterPage str ->    
+    FilterPage str ->
       ({ model | filterPage = str }, Cmd.none)
 
     MailPage str ->
@@ -107,7 +107,7 @@ update msg model  =
     Send str ->
       ({ model | send = str }, Cmd.none)
 
-    Draft str ->   
+    Draft str ->
       ({ model | draft = str }, Cmd.none)
 
     Sent str ->
@@ -122,7 +122,7 @@ update msg model  =
 
 
 inboxView : Model -> Html Msg
-inboxView model = 
+inboxView model =
     div [ id "inbox" ]
         [ h1 [] [ text "inbox" ]
         , text ""
@@ -152,10 +152,10 @@ filterView model =
 
 mailView : Model -> Html Msg
 mailView model =
-  div  [ id "mail" ] 
+  div  [ id "mail" ]
        [ h1 [] [ text "mailPage" ]
        , div [] [ text "" ]
-       ]   
+       ]
 
 
 --View
@@ -170,7 +170,7 @@ view model =
 
 
 
---Subscriptions 
+--Subscriptions
 
 subscriptions : Model -> Sub Msg
 subscriptions model=
