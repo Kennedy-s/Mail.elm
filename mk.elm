@@ -21,6 +21,8 @@ type alias Model =
    { name : String
    , password : String
    , passwordAgain : String
+   , signalMessage : String
+   , signal : String
    }
 
 
@@ -29,6 +31,7 @@ model =
    { name = ""
    , password = ""
    , passwordAgain = ""
+   , signalMessage = ""
    }
 
 init : ( Model, Cmd Msg)
@@ -43,6 +46,7 @@ type Msg
     = Name String
     | Password String
     | PasswordAgain String
+    | Signalmessage String
 
 
 update : Msg -> Model -> Model
@@ -56,6 +60,9 @@ update action model =
 
     PasswordAgain password ->
       { model | passwordAgain = password }
+
+    Signalmessage signalMessage ->
+      { model | signal = signalMessage }
 
 
 --View
@@ -85,7 +92,7 @@ field fieldType address toAction name content =
         [ fieldType
         , placeholder name
         , value content
-        , on "input" targetValue (\string -> Signal.message address (toAction string))
+        , on "input" targetValue (\string -> Signalmessage, address (toAction string))
         ]
         []
     ]
