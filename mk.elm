@@ -21,3 +21,31 @@ type alias Model =
 
   }
 
+
+model : Model
+model =
+
+init : ( Model, Cmd Msg)
+init =
+  ( model, Cmd.none)
+
+
+--Update
+
+type Msg 
+  =
+
+
+update : Msg -> Model -> (Model, Cmd msg)
+update msg model =
+  case msg of
+
+
+
+
+--View 
+
+view : Model -> Html Msg
+vie model =
+    div [ ]
+        
