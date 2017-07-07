@@ -1,43 +1,51 @@
 module Mk exposing (..)
 
-import Html exposing (Html, Attribute, div, input, span, text, toElement)
+import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (on, targetValue)
-import StartApp.Simple as StartApp
-import String
+import Http exposing (..)
 
 
 main =
-  StartApp.start
-      { model = model
+  Html.program
+      { init = init
       , view = view
       , update = update
+      , subscriptions = subscriptions
       }
 
 
--- MODEL
+--Model
 
 type alias Model =
-  { name : String
-  , password : String
-  , passwordAgain : String
-  }
+   { name : String
+   , password : String
+   , passwordAgain : String
+   }
 
 
-empty : Model
-empty =
-  Model "" "" ""
+model : Model
+model =
+   { name = ""
+   , password = ""
+   , passwordAgain = ""
+   }
+
+init : ( Model, Cmd Msg)
+init =
+  ( model, Cmd.none)
+    
 
 
--- UPDATE
+--Update
 
-type Action
+type Msg
     = Name String
     | Password String
     | PasswordAgain String
 
 
-update : Action -> Model -> Model
+update : Msg -> Model -> Model
 update action model =
   case action of
     Name name ->
@@ -50,9 +58,9 @@ update action model =
       { model | passwordAgain = password }
 
 
--- VIEW
+--View
 
-view : Address Action -> Model -> Html
+view : Model -> Html Msg
 view address model =
   let
     validationMessage =
@@ -69,12 +77,12 @@ view address model =
       ]
 
 
-field : String -> Address Action -> (String -> Action) -> String -> String -> Html
+field : String -> Model -> (String -> Model) -> String -> String -> Html Msg
 field fieldType address toAction name content =
   div []
     [ div [fieldNameStyle "160px"] [text name]
     , input
-        [ type' fieldType
+        [ fieldType
         , placeholder name
         , value content
         , on "input" targetValue (\string -> Signal.message address (toAction string))
@@ -83,7 +91,6 @@ field fieldType address toAction name content =
     ]
 
 
-fieldNameStyle : String -> Attribute
 fieldNameStyle px =
   style
     [ ("width", px)
@@ -91,3 +98,10 @@ fieldNameStyle px =
     , ("text-align", "right")
     , ("display", "inline-block")
     ]
+
+
+--Subscriptions
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+  Sub.none
