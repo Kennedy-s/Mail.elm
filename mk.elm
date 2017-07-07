@@ -33,7 +33,9 @@ init =
 --Update
 
 type Msg 
-  =
+    =
+    |
+    |
 
 
 update : Msg -> Model -> (Model, Cmd msg)
@@ -48,4 +50,10 @@ update msg model =
 view : Model -> Html Msg
 vie model =
     div [ ]
-        
+
+
+
+--Subscriptions 
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
