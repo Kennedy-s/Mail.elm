@@ -25,6 +25,7 @@ type alias Model =
 model : Model
 model =
 
+
 init : ( Model, Cmd Msg)
 init =
   ( model, Cmd.none)
@@ -33,7 +34,7 @@ init =
 --Update
 
 type Msg 
-    =
+    = 
     | 
     | 
 
