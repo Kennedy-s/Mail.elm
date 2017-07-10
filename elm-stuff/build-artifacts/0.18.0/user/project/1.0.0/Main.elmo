@@ -44,7 +44,7 @@ var _user$project$Main$menuStyle = _elm_lang$html$Html_Attributes$style(
 var _user$project$Main$myStyle2 = _elm_lang$html$Html_Attributes$style(
 	{
 		ctor: '::',
-		_0: {ctor: '_Tuple2', _0: 'backgroundColor', _1: 'lightblue'},
+		_0: {ctor: '_Tuple2', _0: 'backgroundColor', _1: 'orange'},
 		_1: {
 			ctor: '::',
 			_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
