@@ -112,7 +112,7 @@ view model =
           [ h1 [] [ text ""]
           ]
 
-    , text "Copyright@miranetworks.net"
+    , text "Copyright@miranetworks.net 2017"
     ]
 
 
