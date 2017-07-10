@@ -24,7 +24,9 @@ type alias Model =
 
 model : Model
 model =
+    { 
 
+    }
 
 init : ( Model, Cmd Msg)
 init =
@@ -33,7 +35,7 @@ init =
 
 --Update
 
-type Msg 
+type Msg
     = 
     | 
     | 
