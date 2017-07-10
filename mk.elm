@@ -36,9 +36,9 @@ init =
 --Update
 
 type Msg
-    = 
-    | 
-    | 
+    =
+    |
+    |
 
 
 update : Msg -> Model -> (Model, Cmd msg)
@@ -48,7 +48,7 @@ update msg model =
 
 
 
---View 
+--View
 
 view : Model -> Html Msg
 vie model =
@@ -56,7 +56,7 @@ vie model =
 
 
 
---Subscriptions 
+--Subscriptions
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
