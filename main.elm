@@ -131,7 +131,7 @@ myStyle =
 
 myStyle2 =
   style
-    [ ("backgroundColor", "orange")
+    [ ("backgroundColor", "lightblue")
     , ("height", "100%")
     , ("float", "center")
     , ("padding", "10px")

@@ -55,6 +55,12 @@ vie model =
     div [ ]
 
 
+myStyle =
+  style
+    [ ("backgroundColor", "red")
+    , ("height", "90px")
+    , ("width", "100%")
+    ]
 
 --Subscriptions
 
