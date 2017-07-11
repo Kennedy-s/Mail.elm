@@ -233,7 +233,6 @@ update msg model  =
 
         updatedInboxMsgs = 
           List.filter pred inboxMessages
-
       in
         ({ model | inboxMessages = updatedInboxMsgs}, Cmd.none)
       
