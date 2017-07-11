@@ -306,6 +306,9 @@ sendView model =
       ]
 
 
+
+
+
 view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
