@@ -24,7 +24,7 @@ type alias Model =
       { time : Time
       , paused : Bool
       , resumed : Bool
-     
+      , reset : Bool
       }
  
  
@@ -33,6 +33,7 @@ initialModel =
    { time = Time.second
    , paused = False
    , resumed = False
+   , reset = False
    }
  
 init : (Model, Cmd Msg)
@@ -47,6 +48,7 @@ type Msg
    = Tick Time
    | Paused
    | Resumed
+   | Reset
 
  
  
@@ -64,6 +66,9 @@ update msg model =
  
      Resumed ->
        ({model | paused = False}, Cmd.none)
+
+     Reset -> 
+       ({model | reset = True}, Cmd.none)
 
 
  
@@ -97,6 +102,9 @@ view model =
 
          , button [ onClick Resumed]
                  [ text "Resume"]
+
+         , button [ onClick Reset ]
+                  [ text "Reset"]
           ]
 
 

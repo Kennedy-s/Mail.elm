@@ -18,7 +18,7 @@ var _user$project$Main$update = F2(
 						{paused: true}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
-			default:
+			case 'Resumed':
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
@@ -26,14 +26,23 @@ var _user$project$Main$update = F2(
 						{paused: false}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
+			default:
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{reset: true}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
 		}
 	});
-var _user$project$Main$initialModel = {time: _elm_lang$core$Time$second, paused: false, resumed: false};
+var _user$project$Main$initialModel = {time: _elm_lang$core$Time$second, paused: false, resumed: false, reset: false};
 var _user$project$Main$init = {ctor: '_Tuple2', _0: _user$project$Main$initialModel, _1: _elm_lang$core$Platform_Cmd$none};
-var _user$project$Main$Model = F3(
-	function (a, b, c) {
-		return {time: a, paused: b, resumed: c};
+var _user$project$Main$Model = F4(
+	function (a, b, c, d) {
+		return {time: a, paused: b, resumed: c, reset: d};
 	});
+var _user$project$Main$Reset = {ctor: 'Reset'};
 var _user$project$Main$Resumed = {ctor: 'Resumed'};
 var _user$project$Main$Paused = {ctor: 'Paused'};
 var _user$project$Main$view = function (model) {
@@ -196,7 +205,22 @@ var _user$project$Main$view = function (model) {
 							_0: _elm_lang$svg$Svg$text('Resume'),
 							_1: {ctor: '[]'}
 						}),
-					_1: {ctor: '[]'}
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$button,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Reset),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$svg$Svg$text('Reset'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
 				}
 			}
 		});
