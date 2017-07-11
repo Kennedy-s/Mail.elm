@@ -24,7 +24,7 @@ type alias Model =
       { time : Time
       , paused : Bool
       , resumed : Bool
-      , reset : Bool
+      , stop : Bool
       }
  
  
@@ -33,7 +33,7 @@ initialModel =
    { time = Time.second
    , paused = False
    , resumed = False
-   , reset = False
+   , stop = False
    }
  
 init : (Model, Cmd Msg)
@@ -48,7 +48,7 @@ type Msg
    = Tick Time
    | Paused
    | Resumed
-   | Reset
+   | Stop
 
  
  
@@ -67,8 +67,8 @@ update msg model =
      Resumed ->
        ({model | paused = False}, Cmd.none)
 
-     Reset -> 
-       ({model | reset = True}, Cmd.none)
+     Stop -> 
+       ({model | stop = False}, Cmd.none)
 
 
  
@@ -91,7 +91,7 @@ view model =
        toString (50 + 40 * sin angle)
    in
     div []
-        [ svg [ viewBox "0 0 100 100", width "300px" ]
+        [ svg [ viewBox "0 0 100 100", width "400px" ]
                [ circle [ cx "50", cy "50", r "45", fill "#650000" ] []
                , line [ x1 "50", y1 "50", x2 handX, y2 handY, stroke ".." ] []
                , line [ x1 "50", y1 "50", x2  handX, y2 handY, stroke ".." ] []
@@ -103,8 +103,8 @@ view model =
          , button [ onClick Resumed]
                  [ text "Resume"]
 
-         , button [ onClick Reset ]
-                  [ text "Reset"]
+         , button [ onClick Stop ]
+                  [ text "Stop"]
           ]
 
 
