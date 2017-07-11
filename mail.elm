@@ -129,7 +129,7 @@ type Msg
     | Reply String
     | Filter String
     | Send  String
-    | Delete String
+    | Delete Int
     | Inbox String
     | NewMessage InboxMessage
 
@@ -223,8 +223,19 @@ update msg model  =
     Send send ->
       (model, Cmd.none)
 
-    Delete delete ->
-      (model, Cmd.none)
+    Delete messageId ->
+      let 
+        inboxMessages = 
+            model.inboxMessages
+
+        pred message = 
+          message.id /= messageId 
+
+        updatedInboxMsgs = 
+          List.filter pred inboxMessages
+
+      in
+        ({ model | inboxMessages = updatedInboxMsgs}, Cmd.none)
       
 
     Inbox inbox ->
@@ -257,7 +268,7 @@ inboxPage model =
 
 addInboxMessage inboxMessage =
   li [] [ text inboxMessage.messageBody
-        , button [onClick ( Delete "delete"), value "Delete" ] [ text "delete"]
+        , button [onClick ( Delete inboxMessage.id), value "Delete" ] [ text "delete"]
         , button [onClick ( Reply "reply"), value "Reply" ] [ text "reply"]
         ]
 
@@ -272,7 +283,7 @@ loginPage model =
        , label []
                [ text "username" ]
        , input [ id "username-filed"
-               , type_ "text"
+               , type_ "texStringt"
                , value model.username
                , on "input" (Json.map (\str -> Username str) targetValue)
                ]
@@ -286,7 +297,6 @@ loginPage model =
                ]
                []
        , button [ onClick Login ] [ text "Login" ]
-       , button [ onClick Logout ] [ text "Logout" ]
        ]
 
 sendView : Model -> Html Msg
@@ -301,12 +311,9 @@ sendView model =
               ]
               []
       , button [ onClick (Send "") ] [ text "Send"]
-      , button [ onClick (Delete "")] [ text "Delete"]
+      , button [ onClick (Delete 0)] [ text "Delete"]
       , button [ onClick (Reply "")] [ text "Reply"]
       ]
-
-
-
 
 
 view : Model -> Html Msg

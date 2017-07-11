@@ -54,7 +54,18 @@ var _user$project$Mail$update = F2(
 			case 'Send':
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			case 'Delete':
-				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				var pred = function (message) {
+					return !_elm_lang$core$Native_Utils.eq(message.id, _p0._0);
+				};
+				var inboxMessages = model.inboxMessages;
+				var updatedInboxMsgs = A2(_elm_lang$core$List$filter, pred, inboxMessages);
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{inboxMessages: updatedInboxMsgs}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
 			case 'Inbox':
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			default:
@@ -280,7 +291,7 @@ var _user$project$Mail$addInboxMessage = function (inboxMessage) {
 					{
 						ctor: '::',
 						_0: _elm_lang$html$Html_Events$onClick(
-							_user$project$Mail$Delete('delete')),
+							_user$project$Mail$Delete(inboxMessage.id)),
 						_1: {
 							ctor: '::',
 							_0: _elm_lang$html$Html_Attributes$value('Delete'),
@@ -413,7 +424,7 @@ var _user$project$Mail$sendView = function (model) {
 								{
 									ctor: '::',
 									_0: _elm_lang$html$Html_Events$onClick(
-										_user$project$Mail$Delete('')),
+										_user$project$Mail$Delete(0)),
 									_1: {ctor: '[]'}
 								},
 								{
@@ -502,7 +513,7 @@ var _user$project$Mail$loginPage = function (model) {
 								_0: _elm_lang$html$Html_Attributes$id('username-filed'),
 								_1: {
 									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$type_('text'),
+									_0: _elm_lang$html$Html_Attributes$type_('texStringt'),
 									_1: {
 										ctor: '::',
 										_0: _elm_lang$html$Html_Attributes$value(model.username),
@@ -577,22 +588,7 @@ var _user$project$Mail$loginPage = function (model) {
 											_0: _elm_lang$html$Html$text('Login'),
 											_1: {ctor: '[]'}
 										}),
-									_1: {
-										ctor: '::',
-										_0: A2(
-											_elm_lang$html$Html$button,
-											{
-												ctor: '::',
-												_0: _elm_lang$html$Html_Events$onClick(_user$project$Mail$Logout),
-												_1: {ctor: '[]'}
-											},
-											{
-												ctor: '::',
-												_0: _elm_lang$html$Html$text('Logout'),
-												_1: {ctor: '[]'}
-											}),
-										_1: {ctor: '[]'}
-									}
+									_1: {ctor: '[]'}
 								}
 							}
 						}
