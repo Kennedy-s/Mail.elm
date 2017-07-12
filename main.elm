@@ -109,7 +109,7 @@ view model =
            , a[ href "http://www.vodacom.com", myStyle ] [ text "Service" ]
            ]
      , div [ footerStyle]
-          [ h1 [] [ text ""]
+          [ h5 [] [ text ""]
           ]
 
     , text "Copyright@miranetworks.net 2017"
