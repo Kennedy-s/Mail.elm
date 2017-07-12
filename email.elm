@@ -13,18 +13,6 @@ main =
         }
 
 
-model =
-    { email = ""
-    , emailValidation = EmptyEmail
-    , password = ""
-    , passwordValidation = EmptyPassword
-    , confirmedPassword = ""
-    , passwordsMatch = True
-    , tos = False
-    , ready = False
-    , showErrors = False
-    }
-
 
 type alias Model =
     { email : String
@@ -37,6 +25,19 @@ type alias Model =
     , ready : Bool
     , showErrors : Bool
     }
+
+model =
+    { email = ""
+    , emailValidation = EmptyEmail
+    , password = ""
+    , passwordValidation = EmptyPassword
+    , confirmedPassword = ""
+    , passwordsMatch = True
+    , tos = False
+    , ready = False
+    , showErrors = False
+    }
+
 
 
 type EmailStatus
@@ -90,7 +91,7 @@ validate model =
 
         passwordStatus =
             if String.length model.password < 8 then
-                PasswordTooShort
+                PasswordTooShort 
             else if String.length model.password > 120 then
                 PasswordTooLong
             else
