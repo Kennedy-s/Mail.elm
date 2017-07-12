@@ -25,7 +25,7 @@ type alias Model =
     , ready : Bool
     , showErrors : Bool
     }
-
+model : Model
 model =
     { email = ""
     , emailValidation = EmptyEmail
@@ -38,7 +38,9 @@ model =
     , showErrors = False
     }
 
-
+init : ( Model, Cmd Msg)
+init =
+    ( model, Cmd.none)
 
 type EmailStatus
     = EmptyEmail
