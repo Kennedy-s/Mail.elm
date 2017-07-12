@@ -12,7 +12,7 @@ main =
         , view = view
         }
 
-
+--Model
 
 type alias Model =
     { email : String
@@ -52,6 +52,7 @@ type PasswordStatus
     | PasswordTooLong
     | ValidPassword
 
+--Update
 
 type Msg
     = ChangeEmail String
@@ -114,7 +115,7 @@ validate model =
 
 
 
-
+--View
 
 view model =
     Html.div []
