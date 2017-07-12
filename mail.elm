@@ -306,7 +306,7 @@ sendView model =
               [ text "fromUserId" ]
       , input [ id "fromUserId-field"
               , type_ "text"
-              , value ""
+              , value "send"
               ]
               []
       , button [ onClick (Send "") ] [ text "Send"]
@@ -319,7 +319,7 @@ view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
     True ->
-      messagePage model
+      inboxPage model
     False ->
       loginPage model
   

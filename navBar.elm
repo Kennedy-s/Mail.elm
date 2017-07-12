@@ -1,25 +1,25 @@
 module NavBar exposing (..)
 
 import Html exposing (..)
-import Mouse 
-import Keyboard 
+import Mouse
+import Keyboard
 import Http
 
 
 
-main = 
+main =
   Html.program
     { init = init
     , view = view
-    , update = update   
+    , update = update
     , subscriptions = subscriptions
-    } 
+    }
 
 --Model
 
 type alias Model =
      { mouseMsg : String
-     , keyMsg : String 
+     , keyMsg : String
      }
 
 
