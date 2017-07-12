@@ -228,10 +228,10 @@ update msg model  =
         inboxMessages = 
             model.inboxMessages
 
-        pred message = 
-          message.id /= messageId 
+        pred message =
+          message.id /= messageId
 
-        updatedInboxMsgs = 
+        updatedInboxMsgs =
           List.filter pred inboxMessages
       in
         ({ model | inboxMessages = updatedInboxMsgs}, Cmd.none)

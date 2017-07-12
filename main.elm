@@ -123,7 +123,7 @@ myStyle =
     , ("backgroundColor", "blue")
     , ( "text-align", "right")
     , ("color", "#d90000")
-    , ("display", "")
+    , ("display", "fixed")
     , ("width", "100%")
     , ("border-radius", "50%")
     ]
@@ -144,6 +144,7 @@ menuStyle =
     [ ("float", "right")
     , ("backgroundColor", "")
     , ("padding", "4px 0")
+    , ("display", "fixed")
     ]
 
 
