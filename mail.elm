@@ -250,8 +250,8 @@ messagePage model =
         [ h1 [] [ text "Message" ]
         , text model.message
         , textarea [] [ text "type your message" ]
-        , button  [ onClick ( Reply "delivered"), value "Reply" ] [ text "reply"]
-        , button  [ onClick ( Send "sent"), value "Send" ] [ text "send"]
+        , button  [ onClick ( Reply "delivered") ] [ text "reply"]
+        , button  [ onClick ( Send "sent")] [ text "send"]
         ]
 
 inboxPage : Model -> Html Msg
@@ -319,7 +319,7 @@ view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
     True ->
-      inboxPage model
+      messagePage model
     False ->
       loginPage model
   
