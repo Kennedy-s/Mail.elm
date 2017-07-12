@@ -214,7 +214,7 @@ update msg model  =
     Message message ->
       (model, Cmd.none)
 
-    Reply reply ->
+    Reply fromUserId ->
       (model, Cmd.none)
 
     Filter filter ->
