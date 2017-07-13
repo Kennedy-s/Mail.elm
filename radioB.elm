@@ -76,11 +76,23 @@ view : Model -> Html Msg
 view model =
   div []
     [ fieldset []
-        [ radio "Small" (SwitchTo Small)
-        , radio "Medium" (SwitchTo Medium)
-        , radio "Large" (SwitchTo Large)
-        , radio "Extra " (SwitchTo Extra)
+        [ label []
+           [ input [ type_ "radio", onClick (SwitchTo Small) ] []
+           , text "Small"
+           ]
+        , label []
+        ,  [ input [ type_ "radio", onClick (SwitchTo Medium) ] []
+           . text "Medium"
+           ]
+        , label [ type_ "radio",  onClick (SwitchTo Large) ] []
+           , text "Large"
+           ]
+        , label []
+           [ input [ type_ "radio" onClick (SwitchTo Extra) ]  []
+           , text "Large"
+           ]
         ]
+    , section [] [ text model.content ]
     ]
 
 
