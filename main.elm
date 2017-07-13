@@ -80,7 +80,7 @@ aboutView model =
     div [ id "about" ]
         [ h1 [] [ text "about" ]
         , text "About"
-        ] 
+        ]
 
 contactView : Model -> Html Msg
 contactView model =
@@ -103,10 +103,10 @@ view : Model -> Html Msg
 view model =
    div [myStyle2 ]
     [  div [ menuStyle]
-           [ a[ href "", myStyle ] [ text "Home" ]
-           , a[ href "", myStyle ] [ text " About" ]
-           , a[ href "", myStyle] [ text "Contact" ]
-           , a[ href "", myStyle ] [ text "Service" ]
+           [ a[ href "http://www.miranetworks.net", myStyle ] [ text "Home" ]
+           , a[ href "http://www.ilab.com", myStyle ] [ text " About" ]
+           , a[ href "http://www.sabledata.com", myStyle] [ text "Contact" ]
+           , a[ href "http://www.vodacom.com", myStyle ] [ text "Service" ]
            ]
      , div [ footerStyle]
           [ h5 [] [ text ""]

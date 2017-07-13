@@ -124,7 +124,7 @@ var _user$project$Main$view = function (model) {
 						_elm_lang$html$Html$a,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$href(''),
+							_0: _elm_lang$html$Html_Attributes$href('http://www.miranetworks.net'),
 							_1: {
 								ctor: '::',
 								_0: _user$project$Main$myStyle,
@@ -142,7 +142,7 @@ var _user$project$Main$view = function (model) {
 							_elm_lang$html$Html$a,
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$href(''),
+								_0: _elm_lang$html$Html_Attributes$href('http://www.ilab.com'),
 								_1: {
 									ctor: '::',
 									_0: _user$project$Main$myStyle,
@@ -160,7 +160,7 @@ var _user$project$Main$view = function (model) {
 								_elm_lang$html$Html$a,
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$href(''),
+									_0: _elm_lang$html$Html_Attributes$href('http://www.sabledata.com'),
 									_1: {
 										ctor: '::',
 										_0: _user$project$Main$myStyle,
@@ -178,7 +178,7 @@ var _user$project$Main$view = function (model) {
 									_elm_lang$html$Html$a,
 									{
 										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$href(''),
+										_0: _elm_lang$html$Html_Attributes$href('http://www.vodacom.com'),
 										_1: {
 											ctor: '::',
 											_0: _user$project$Main$myStyle,
