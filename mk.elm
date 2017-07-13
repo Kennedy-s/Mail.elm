@@ -14,10 +14,10 @@ main =
         , subscriptions = subscriptions
         }
 
---Model 
+--Model
 
 type alias Model =
-  { 
+  {
 
   }
 
@@ -50,9 +50,13 @@ update msg model =
 
 --View
 
-view : Model -> Html Msg
+view : Msg -> Model -> Html Msg
 vie model =
     div [ ]
+        , label [ 
+        , button ( onclick Submit "text")
+        , button ( onclick Login "text")
+        ]
 
 
 
