@@ -67,7 +67,7 @@ update msg model =
      Resumed ->
        ({model | paused = False}, Cmd.none)
 
-     Stop -> 
+     Stop ->
        ({model | stop = False}, Cmd.none)
 
 

@@ -119,13 +119,13 @@ view model =
 myStyle =
   style
     [ ("padding", "10px")
-    , ("margin", "15px")
+    , ("margin", "10px")
     , ("backgroundColor", "blue")
     , ( "text-align", "right")
     , ("color", "#d90000")
     , ("display", "fixed")
     , ("width", "100%")
-    , ("border-radius", "50%")
+    , ("border-radius", "70%")
     ]
 
 

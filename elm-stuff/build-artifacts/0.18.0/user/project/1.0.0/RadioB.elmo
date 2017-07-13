@@ -1,0 +1,123 @@
+var _user$project$RadioB$sizeToStyle = function (fontSize) {
+	var size = function () {
+		var _p0 = fontSize;
+		switch (_p0.ctor) {
+			case 'Small':
+				return '0.8em';
+			case 'Medium':
+				return '1em';
+			case 'Large':
+				return '1.2em';
+			default:
+				return '1.5em';
+		}
+	}();
+	return _elm_lang$html$Html_Attributes$style(
+		{
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'font-size', _1: size},
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$RadioB$radio = F2(
+	function (value, msg) {
+		return A2(
+			_elm_lang$html$Html$label,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$style(
+					{
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'padding', _1: '20px'},
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$input,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$type_('radio'),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$name('font-size'),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html_Events$onClick(msg),
+								_1: {ctor: '[]'}
+							}
+						}
+					},
+					{ctor: '[]'}),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(value),
+					_1: {ctor: '[]'}
+				}
+			});
+	});
+var _user$project$RadioB$update = F2(
+	function (msg, model) {
+		var _p1 = msg;
+		return _elm_lang$core$Native_Utils.update(
+			model,
+			{fontSize: _p1._0});
+	});
+var _user$project$RadioB$intro = '\n\n# Kennedy Siwadawada\n\n## Chapter 1\n\nHappy families are all alike; every unhappy family is unhappy in its own way.\n\nEverything was in confusion in the Oblonskys’ house. The wife had discovered\nthat the husband was carrying on an intrigue with a French girl, who had been\na governess in their family, and she had announced to her husband that she\ncould not go on living in the same house with him...\n\n';
+var _user$project$RadioB$Model = F2(
+	function (a, b) {
+		return {fontSize: a, content: b};
+	});
+var _user$project$RadioB$Extra = {ctor: 'Extra'};
+var _user$project$RadioB$Large = {ctor: 'Large'};
+var _user$project$RadioB$Medium = {ctor: 'Medium'};
+var _user$project$RadioB$chapter1 = A2(_user$project$RadioB$Model, _user$project$RadioB$Medium, _user$project$RadioB$intro);
+var _user$project$RadioB$Small = {ctor: 'Small'};
+var _user$project$RadioB$SwitchTo = function (a) {
+	return {ctor: 'SwitchTo', _0: a};
+};
+var _user$project$RadioB$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$fieldset,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: A2(
+						_user$project$RadioB$radio,
+						'Small',
+						_user$project$RadioB$SwitchTo(_user$project$RadioB$Small)),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_user$project$RadioB$radio,
+							'Medium',
+							_user$project$RadioB$SwitchTo(_user$project$RadioB$Medium)),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_user$project$RadioB$radio,
+								'Large',
+								_user$project$RadioB$SwitchTo(_user$project$RadioB$Large)),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_user$project$RadioB$radio,
+									'Extra ',
+									_user$project$RadioB$SwitchTo(_user$project$RadioB$Extra)),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$RadioB$main = _elm_lang$html$Html$beginnerProgram(
+	{model: _user$project$RadioB$chapter1, update: _user$project$RadioB$update, view: _user$project$RadioB$view})();
