@@ -226,12 +226,12 @@ errorStyle =
 
 
 buttonStyleReady =
-    [ ( "border-width", "0" )
-    , ( "border-radius", "2px" )
+    [ ( "border-width", "10" )
+    , ( "border-radius", "5px" )
     , ( "background-color", "blue" )
-    , ( "width", "10%" )
+    , ( "width", "20%" )
     , ( "color", "white" )
-    , ( "padding", "8px 10px" )
+    , ( "padding", "9px 12px" )
     ]
 
 
