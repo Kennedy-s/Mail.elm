@@ -4,8 +4,7 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Html exposing (..)
 import Http exposing (..)
-import Svg.Attributes exposing (..)
-import Svg exposing (..)
+
 
 
 main =
@@ -94,9 +93,6 @@ view model =
            , a[ href "http://www.ilab.com", myStyle ] [ text " Contact" ]
            , a[ href "http://www.sabledata.com", myStyle] [ text "About" ]
            ]
-     , div [ footerStyle]
-          [ h5 [] [ text ""]
-          ]
 
     ]
 
