@@ -24,6 +24,8 @@ type alias Model =
     , ready : Bool
     , showErrors : Bool
     }
+
+
 model : Model
 model =
     { email = ""
@@ -37,20 +39,24 @@ model =
     , showErrors = False
     }
 
+
 init : ( Model, Cmd Msg)
 init =
     ( model, Cmd.none)
+
 
 type EmailStatus
     = EmptyEmail
     | ValidEmail
     | InvalidEmail
 
+
 type PasswordStatus
     = EmptyPassword
     | PasswordTooShort
     | PasswordTooLong
     | ValidPassword
+
 
 --Update
 
@@ -60,7 +66,6 @@ type Msg
     | ConfirmPassword String
     | ToggleTOS Bool
     | Submit
-
 
 update msg model =
     case msg of
@@ -226,7 +231,7 @@ buttonStyleReady =
 
 empty =
     text ""
-
+    
 
 --Subscriptions
 
