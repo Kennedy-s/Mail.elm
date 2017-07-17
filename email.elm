@@ -210,9 +210,9 @@ acceptError model =
 -- Some basic inline styles.
 
 inputStyle =
-    [ ( "display", "block" )
-    , ( "color", "#111" )
-    , ( "padding", "10px 10px" )
+    [ ( "display", "block")
+    , ( "color", "#111")
+    , ( "padding", "10px 10px")
     ]
 
 errorStyle =
@@ -220,18 +220,18 @@ errorStyle =
 
 
 buttonStyleReady =
-    [ ( "border-width", "10" )
-    , ( "border-radius", "5px" )
-    , ( "background-color", "blue" )
-    , ( "width", "20%" )
-    , ( "color", "white" )
-    , ( "padding", "9px 12px" )
+    [ ( "border-width", "10")
+    , ( "border-radius", "5px")
+    , ( "background-color", "blue")
+    , ( "width", "20%")
+    , ( "color", "white")
+    , ( "padding", "9px 12px")
     ]
 
 
 empty =
     text ""
-    
+
 
 --Subscriptions
 
