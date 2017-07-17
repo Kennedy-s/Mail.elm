@@ -4,8 +4,6 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 
-
-
 main =
     Html.beginnerProgram
         { model = model
@@ -47,7 +45,6 @@ type EmailStatus
     = EmptyEmail
     | ValidEmail
     | InvalidEmail
-
 
 type PasswordStatus
     = EmptyPassword
@@ -117,7 +114,6 @@ validate model =
         }
 
 
-
 --View
 
 view model =
@@ -163,7 +159,6 @@ view model =
             ]
         ]
 
-
 emailError status =
     case status of
         ValidEmail ->
@@ -176,7 +171,6 @@ emailError status =
         EmptyEmail ->
             div [ style errorStyle ]
                 [ text "email is required" ]
-
 
 passwordError status =
     case status of
@@ -195,13 +189,11 @@ passwordError status =
         ValidPassword ->
             empty
 
-
 matchingError matching =
     if not matching then
         div [ style errorStyle ] [ text "passwords don't match" ]
     else
         empty
-
 
 acceptError model =
     if not model.tos then
@@ -210,17 +202,13 @@ acceptError model =
     else
         empty
 
-
-
 -- Some basic inline styles.
-
 
 inputStyle =
     [ ( "display", "block" )
     , ( "color", "#111" )
     , ( "padding", "10px 10px" )
     ]
-
 
 errorStyle =
     [ ( "color", "red" ) ]
