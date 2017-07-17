@@ -1,0 +1,22 @@
+var _user$project$M$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$none;
+};
+var _user$project$M$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(model),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$M$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+	});
+var _user$project$M$init = {ctor: '_Tuple2', _0: 'Hello my name is Kennedy Siwadawada and am from Limpopo', _1: _elm_lang$core$Platform_Cmd$none};
+var _user$project$M$main = _elm_lang$html$Html$program(
+	{init: _user$project$M$init, view: _user$project$M$view, update: _user$project$M$update, subscriptions: _user$project$M$subscriptions})();
+var _user$project$M$NoOp = {ctor: 'NoOp'};
