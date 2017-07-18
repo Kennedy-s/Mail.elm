@@ -55,7 +55,7 @@ var _user$project$Message$view = function (model) {
 				}),
 			_1: {
 				ctor: '::',
-				_0: _elm_lang$html$Html$text('Kennedy'),
+				_0: _elm_lang$html$Html$text('Mukhethwa Kennedy'),
 				_1: {ctor: '[]'}
 			}
 		});

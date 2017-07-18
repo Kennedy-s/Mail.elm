@@ -58,7 +58,7 @@ view model =
     else
        div []
            [ button [ onClick Expand ] [ text "Expand" ]
-           , text "Kennedy"
+           , text "Mukhethwa Kennedy"
            ]
     
 
