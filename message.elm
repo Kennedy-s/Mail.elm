@@ -1,9 +1,10 @@
 module Message exposing (..)
 
-import Html exposing (..)
-import Html.Events exposing (onClick)
-import Http exposing (..)
 import Html.Attributes exposing (..)
+import Html.Events exposing (onClick)
+import Html exposing (..)
+import Http exposing (..)
+
 
 
 
@@ -51,16 +52,16 @@ update msg model =
              ( False, Cmd.none )
 
          Message str ->
-             (model, Cmd.none)
+             (False, Cmd.none)
          
          Send str ->
-          (model, Cmd.none)
+          (True, Cmd.none)
 
          Reply str ->
-          (model, Cmd.none)
+          (False, Cmd.none)
 
          Delete str ->
-          (model, Cmd.none)
+          (True, Cmd.none)
 
 
 --View

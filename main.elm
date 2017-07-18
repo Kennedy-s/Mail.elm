@@ -43,7 +43,7 @@ init =
 
 --Update
 
-type Msg 
+type Msg
     = HomePage String
     | ContactPage String
     | ServicePage String
