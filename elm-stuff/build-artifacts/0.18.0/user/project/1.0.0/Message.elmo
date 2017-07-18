@@ -4,13 +4,34 @@ var _user$project$Message$subscriptions = function (model) {
 var _user$project$Message$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
-		if (_p0.ctor === 'Expand') {
-			return {ctor: '_Tuple2', _0: true, _1: _elm_lang$core$Platform_Cmd$none};
-		} else {
-			return {ctor: '_Tuple2', _0: false, _1: _elm_lang$core$Platform_Cmd$none};
+		switch (_p0.ctor) {
+			case 'Expand':
+				return {ctor: '_Tuple2', _0: true, _1: _elm_lang$core$Platform_Cmd$none};
+			case 'Collapse':
+				return {ctor: '_Tuple2', _0: false, _1: _elm_lang$core$Platform_Cmd$none};
+			case 'Message':
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			case 'Send':
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			case 'Reply':
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			default:
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 		}
 	});
 var _user$project$Message$init = {ctor: '_Tuple2', _0: false, _1: _elm_lang$core$Platform_Cmd$none};
+var _user$project$Message$Delete = function (a) {
+	return {ctor: 'Delete', _0: a};
+};
+var _user$project$Message$Reply = function (a) {
+	return {ctor: 'Reply', _0: a};
+};
+var _user$project$Message$Send = function (a) {
+	return {ctor: 'Send', _0: a};
+};
+var _user$project$Message$Message = function (a) {
+	return {ctor: 'Message', _0: a};
+};
 var _user$project$Message$Collapse = {ctor: 'Collapse'};
 var _user$project$Message$Expand = {ctor: 'Expand'};
 var _user$project$Message$view = function (model) {

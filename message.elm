@@ -31,6 +31,10 @@ init =
 type Msg
     = Expand
     | Collapse
+    | Message String
+    | Send String
+    | Reply String
+    | Delete String
 
 
 
@@ -44,25 +48,18 @@ update msg model =
 
          Collapse ->
              ( False, Cmd.none )
+
+         Message str ->
+             (model, Cmd.none)
          
-
-
-
-messagePage : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
-    case msg of 
-        Message msg ->
+         Send str ->
           (model, Cmd.none)
 
-        Send str ->
+         Reply str ->
           (model, Cmd.none)
 
-        Reply str ->
+         Delete str ->
           (model, Cmd.none)
-
-        Delete str ->
-          (model, Cmd.none)
-
 
 
 --View
