@@ -49,4 +49,7 @@ view model =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-   Sub.none
+   Sub.batch
+      { MouseKey
+      , KeyboardKey
+      }

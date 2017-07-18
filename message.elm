@@ -44,7 +44,6 @@ update msg model =
              ( False, Cmd.none )
          
 
-
 --View
 
 view : Model -> Html Msg
@@ -61,7 +60,7 @@ view model =
            , text "Mukhethwa Kennedy"
            ]
     
-    
+
 --Subscriptions
 
 subscriptions : Model -> Sub Msg

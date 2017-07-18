@@ -181,10 +181,10 @@ update : Msg -> Model -> (Model, Cmd msg)
 update msg model  =
   case msg of
     Username username ->
-      ({ model | username = username }, Cmd.none)
+      ({ model | username = username }, Cmd.none )
 
     Password password ->
-      ({ model | password = password }, Cmd.none)
+      ({ model | password = password }, Cmd.none )
     
     Login ->
       let
@@ -206,7 +206,7 @@ update msg model  =
           (user.username == model.username && user.password == model.password)
 
       in
-        ({ model | message = validationMessage }, Cmd.none)
+        ({ model | message = validationMessage }, Cmd.none )
 
     Logout ->
       (model, Cmd.none)
@@ -234,7 +234,7 @@ update msg model  =
         updatedInboxMsgs =
           List.filter pred inboxMessages
       in
-        ({ model | inboxMessages = updatedInboxMsgs}, Cmd.none)
+        ({ model | inboxMessages = updatedInboxMsgs}, Cmd.none )
       
 
     Inbox inbox ->
@@ -242,14 +242,13 @@ update msg model  =
 
     NewMessage inboxMessage ->
       (model, Cmd.none)
-      
   
 messagePage : Model -> Html Msg
 messagePage model =
     div [ id "message" ]
         [ h1 [] [ text "Message" ]
         , text model.message
-        , textarea [] [ text "type your message" ]
+        , textarea [] [ text "" ]
         , button  [ onClick ( Reply "delivered") ] [ text "reply"]
         , button  [ onClick ( Send "sent")] [ text "send"]
         ]
