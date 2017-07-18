@@ -61,7 +61,7 @@ view model =
            , text "Mukhethwa Kennedy"
            ]
     
-
+    
 --Subscriptions
 
 subscriptions : Model -> Sub Msg
