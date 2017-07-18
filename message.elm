@@ -3,6 +3,7 @@ module Message exposing (..)
 import Html exposing (..)
 import Html.Events exposing (onClick)
 import Http exposing (..)
+import Html.Attributes exposing (..)
 
 
 
