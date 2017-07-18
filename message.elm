@@ -60,8 +60,7 @@ view model =
            [ button [ onClick Expand ] [ text "Expand" ]
            , text "Kennedy"
            ]
-
-
+    
 
 --Subscriptions
 
