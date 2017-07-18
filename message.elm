@@ -2,6 +2,8 @@ module Message exposing (..)
 
 import Html exposing (..)
 import Html.Events exposing (onClick)
+import Http exposing (..)
+
 
 
 main =
@@ -44,6 +46,25 @@ update msg model =
              ( False, Cmd.none )
          
 
+
+
+messagePage : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of 
+        Message msg ->
+          (model, Cmd.none)
+
+        Send str ->
+          (model, Cmd.none)
+
+        Reply str ->
+          (model, Cmd.none)
+
+        Delete str ->
+          (model, Cmd.none)
+
+
+
 --View
 
 view : Model -> Html Msg
@@ -65,4 +86,4 @@ view model =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
- Sub.none
+  Sub.none
