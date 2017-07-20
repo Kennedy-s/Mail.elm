@@ -69,7 +69,7 @@ var _user$project$Taxi$view = function (model) {
 					},
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html$text('clock in'),
+						_0: _elm_lang$html$Html$text('cheeck in'),
 						_1: {ctor: '[]'}
 					}),
 				_1: {
@@ -103,7 +103,7 @@ var _user$project$Taxi$view = function (model) {
 								},
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html$text('clock out'),
+									_0: _elm_lang$html$Html$text('check out'),
 									_1: {ctor: '[]'}
 								}),
 							_1: {

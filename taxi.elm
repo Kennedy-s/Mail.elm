@@ -75,10 +75,10 @@ view : Model -> Html Msg
 view model =
   div []
   [ span [] [ text ("Number of taxis at the rank" ++ (toString model.atRankCount)) ]
-  , button [ onClick Arrival ][ text "clock in" ]
+  , button [ onClick Arrival ][ text "cheeck in" ]
   , div [] []
   , span [] [ text ("Number of taxis out of the rank" ++ (toString model.leftRankCount)) ]
-  , button [ onClick Departure ][ text "clock out"]
+  , button [ onClick Departure ][ text "check out"]
   , div [] []
   , input [ onClick (Greet "hello") ][ text "Greet the taxi rank chairman."]
   , button [ onClick Submit ] [ text "Submit" ] 
