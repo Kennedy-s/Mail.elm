@@ -18,13 +18,14 @@ main =
 --Model
 
 type alias Model =
-    {  
-    , 
+    {  : String
     }    
 
 
 model : Model
 model =
+   {  = ""
+   }
   
 
 init : ( model, Cmd Msg )
