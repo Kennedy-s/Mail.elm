@@ -85,6 +85,8 @@ update msg model =
             validate { model | showErrors = True }
 
 
+
+
 validate model =
     let
         emailStatus =
