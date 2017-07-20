@@ -43,9 +43,7 @@ view : Model -> Html Msg
 view model =
     div []
         [ text model ]
-        , button [ onClick Resumed]
-                 [ text "Resume"]
-        ]
+     
 
 
 --Subscriptions
