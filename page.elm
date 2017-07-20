@@ -18,7 +18,9 @@ main =
 --Model
 
 type alias Model =
-    
+    {  
+    , 
+    }    
 
 
 model : Model
@@ -31,16 +33,20 @@ init =
 
 
 
---Update 
+--Update
 
 type Msg
-   
+    = 
+    | 
+    | 
+    | 
+
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
   case msg of
-
+    
 
 
 --View 
