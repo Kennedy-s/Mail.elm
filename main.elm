@@ -70,7 +70,7 @@ update msg model  =
 homeView : Model -> Html Msg
 homeView model =
     div [ id "home" ]
-        [ h1 [] [ text "home" ]
+        [ h1 [] [text "home"]
         , text "Home"
         ]
 
@@ -78,21 +78,21 @@ homeView model =
 aboutView : Model -> Html Msg
 aboutView model =
     div [ id "about" ]
-        [ h1 [] [ text "about" ]
+        [ h1 [] [text "about"]
         , text "About"
         ]
 
 contactView : Model -> Html Msg
 contactView model =
    div [ id "contact" ]
-       [ h1 [] [ text "contact" ]
+       [ h1 [] [text "contact"]
        , text "Contact"
        ]
 
 serviceView : Model -> Html Msg
 serviceView model =
    div [ id "service" ]
-       [ h1 [] [ text "service" ]
+       [ h1 [] [text "service"]
        , text "service"
        ]
 
