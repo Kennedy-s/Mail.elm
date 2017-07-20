@@ -105,7 +105,7 @@ view model =
 
          , button [ onClick Stop ]
                   [ text "Stop"]
-          ]
+         ]
 
 
 

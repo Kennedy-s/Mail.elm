@@ -64,6 +64,7 @@ type Msg
     = ChangeEmail String
     | ChangePassword String
     | ConfirmPassword String
+    | PassworMatch String
     | ToggleTOS Bool
     | Submit
 
@@ -83,6 +84,9 @@ update msg model =
 
         Submit ->
             validate { model | showErrors = True }
+
+        PassworMatch password -> 
+            validate { model | passwordsMatch = password }
 
 
 

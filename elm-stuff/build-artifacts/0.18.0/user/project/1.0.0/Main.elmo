@@ -210,11 +210,16 @@ var _user$project$Main$update = F2(
 					_elm_lang$core$Native_Utils.update(
 						model,
 						{tos: _p2._0}));
-			default:
+			case 'Submit':
 				return _user$project$Main$validate(
 					_elm_lang$core$Native_Utils.update(
 						model,
 						{showErrors: true}));
+			default:
+				return _user$project$Main$validate(
+					_elm_lang$core$Native_Utils.update(
+						model,
+						{passwordsMatch: _p2._0}));
 		}
 	});
 var _user$project$Main$EmptyPassword = {ctor: 'EmptyPassword'};
@@ -223,6 +228,9 @@ var _user$project$Main$init = {ctor: '_Tuple2', _0: _user$project$Main$model, _1
 var _user$project$Main$Submit = {ctor: 'Submit'};
 var _user$project$Main$ToggleTOS = function (a) {
 	return {ctor: 'ToggleTOS', _0: a};
+};
+var _user$project$Main$PassworMatch = function (a) {
+	return {ctor: 'PassworMatch', _0: a};
 };
 var _user$project$Main$ConfirmPassword = function (a) {
 	return {ctor: 'ConfirmPassword', _0: a};
