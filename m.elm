@@ -43,7 +43,10 @@ view : Model -> Html Msg
 view model =
     div []
         [ text model ]
-     
+        , button [ onClick Submit ], [text "Submit"]
+        , button [ onClick Reset ], [ text "Reset"]
+        , button [ onClick Cancel ], [ text "Cancel"]
+        ]
 
 
 --Subscriptions
