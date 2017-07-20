@@ -19,12 +19,18 @@ main =
 
 type alias Model =
     {  : String
+    ,  : String 
+    ,  : Int
+    ,  : String
     }    
 
 
 model : Model
 model =
    {  = ""
+   ,  = ""
+   ,  = ""
+   ,  = ""
    }
   
 
