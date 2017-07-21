@@ -22,7 +22,7 @@ type alias Model =
     , contactPage : String
     , aboutPage : String
     , servicesPage : String
-    } 
+    }
 
 
 model : Model
