@@ -43,7 +43,6 @@ view : Model -> Html Msg
 view model =
     div []
         [ text model ]
-     
 
 
 --Subscriptions

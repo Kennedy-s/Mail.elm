@@ -69,7 +69,7 @@ var _user$project$Taxi$view = function (model) {
 					},
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html$text('check in'),
+						_0: _elm_lang$html$Html$text('cheeck in'),
 						_1: {ctor: '[]'}
 					}),
 				_1: {

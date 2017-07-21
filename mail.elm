@@ -121,8 +121,8 @@ init =
 -- Update
  
 type Msg
-    = Username  String
-    | Password  String
+    = Username String
+    | Password String
     | Login
     | Logout
     | Message String
