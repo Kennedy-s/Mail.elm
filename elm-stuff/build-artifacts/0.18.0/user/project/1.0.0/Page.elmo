@@ -50,7 +50,7 @@ var _user$project$Page$myStyle = _elm_lang$html$Html_Attributes$style(
 			_0: {ctor: '_Tuple2', _0: 'margin', _1: '10px'},
 			_1: {
 				ctor: '::',
-				_0: {ctor: '_Tuple2', _0: 'backgroundColor', _1: 'blue'},
+				_0: {ctor: '_Tuple2', _0: 'backgroundColor', _1: 'black'},
 				_1: {
 					ctor: '::',
 					_0: {ctor: '_Tuple2', _0: 'text-align', _1: 'right'},

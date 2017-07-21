@@ -9,7 +9,7 @@ import Http exposing (..)
 main =
   Html.program
      { init = init
-     , view = view 
+     , view = view
      , update = update
      , subscriptions = subscriptions
      }
@@ -22,7 +22,7 @@ type alias Model =
     , contactPage : String
     , aboutPage : String
     , servicesPage : String
-    }    
+    } 
 
 
 model : Model
@@ -97,7 +97,7 @@ serviceView model =
 
 
 
---View 
+--View
 
 view : Model -> Html Msg
 view model =
@@ -115,7 +115,7 @@ myStyle =
   style
     [ ("padding", "10px")
     , ("margin", "10px")
-    , ("backgroundColor", "blue")
+    , ("backgroundColor", "black")
     , ( "text-align", "right")
     , ("color", "#d90000")
     , ("display", "fixed")
