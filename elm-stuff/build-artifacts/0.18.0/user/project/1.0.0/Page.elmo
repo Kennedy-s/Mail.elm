@@ -276,33 +276,33 @@ var _user$project$Page$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
 		switch (_p0.ctor) {
-			case 'Home':
+			case 'HomePage':
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-			case 'Contact':
+			case 'ContactPage':
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-			case 'About':
+			case 'AboutPage':
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			default:
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 		}
 	});
-var _user$project$Page$model = {home: '', contact: '', about: '', services: ''};
+var _user$project$Page$model = {homePage: '', contactPage: '', aboutPage: '', servicesPage: ''};
 var _user$project$Page$init = {ctor: '_Tuple2', _0: _user$project$Page$model, _1: _elm_lang$core$Platform_Cmd$none};
 var _user$project$Page$main = _elm_lang$html$Html$program(
 	{init: _user$project$Page$init, view: _user$project$Page$view, update: _user$project$Page$update, subscriptions: _user$project$Page$subscriptions})();
 var _user$project$Page$Model = F4(
 	function (a, b, c, d) {
-		return {home: a, contact: b, about: c, services: d};
+		return {homePage: a, contactPage: b, aboutPage: c, servicesPage: d};
 	});
-var _user$project$Page$Services = function (a) {
-	return {ctor: 'Services', _0: a};
+var _user$project$Page$ServicesPage = function (a) {
+	return {ctor: 'ServicesPage', _0: a};
 };
-var _user$project$Page$About = function (a) {
-	return {ctor: 'About', _0: a};
+var _user$project$Page$AboutPage = function (a) {
+	return {ctor: 'AboutPage', _0: a};
 };
-var _user$project$Page$Contact = function (a) {
-	return {ctor: 'Contact', _0: a};
+var _user$project$Page$ContactPage = function (a) {
+	return {ctor: 'ContactPage', _0: a};
 };
-var _user$project$Page$Home = function (a) {
-	return {ctor: 'Home', _0: a};
+var _user$project$Page$HomePage = function (a) {
+	return {ctor: 'HomePage', _0: a};
 };

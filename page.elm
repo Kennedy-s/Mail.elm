@@ -18,19 +18,19 @@ main =
 --Model
 
 type alias Model =
-    { home : String
-    , contact : String
-    , about : String
-    , services : String
+    { homePage : String
+    , contactPage : String
+    , aboutPage : String
+    , servicesPage : String
     }    
 
 
 model : Model
 model =
-   { home = ""
-   , contact = ""
-   , about = ""
-   , services = ""
+   { homePage = ""
+   , contactPage = ""
+   , aboutPage = ""
+   , servicesPage = ""
    }
   
 
@@ -43,25 +43,25 @@ init =
 --Update
 
 type Msg
-    = Home String
-    | Contact String
-    | About String
-    | Services String
+    = HomePage String
+    | ContactPage String
+    | AboutPage String
+    | ServicesPage String
 
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
   case msg of
-     Home str ->
+     HomePage str ->
         ( model, Cmd.none )
-     Contact str ->
-        ( model, Cmd.none )
-
-     About str ->
+     ContactPage str ->
         ( model, Cmd.none )
 
-     Services str ->
+     AboutPage str ->
+        ( model, Cmd.none )
+
+     ServicesPage str ->
         ( model, Cmd.none )
 
 
