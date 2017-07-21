@@ -98,7 +98,7 @@ var _user$project$Page$view = function (model) {
 						_elm_lang$html$Html$a,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$href('http://www.miranetworks.net'),
+							_0: _elm_lang$html$Html_Attributes$href('http://www.afrox.com'),
 							_1: {
 								ctor: '::',
 								_0: _user$project$Page$myStyle,
@@ -116,7 +116,7 @@ var _user$project$Page$view = function (model) {
 							_elm_lang$html$Html$a,
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$href('http://www.ilab.com'),
+								_0: _elm_lang$html$Html_Attributes$href('http://www.gijimatechnology.co.za'),
 								_1: {
 									ctor: '::',
 									_0: _user$project$Page$myStyle,
@@ -134,7 +134,7 @@ var _user$project$Page$view = function (model) {
 								_elm_lang$html$Html$a,
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$href('http://www.sabledata.com'),
+									_0: _elm_lang$html$Html_Attributes$href('http://www.bytestechnology.com'),
 									_1: {
 										ctor: '::',
 										_0: _user$project$Page$myStyle,

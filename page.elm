@@ -104,7 +104,7 @@ view model =
  div [myStyle2 ]
     [  div [ menuStyle]
            [ a[ href "http://www.afrox.com", myStyle ] [ text "Home" ]
-           , a[ href "http://www.gijimatechnology.com", myStyle ] [ text " About" ]
+           , a[ href "http://www.gijimatechnology.co.za", myStyle ] [ text " About" ]
            , a[ href "http://www.bytestechnology.com", myStyle] [ text "Contact" ]
            , a[ href "http://www.vodacom.com", myStyle ] [ text "Servicse" ]
            ]
