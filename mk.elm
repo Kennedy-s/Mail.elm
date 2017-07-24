@@ -21,6 +21,7 @@ type alias Model =
   { homePage : String
   , contactPage : String
   , aboutPage : String
+  , servicesPage : String
   }
 
 
@@ -29,6 +30,7 @@ model =
     { homePage = ""
     , contactPage = ""
     , aboutPage = ""
+    , servicesPage = ""
     }
 
 init : ( Model, Cmd Msg)
@@ -42,6 +44,7 @@ type Msg
     = HomePage String
     | ContactPage String
     | AboutPage String
+    | ServicesPage String
 
 
 update : Msg -> Model -> (Model, Cmd msg)
@@ -55,6 +58,9 @@ update msg model =
 
       AboutPage  str->
         ({ model | aboutPage = str}, Cmd.none)
+
+      ServicesPage str ->
+        ({ model | servicesPage = str}, Cmd.none)
 
 
 homeView : Model -> Html Msg
@@ -79,6 +85,13 @@ aboutView model =
         , text "About"
         ]
 
+servicesView : Model -> Html Msg
+servicesView model =
+    div [ id "sevices" ]
+        [ h1 [] [ text "services" ]
+        , text "Seervices"
+        ]
+
 
 
 
@@ -92,6 +105,7 @@ view model =
            [ a[ href "http://www.miranetworks.net", myStyle ] [ text "Home" ]
            , a[ href "http://www.ilab.com", myStyle ] [ text " Contact" ]
            , a[ href "http://www.sabledata.com", myStyle] [ text "About" ]
+           , a[ href "http://www.nemaahentertainmentandservices.co.za", myStyle] [ text "Services" ]
            ]
 
     ]

@@ -164,11 +164,55 @@ var _user$project$Mk$view = function (model) {
 									_0: _elm_lang$html$Html$text('About'),
 									_1: {ctor: '[]'}
 								}),
-							_1: {ctor: '[]'}
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$a,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$href('http://www.nemaahentertainmentandservices.co.za'),
+										_1: {
+											ctor: '::',
+											_0: _user$project$Mk$myStyle,
+											_1: {ctor: '[]'}
+										}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('Services'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}
 						}
 					}
 				}),
 			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Mk$servicesView = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('sevices'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('services'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('Seervices'),
+				_1: {ctor: '[]'}
+			}
 		});
 };
 var _user$project$Mk$aboutView = function (model) {
@@ -266,7 +310,7 @@ var _user$project$Mk$update = F2(
 						{contactPage: _p0._0}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
-			default:
+			case 'AboutPage':
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
@@ -274,16 +318,27 @@ var _user$project$Mk$update = F2(
 						{aboutPage: _p0._0}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
+			default:
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{servicesPage: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
 		}
 	});
-var _user$project$Mk$model = {homePage: '', contactPage: '', aboutPage: ''};
+var _user$project$Mk$model = {homePage: '', contactPage: '', aboutPage: '', servicesPage: ''};
 var _user$project$Mk$init = {ctor: '_Tuple2', _0: _user$project$Mk$model, _1: _elm_lang$core$Platform_Cmd$none};
 var _user$project$Mk$main = _elm_lang$html$Html$program(
 	{init: _user$project$Mk$init, view: _user$project$Mk$view, update: _user$project$Mk$update, subscriptions: _user$project$Mk$subscriptions})();
-var _user$project$Mk$Model = F3(
-	function (a, b, c) {
-		return {homePage: a, contactPage: b, aboutPage: c};
+var _user$project$Mk$Model = F4(
+	function (a, b, c, d) {
+		return {homePage: a, contactPage: b, aboutPage: c, servicesPage: d};
 	});
+var _user$project$Mk$ServicesPage = function (a) {
+	return {ctor: 'ServicesPage', _0: a};
+};
 var _user$project$Mk$AboutPage = function (a) {
 	return {ctor: 'AboutPage', _0: a};
 };
