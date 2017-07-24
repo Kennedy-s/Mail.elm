@@ -132,7 +132,6 @@ type Msg
     | Delete Int
     | Inbox String
     | NewMessage InboxMessage
-  
 
 
 
@@ -216,34 +215,13 @@ update msg model  =
       (model, Cmd.none)
 
     Reply fromUserId ->
-      let
-          inboxMessages = 
-            model.inboxMessages
-
-          pred message =
-            message.id /= message
-
-          updatedInboxMsgs =
-            List.filter pred inboxMessages
-      in 
-        ({ model | inboxMessages = updatedInboxMsgs}, Cmd.none )
-      
+      (model, Cmd.none)
 
     Filter filter ->
       (model, Cmd.none)
 
     Send send ->
-      let
-          inboxMessages =
-            model.inboxMessages 
-
-          pred message =
-            message.id /= message
-
-          updatedInboxMsgs =
-            List.filter pred inboxMessages
-      in
-        ({ model | inboxMessages = updatedInboxMsgs}, Cmd.none )
+      (model, Cmd.none)
 
     Delete messageId ->
       let 
