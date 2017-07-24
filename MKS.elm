@@ -17,14 +17,16 @@ main =
 --Model 
 
 type alias Model =
-     {
-
+     { 
+     , 
+     , 
      }
 
 model : Model
 model =
-    {
-
+    { 
+    , 
+    , 
     }
 
 init : ( Model, Cmd Msg)
@@ -38,7 +40,7 @@ type Msg
     =
     |
     |
-    |
+    
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
