@@ -127,7 +127,13 @@ menuStyle =
     , ("padding", "4px 0")
     , ("display", "fixed")
     ]
-
+menuStyle3 =
+ style
+    [ ("float", "right")
+    , ("margin", "10px")
+    , ("display", "fixed")
+    , ("padding", "10px")
+    ]
 
 --Subscriptions
 

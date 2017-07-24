@@ -224,8 +224,8 @@ update msg model  =
       (model, Cmd.none)
 
     Delete messageId ->
-      let 
-        inboxMessages = 
+      let
+        inboxMessages =
             model.inboxMessages
 
         pred message =
