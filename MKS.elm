@@ -17,16 +17,16 @@ main =
 --Model 
 
 type alias Model =
-     { 
-     , 
-     , 
+     { taxis : String
+     , carHire : String
+     , shuttleCar : String
      }
 
 model : Model
 model =
-    { 
-    , 
-    , 
+    { taxis = ""
+    , carHire = ""
+    , shuttleCar = ""
     }
 
 init : ( Model, Cmd Msg)
@@ -37,14 +37,22 @@ init =
 --update
 
 type Msg
-    =
-    |
-    |
+    = Taxis String
+    | CarHire String
+    | ShuttleCar String
     
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
    case msg of 
+      Taxis str ->
+        ({ model | taxis = str}, Cmd.none)
+
+      CarHire str ->
+        ({ model | carHire = str}, Cmd.none)
+
+      ShuttleCar str ->
+        ({ model | shuttleCar = str}, Cmd.none)
 
 
 
@@ -52,8 +60,8 @@ update msg model =
 
  view : Model -> Html Msg
  view model =
-    div []
-    [ text "Hello"]
+   div []
+        [ text model "Cars" ]
 
 
 --Subscriptions

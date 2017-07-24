@@ -140,6 +140,7 @@ menuStyle =
     , ("backgroundColor", "")
     , ("padding", "4px 0")
     , ("display", "fixed")
+    , ("width", "")
     ]
 menuStyle3 =
  style
