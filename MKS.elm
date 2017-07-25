@@ -17,16 +17,16 @@ main =
 --Model 
 
 type alias Model =
-     { taxis : String
-     , carHire : String
-     , shuttleCar : String
+     {  : String
+     ,  : String
+     ,  : String
      }
 
 model : Model
 model =
-    { taxis = ""
-    , carHire = ""
-    , shuttleCar = ""
+    {  = ""
+    ,  = ""
+    ,  = ""
     }
 
 init : ( Model, Cmd Msg)
@@ -37,21 +37,22 @@ init =
 --update
 
 type Msg
-    = Taxis String
-    | CarHire String
-    | ShuttleCar String
+    =  String
+    |  String
+    |  String
+    |  
     
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
    case msg of 
-      Taxis str ->
+       str ->
         ({ model | taxis = str}, Cmd.none)
 
-      CarHire str ->
+       str ->
         ({ model | carHire = str}, Cmd.none)
 
-      ShuttleCar str ->
+       str ->
         ({ model | shuttleCar = str}, Cmd.none)
 
 
