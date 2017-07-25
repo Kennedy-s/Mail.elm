@@ -18,15 +18,15 @@ main =
 
 type alias Model =
      { playeName : String
-     , playerId : String
-
+     , playerSurname : String
+     , playerId : Int
      }
 
 model : Model
 model =
     { playeName = ""
+    , playerSurname = ""
     , playerId = ""
- 
     }
 
 init : ( Model, Cmd Msg)
@@ -38,6 +38,7 @@ init =
 
 type Msg
     = PlayerName String
+    | PlayerSurname String
     | PlayerId String
       
     
@@ -48,18 +49,19 @@ update msg model =
       PlayerName str ->
         ({ model | playerName = str}, Cmd.none)
 
+      PlayerSurname str ->
+        ({ model | playerSurname = str}, Cmd.none)
+
       PlayerId str ->
         ({ model | playerId = str}, Cmd.none)
 
      
-
-
  --View 
 
  view : Model -> Html Msg
  view model =
    div []
-       [ ]
+       [ text "hello"]
      
 
 
