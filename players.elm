@@ -32,28 +32,28 @@ type alias PlayerId =
 
 
 type alias Player =
-    { id : PlayerId
-    , name : String
-    , level : Int
-    }
+        { id : PlayerId
+        , name : String
+        , level : Int
+        }
 
 
 --Update
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    case msg of 
-        Msg.OnFetchPlayers response ->
-            ({ model | players = response }, Cmd.none )
+  case msg of 
+    Msg.OnFetchPlayers response ->
+        ({ model | players = response }, Cmd.none )
 
 --View
 
 view : WebData (List Player) -> Html Msg
 view response =
-    div []
-        [ nav 
-        , maybeList response
-        ]
+   div []
+       [ nav 
+       , maybeList response
+       ]
 
 
 maybeList : WebData (List Player) -> Html Msg
