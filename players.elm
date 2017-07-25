@@ -7,69 +7,52 @@ import Http exposing (..)
 
 
 main =
-   Html.rogram
-        { init = init
-        , view = view
-        , update = update
-        , subscriptions = subscriptions
-        }
+  Html.program
+    { init = init
+    , view = view
+    , update = update
+    , subscriptions = subscriptions
+    }
 
 --Model
 
-type  alias Model =
-     { players : List Player
+type alias Model =
+     { players : String
      }
+
+model : Model
+model =
+   { players = ""
+   }
 
 init : Model
 init model =
-    { players = [ Player "1" "Kennedy" 1 ]
-    }
-
-
-type alias PlayerId =
-    String
-
-
-
-type alias Player =
-        { id : PlayerId
-        , name : String
-        , level : Int
-        }
+  ( model, Cmd.none)
 
 
 --Update
 
+type Msg
+    = Msg.OnFetchPlayers String
+    | WebData String
+
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
   case msg of 
-    Msg.OnFetchPlayers response ->
-        ({ model | players = response }, Cmd.none )
+    Msg.OnFetchPlayers str ->
+        ({ model | players = str }, Cmd.none )
+
+    WebData str ->
+        ({ model | webData = str }, Cmd.none )
 
 --View
 
-view : WebData (List Player) -> Html Msg
-view response =
-   div []
-       [ nav 
-       , maybeList response
-       ]
+view : Model -> Html Msg
+view model =
+    div []
+        [ text ""]
+            
 
-
-maybeList : WebData (List Player) -> Html Msg
-maybeList response = 
-  case response of
-    RemoteData.NotAsked ->
-      text ""
-
-    RemoteData.Loading ->
-      text "Loading..."
-
-    RemoteData.Success players ->
-      maybeLists players
-
-    RemoteData.Failure error ->
-      text (toString error)
 
 --Subscriptions
 
