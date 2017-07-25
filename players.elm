@@ -1,61 +1,70 @@
-module Players exposing (..)
+module MKS exposing (..)
 
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Html exposing (..)
 import Http exposing (..)
 
-
 main =
   Html.program
-    { init = init
+    { init = init 
     , view = view
-    , update = update
+    , update =update
     , subscriptions = subscriptions
     }
 
---Model
+
+--Model 
 
 type alias Model =
-     { players : String
+     { playeName : String
+     , playerId : String
+
      }
 
 model : Model
 model =
-   { players = ""
-   }
+    { playeName = ""
+    , playerId = ""
+ 
+    }
 
-init : Model
-init model =
-  ( model, Cmd.none)
+init : ( Model, Cmd Msg)
+init =
+  ( Model, Cmd.none )
 
 
---Update
+--update
 
 type Msg
-    = Msg.OnFetchPlayers String
-    | WebData String
+    = PlayerName String
+    | PlayerId String
+      
+    
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-  case msg of 
-    Msg.OnFetchPlayers str ->
-        ({ model | players = str }, Cmd.none )
+   case msg of 
+      PlayerName str ->
+        ({ model | playerName = str}, Cmd.none)
 
-    WebData str ->
-        ({ model | webData = str }, Cmd.none )
+      PlayerId str ->
+        ({ model | playerId = str}, Cmd.none)
 
---View
+     
 
-view : Model -> Html Msg
-view model =
-    div []
-        [ text ""]
-            
+
+ --View 
+
+ view : Model -> Html Msg
+ view model =
+   div []
+       [ ]
+     
 
 
 --Subscriptions
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-  Sub.none
+  Sub.none 
