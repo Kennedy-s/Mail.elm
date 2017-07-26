@@ -177,6 +177,7 @@ user6 =
  , password = "2008"
  }
 
+
 update : Msg -> Model -> (Model, Cmd msg)
 update msg model  =
   case msg of
