@@ -2,16 +2,17 @@ module RadioB exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Html.Events exposing (onClick)
+import Html.Events exposing (onClick, onCheck)
 
 
 
 main =
-  Html.beginnerProgram 
-  { model = chapter1
-  , update = update
-  , view = view
-  }
+  Html.program 
+   { init = init
+   , update = update
+   , view = view
+   , subscriptions = subscriptions
+   }
 
 
 
@@ -24,11 +25,21 @@ type alias Model =
   }
 
 
+model : Model
+model =
+  { fontSize = ""
+  , content = ""
+  }
+
+init : (Model, Cmd Msg)
+init =
+  ( model, Cmd.none )
+
 type FontSize
   = Small
   | Medium
-  | Large
-  | Extra
+  | Large 
+  | Extra 
 
 
 chapter1 : Model
@@ -112,3 +123,10 @@ sizeToStyle fontSize =
           "1.5em"
   in
     style [("font-size", size)]
+
+
+--Subscriptions 
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+  Sub.none
