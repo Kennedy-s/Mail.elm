@@ -6,8 +6,8 @@ import Html exposing (..)
 import Http exposing (..)
 
 main =
-  Html.prograWithFlag
-    { init = flag
+  Html.program
+    { init = init
     , view = view
     , update =update
     , subscriptions = subscriptions
