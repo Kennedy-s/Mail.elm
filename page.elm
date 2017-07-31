@@ -3,12 +3,12 @@ module Page exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Html exposing (..)
-import Http 
+import Http exposing (..)
 
 
 main = 
-  Html.program
-     { init = init
+  Html.programWithFlags
+     { init = flag
      , view = view
      , update = update
      , subscriptions = subscriptions

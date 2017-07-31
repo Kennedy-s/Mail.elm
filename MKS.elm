@@ -6,8 +6,8 @@ import Html exposing (..)
 import Http exposing (..)
 
 main =
-  Html.progra
-    { init = init
+  Html.prograWithFlag
+    { init = flag
     , view = view
     , update =update
     , subscriptions = subscriptions
@@ -17,16 +17,16 @@ main =
 --Model
 
 type alias Model =
-     { : String
-     , : String
-     , : String
+     {  : String
+     ,  : String
+     ,  : String
      }
 
 model : Model
 model =
-    { = ""
-    , = ""
-    , = ""
+    {  = ""
+    ,  = ""
+    ,  = ""
     }
 
 init : ( Model, Cmd Msg)
@@ -37,9 +37,9 @@ init =
 --update
 
 type Msg
-    = String
-    | String
-    | String
+    =  String
+    |  String
+    |  String
     
 
 update : Msg -> Model -> ( Model, Cmd Msg )
