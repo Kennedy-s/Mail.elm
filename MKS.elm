@@ -17,16 +17,16 @@ main =
 --Model
 
 type alias Model =
-     { : String
-     , : String
-     , : String
+     {: String
+     ,: String
+     ,: String
      }
 
 model : Model
 model =
-    {  = ""
-    ,  = ""
-    ,  = ""
+    {= ""
+    ,= ""
+    ,= ""
     }
 
 init : ( Model, Cmd Msg)
@@ -37,9 +37,9 @@ init =
 --update
 
 type Msg
-    = String
-    | String
-    | String
+    =String
+    |String
+    |String
     
 
 update : Msg -> Model -> ( Model, Cmd Msg )
