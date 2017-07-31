@@ -47,13 +47,13 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
    case msg of 
       PlayerName str ->
-        ({ model | playerName = str}, Cmd.none)
+        ({ model | playerName = str }, Cmd.none)
 
       PlayerSurname str ->
-        ({ model | playerSurname = str}, Cmd.none)
+        ({ model | playerSurname = str }, Cmd.none)
 
       PlayerId str ->
-        ({ model | playerId = str}, Cmd.none)
+        ({ model | playerId = str }, Cmd.none)
 
      
  --View 
@@ -61,8 +61,10 @@ update msg model =
  view : Model -> Html Msg
  view model =
    div []
-       [ text "hello"]
-     
+       [ text "hello"
+       , button [ onClick Submit ] [ text "Submit" ]
+       , button [ onClick Cancel ] [ text "Cancel" ]
+       ]
 
 
 --Subscriptions
