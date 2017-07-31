@@ -6,7 +6,7 @@ import Html exposing (..)
 import Http exposing (..)
 
 main =
-  Html.programflags
+  Html.prograWithFlag
     { init = flag
     , view = view
     , update =update
@@ -14,7 +14,7 @@ main =
     }
 
 
---Model 
+--Model
 
 type alias Model =
      {  : String
@@ -40,12 +40,11 @@ type Msg
     =  String
     |  String
     |  String
-    |  
     
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-   case msg of 
+   case msg of
        str ->
         ({ model | taxis = str}, Cmd.none)
 
@@ -57,7 +56,7 @@ update msg model =
 
 
 
- --View 
+ --View
 
  view : Model -> Html Msg
  view model =
