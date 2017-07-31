@@ -3,7 +3,7 @@ module Page exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Html exposing (..)
-import Http exposing (..)
+import Http 
 
 
 main = 
