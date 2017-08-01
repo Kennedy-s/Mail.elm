@@ -103,7 +103,7 @@ validate model =
 
         passwordStatus =
             if String.length model.password < 8 then
-                PasswordTooShort 
+                PasswordTooShort
             else if String.length model.password > 120 then
                 PasswordTooLong
             else
@@ -113,8 +113,8 @@ validate model =
             model.password == model.confirmedPassword
 
         ready =
-            (passwordStatus == ValidPassword)
-                && (emailStatus == ValidEmail)
+            ( passwordStatus == ValidPassword )
+                && ( emailStatus == ValidEmail )
                 && matching
     in
         { model
