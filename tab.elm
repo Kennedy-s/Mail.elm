@@ -51,7 +51,7 @@ view model =
                          , p [] [ text "Contents of tab 1" 
                          ]
                 }
-            
+
             , Tab.item
                 { id = "tabItems2"
                 , link = Tab.link [] [ text "Tab 2 " ]
@@ -68,4 +68,4 @@ view model =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-  Subh.none
+  Sub.none
