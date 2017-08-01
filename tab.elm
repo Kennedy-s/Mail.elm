@@ -15,7 +15,24 @@ main =
 --Model 
 
 type alias Model =
-    { tabState : Tab.State }
+    { tabState : String
+    , tabLink : String
+    , tabPane : String
+    , tabView : String
+    , tabItems : String
+    , tabItem : String
+    }
+
+model : Model
+model =
+    { tabState = ""
+    , tabLink = ""
+    , tabPane = ""
+    , tabView = ""
+    , tabItems = ""
+    , tabItem = ""
+    , state = ""
+    }
 
 
 init : ( Model, Cmd Msg )
@@ -25,7 +42,12 @@ init =
 --Update 
 
 type Msg
-    = TabMsg Tab.State
+    = TabMsg String
+    | TabLink String
+    | TabPane String
+    | TabView String
+    | TabItems String
+    | TabItem String
 
 
 update : Msg -> Model -> ( Model, Cmd msg )
@@ -48,10 +70,9 @@ view model =
                 , pane =
                     Tabe.pane [ class "mt-3" ]
                          [ h4 [] [ text "Tab 1 Heading" ]
-                         , p [] [ text "Contents of tab 1" 
+                         , p [] [ text "Contents of tab 1" ]
                          ]
                 }
-
             , Tab.item
                 { id = "tabItems2"
                 , link = Tab.link [] [ text "Tab 2 " ]
