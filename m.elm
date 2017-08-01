@@ -19,7 +19,7 @@ type alias Model =
 
 init : ( Model, Cmd Msg )
 init = 
-    ( "Hello my name is Mukhethwa Kennedy Siwadawada and am from Limpopo", Cmd.none )
+    ( model, Cmd.none )
 
 
 --MESSAGE
@@ -41,9 +41,14 @@ update  msg model =
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ text model ]
-
+  div []
+    [ Badge.pill [] [ text "Default" ]
+    , Badge.pillPrimary [ class "ml-1" ] [ text "Primary" ]
+    , Badge.pillSuccess [ class "ml-1" ] [ text "Success" ]
+    , Badge.pillInfo [ class "ml-1" ] [ text "Info" ]
+    , Badge.pillWarning [ class "ml-1" ] [ text "Warning" ]
+    , Badge.pillDanger [ class "ml-1" ] [ text "Danger" ]
+    ]
 
 --Subscriptions
 
