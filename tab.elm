@@ -21,7 +21,9 @@ type alias Model =
     , tabView : String
     , tabItems : String
     , tabItem : String
+    , state : String
     }
+
 
 model : Model
 model =
@@ -42,21 +44,39 @@ init =
 --Update 
 
 type Msg
-    = TabMsg String
-    | TabLink String
-    | TabPane String
-    | TabView String
-    | TabItems String
-    | TabItem String
+    = Tab.Msg String
+    | Tab.Link String
+    | Tab.Pane String
+    | Tab.View String
+    | Tab.Items String
+    | Tab.Item String
+    | State String
 
 
 update : Msg -> Model -> ( Model, Cmd msg )
 update msg model =
     case msg of
-          TabMsg state ->
-            ( { model | tabState = state }
-            , Cmd.none
-            )
+          TabMsg str ->
+            ( { model | tabState = str }, Cmd.none )
+
+          TabLink str ->
+            ( { model | tabLink = str }, Cmd.none )
+
+          TabPane str ->
+            ( { model | tabPane = str }, Cmd.none )
+
+          TabView str -> 
+            ( { model | tabView = str }, Cmd.none )
+
+          TabeItems str ->
+            ( { model | tabItems = str }, Cmd.none )
+
+          TabItem str -> 
+            ( { model | tabItem = str }, Cmd.none )
+
+          State str ->
+            ( { model |state = str }, Cmd.none )
+          
 
 --View 
 
@@ -82,8 +102,8 @@ view model =
                         , p [] [ text "This is somethibg completely different" ]
                         ]       
                 }
-            , Tab.view state.tabState
             ]
+           Tab.view state.tabState
 
 --Subscriptions
 
