@@ -44,12 +44,12 @@ init =
 --Update 
 
 type Msg
-    = Tab.Msg String
-    | Tab.Link String
-    | Tab.Pane String
-    | Tab.View String
-    | Tab.Items String
-    | Tab.Item String
+    = TabMsg String
+    | TabLink String
+    | TabPane String
+    | TabView String
+    | TabItems String
+    | TabItem String
     | State String
 
 
