@@ -19,7 +19,7 @@ var _user$project$Main$footerStyle = _elm_lang$html$Html_Attributes$style(
 						_0: {ctor: '_Tuple2', _0: 'background-color', _1: ''},
 						_1: {
 							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'display', _1: 'fixed'},
+							_0: {ctor: '_Tuple2', _0: 'display', _1: ''},
 							_1: {ctor: '[]'}
 						}
 					}
@@ -39,7 +39,7 @@ var _user$project$Main$menuStyle = _elm_lang$html$Html_Attributes$style(
 				_0: {ctor: '_Tuple2', _0: 'padding', _1: '4px 0'},
 				_1: {
 					ctor: '::',
-					_0: {ctor: '_Tuple2', _0: 'display', _1: 'fixed'},
+					_0: {ctor: '_Tuple2', _0: 'display', _1: ''},
 					_1: {ctor: '[]'}
 				}
 			}
@@ -85,7 +85,7 @@ var _user$project$Main$myStyle = _elm_lang$html$Html_Attributes$style(
 						_0: {ctor: '_Tuple2', _0: 'color', _1: '#d90000'},
 						_1: {
 							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'display', _1: 'fixed'},
+							_0: {ctor: '_Tuple2', _0: 'display', _1: ''},
 							_1: {
 								ctor: '::',
 								_0: {ctor: '_Tuple2', _0: 'width', _1: '100%'},

@@ -123,7 +123,7 @@ myStyle =
     , ("backgroundColor", "blue")
     , ( "text-align", "right")
     , ("color", "#d90000")
-    , ("display", "fixed")
+    , ("display", "")
     , ("width", "100%")
     , ("border-radius", "70%")
     ]
@@ -144,7 +144,7 @@ menuStyle =
     [ ("float", "right")
     , ("backgroundColor", "")
     , ("padding", "4px 0")
-    , ("display", "fixed")
+    , ("display", "")
     ]
 
 
@@ -155,7 +155,7 @@ footerStyle =
    , ("float", "")
    , ("text-align", "justify")
    , ("background-color", "")
-   , ("display", "fixed")
+   , ("display", "")
    ]
 
 --Subscriptions
