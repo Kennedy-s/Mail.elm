@@ -62,9 +62,9 @@ update msg model =
 
     Greet str ->
      let
-        _ = Debug.log "debug" str
+       _ = Debug.log "debug" str
      in
-        (model, Cmd.none)
+       (model, Cmd.none)
 
     Submit ->
       (model, Cmd.none)
