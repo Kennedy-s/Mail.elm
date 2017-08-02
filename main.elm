@@ -135,11 +135,11 @@ myStyle2 =
     , ("height", "100%")
     , ("float", "center")
     , ("padding", "10px")
-    , ("margin", "0px")
+    , ("margin", "10px")
     ]
 
 
-menuStyle = 
+menuStyle =
  style
     [ ("float", "right")
     , ("backgroundColor", "")
@@ -149,7 +149,7 @@ menuStyle =
 
 
 footerStyle =
- style 
+ style
    [ ("padding", "10px")
    , ("margin", "10px")
    , ("float", "")
