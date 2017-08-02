@@ -81,7 +81,7 @@ view model =
   , button [ onClick Departure ][ text "check out"]
   , div [] []
   , input [ onClick (Greet "hello") ][ text "Greet the taxi rank chairman."]
-  , button [ onClick Submit ] [ text "Submit" ] 
+  , button [ onClick Submit ] [ text "Submit" ]
   ]
 
 --Subscriptions
