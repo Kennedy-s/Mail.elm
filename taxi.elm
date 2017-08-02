@@ -3,7 +3,7 @@ module Taxi exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
 import Html exposing (..)
-import Http
+import Http exposing (..)
 
 
 main =
