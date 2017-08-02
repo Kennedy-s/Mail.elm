@@ -65,13 +65,13 @@ update msg model =
           TabPane str ->
             ( { model | tabPane = str }, Cmd.none )
 
-          TabView str -> 
+          TabView str ->
             ( { model | tabView = str }, Cmd.none )
 
           TabeItems str ->
             ( { model | tabItems = str }, Cmd.none )
 
-          TabItem str -> 
+          TabItem str ->
             ( { model | tabItem = str }, Cmd.none )
 
           State str ->
