@@ -221,10 +221,10 @@ update msg model  =
             model.inboxMessages
         
         pred message =
-          message.id /= messageId
+          message.id /= fromUserId
         
         updatedInboxMsgs =
-          List,filter pre inboxMessages
+          List.filter pred fromUserId subject messageBody
       in
       ({ model | inboxMessages = fromUserId},  Cmd.none)
 
