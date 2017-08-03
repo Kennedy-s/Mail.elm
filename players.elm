@@ -40,26 +40,27 @@ type Msg
     = PlayerName String
     | PlayerSurname String
     | PlayerId String
+    | Submit String
+    | Cancel String
       
     
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
    case msg of 
-      PlayerName str ->
+      PlayerName str->
         ({ model | playerName = str }, Cmd.none)
 
-      PlayerSurname str ->
+      PlayerSurname str->
         ({ model | playerSurname = str }, Cmd.none)
 
-      PlayerId str ->
+      PlayerId str->
         ({ model | playerId = str }, Cmd.none)
 
-     
- --View 
 
- view : Model -> Html Msg
- view model =
+--View
+view : Model -> Html Msg
+view model =
    div []
        [ text "hello"
        , button [ onClick Submit ] [ text "Submit" ]
