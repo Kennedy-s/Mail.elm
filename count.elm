@@ -1,8 +1,8 @@
 module Player exposing (..)
 
 import Html exposing (Html, div, text, program)
-import Mouse (..)
-import Keyboard (..)
+import Mouse 
+import Keyboard 
 
 
 -- Main

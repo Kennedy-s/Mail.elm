@@ -3,13 +3,13 @@ var _user$project$RadioB$sizeToStyle = function (fontSize) {
 		var _p0 = fontSize;
 		switch (_p0.ctor) {
 			case 'Small':
-				return '0.8em';
+				return '1.8em';
 			case 'Medium':
-				return '1em';
+				return '2.2em';
 			case 'Large':
-				return '1.2em';
+				return '2.6em';
 			default:
-				return '1.5em';
+				return '3.0em';
 		}
 	}();
 	return _elm_lang$html$Html_Attributes$style(
