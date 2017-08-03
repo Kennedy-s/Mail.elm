@@ -126,7 +126,7 @@ type Msg
     | Login
     | Logout
     | Message String
-    | Reply String Int String
+    | Reply String
     | Filter String
     | Send  String
     | Delete Int
@@ -215,18 +215,8 @@ update msg model  =
     Message message ->
       (model, Cmd.none)
 
-    Reply fromUserId subject messageBody ->
-      let 
-        inboxMessages =
-            model.inboxMessages
-
-        pred message = 
-          message.id /= messageId
-
-        updatedInboxMsgs =
-          List.filter pred inboxMessages
-      in
-      ({ model | inboxMessages = updatedInboxMsgs}, Cmd.none )
+    Reply fromUserId ->
+      (model, Cmd.none)
 
     Filter filter ->
       (model, Cmd.none)
@@ -278,7 +268,7 @@ inboxPage model =
 addInboxMessage inboxMessage =
   li [] [ text inboxMessage.messageBody
         , button [onClick ( Delete inboxMessage.id), value "Delete" ] [ text "delete"]
-        , button [onClick ( Reply inboxMessages.id), value "Reply" ] [ text "reply"]
+        , button [onClick ( Reply "reply"), value "Reply" ] [ text "reply"]
         ]
 
            
@@ -321,7 +311,7 @@ sendView model =
               []
       , button [ onClick (Send "") ] [ text "Send"]
       , button [ onClick (Delete 0)] [ text "Delete"]
-      , button [ onClick (Reply 0)] [ text "Reply"]
+      , button [ onClick (Reply "")] [ text "Reply"]
       ]
 
 
@@ -329,7 +319,7 @@ view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
     True ->
-      inboxMessages model
+      messagePage model
     False ->
       loginPage model
   
