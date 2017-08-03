@@ -100,15 +100,15 @@ sizeToStyle fontSize =
     size =
       case fontSize of
         Small ->
-          "0.8em"
+          "1.8em"
 
         Medium ->
-          "1em"
+          "2.2em"
 
         Large ->
-          "1.2em"
+          "2.6em"
 
         Extra ->
-          "1.5em"
+          "3.0em"
   in
     style [("font-size", size)]

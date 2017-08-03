@@ -216,17 +216,7 @@ update msg model  =
       (model, Cmd.none)
 
     Reply fromUserId ->
-      let
-        inboxMessages =
-            model.inboxMessages
-        
-        pred message =
-          message.id /= fromUserId
-        
-        updatedInboxMsgs =
-          List.filter pred fromUserId subject messageBody
-      in
-      ({ model | inboxMessages = fromUserId},  Cmd.none)
+      (model, Cmd.none)
 
     Filter filter ->
       (model, Cmd.none)

@@ -1,9 +1,9 @@
 module NavBar exposing (..)
 
 import Html exposing (..)
-import Mouse
-import Keyboard
-import Http
+import Mouse (..)
+import Keyboard (..)
+import Http (..)
 
 
 
