@@ -216,7 +216,17 @@ update msg model  =
       (model, Cmd.none)
 
     Reply fromUserId ->
-      (model, Cmd.none)
+      let
+        inboxMessages =
+            model.inboxMessages
+        
+        pred message =
+          message.id /= messageId
+        
+        updatedInboxMsgs =
+          List,filter pre inboxMessages
+      in
+      ({ model | inboxMessages = fromUserId},  Cmd.none)
 
     Filter filter ->
       (model, Cmd.none)
@@ -319,7 +329,7 @@ view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
     True ->
-      messagePage model
+      inboxPage model
     False ->
       loginPage model
   
