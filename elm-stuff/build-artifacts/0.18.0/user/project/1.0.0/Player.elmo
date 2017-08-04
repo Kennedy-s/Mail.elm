@@ -13,12 +13,12 @@ var _user$project$Player$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
 		if (_p0.ctor === 'MouseMsg') {
-			return {ctor: '_Tuple2', _0: model + 1, _1: _elm_lang$core$Platform_Cmd$none};
-		} else {
 			return {ctor: '_Tuple2', _0: model + 2, _1: _elm_lang$core$Platform_Cmd$none};
+		} else {
+			return {ctor: '_Tuple2', _0: model + 4, _1: _elm_lang$core$Platform_Cmd$none};
 		}
 	});
-var _user$project$Player$init = {ctor: '_Tuple2', _0: 0, _1: _elm_lang$core$Platform_Cmd$none};
+var _user$project$Player$init = {ctor: '_Tuple2', _0: 1, _1: _elm_lang$core$Platform_Cmd$none};
 var _user$project$Player$KeyMsg = function (a) {
 	return {ctor: 'KeyMsg', _0: a};
 };
