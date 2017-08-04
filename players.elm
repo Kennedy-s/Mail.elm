@@ -14,7 +14,7 @@ main =
     }
 
 
---Model 
+--Model
 
 type alias Model =
      { playeName : String
@@ -31,7 +31,7 @@ model =
 
 init : ( Model, Cmd Msg)
 init =
-  ( Model, Cmd.none )
+  (model, Cmd.none)
 
 
 --update
