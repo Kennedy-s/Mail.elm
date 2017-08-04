@@ -467,7 +467,23 @@ var _user$project$Mail$sendView = function (model) {
 										_0: _elm_lang$html$Html$text('Reply'),
 										_1: {ctor: '[]'}
 									}),
-								_1: {ctor: '[]'}
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$button,
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Events$onClick(
+												_user$project$Mail$Forward('')),
+											_1: {ctor: '[]'}
+										},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('Forward'),
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
+								}
 							}
 						}
 					}
@@ -620,7 +636,7 @@ var _user$project$Mail$loginPage = function (model) {
 var _user$project$Mail$view = function (model) {
 	var _p2 = _elm_lang$core$Native_Utils.eq(model.message, 'Ok');
 	if (_p2 === true) {
-		return _user$project$Mail$inboxPage(model);
+		return _user$project$Mail$sendView(model);
 	} else {
 		return _user$project$Mail$loginPage(model);
 	}

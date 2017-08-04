@@ -319,6 +319,7 @@ sendView model =
       , button [ onClick (Send "") ] [ text "Send"]
       , button [ onClick (Delete 0)] [ text "Delete"]
       , button [ onClick (Reply "")] [ text "Reply"]
+      , button [ onClick (Forward "")] [ text "Forward"]
       ]
 
 
@@ -326,7 +327,7 @@ view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
     True ->
-      inboxPage model
+      sendView model
     False ->
       loginPage model
   
