@@ -216,33 +216,13 @@ update msg model  =
       (model, Cmd.none)
 
     Reply fromUserId ->
-      let
-        inboxMessages =
-            model.inboxMessages
-
-        pred message =
-            message.id /= messageId
-
-        updatedInboxMsgs =
-            List.filter pred inboxMessages
-      in 
-      ({ model | inboxMessages = updatedInboxMsgs}, Cmd.none)
+      (model, Cmd.none)
 
     Filter filter ->
       (model, Cmd.none)
 
     Send send ->
-      let
-        inboxMessages =
-            model.inboxMessages
-
-        pred message =
-            message.id /= messageId
-
-        updatedInboxMsgs =
-            List.filter pre inboxMessages
-      in
-      ({ model | inboxMessages = updatedInboxMsgs}, Cmd.none)
+      (model, Cmd.none)
 
     Delete messageId ->
       let
@@ -288,7 +268,7 @@ inboxPage model =
 addInboxMessage inboxMessage =
   li [] [ text inboxMessage.messageBody
         , button [onClick ( Delete inboxMessage.id), value "Delete" ] [ text "delete"]
-        , button [onClick ( Reply inboxMessage.id), value "Reply" ] [ text "reply"]
+        , button [onClick ( Reply "reply"), value "Reply" ] [ text "reply"]
         ]
 
            
