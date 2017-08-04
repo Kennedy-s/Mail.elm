@@ -20,6 +20,8 @@ type alias Model =
      { playeName : String
      , playerSurname : String
      , playerId : Int
+     , submit : String
+     , cancel : String
      }
 
 model : Model
@@ -27,11 +29,13 @@ model =
     { playeName = ""
     , playerSurname = ""
     , playerId = ""
+    , submit = ""
+    , cancel = ""
     }
 
 init : ( Model, Cmd Msg)
 init =
-  (model, Cmd.none)
+  ( model, Cmd.none)
 
 
 --update

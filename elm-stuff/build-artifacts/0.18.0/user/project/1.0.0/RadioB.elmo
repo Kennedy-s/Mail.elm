@@ -65,7 +65,7 @@ var _user$project$RadioB$update = F2(
 			model,
 			{fontSize: _p1._0});
 	});
-var _user$project$RadioB$intro = '\n\n# Kennedy Siwadawada\n\n## Chapter 1\n\nHappy families are all alike; every unhappy family is unhappy in its own way.\n\nEverything was in confusion in the Oblonskys’ house. The wife had discovered\nthat the husband was carrying on an intrigue with a French girl, who had been\na governess in their family, and she had announced to her husband that she\ncould not go on living in the same house with him...\n\n';
+var _user$project$RadioB$intro = '';
 var _user$project$RadioB$Model = F2(
 	function (a, b) {
 		return {fontSize: a, content: b};

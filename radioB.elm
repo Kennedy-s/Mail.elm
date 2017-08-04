@@ -37,21 +37,7 @@ chapter1 =
 
 
 intro : String
-intro = """
-
-# Kennedy Siwadawada
-
-## Chapter 1
-
-Happy families are all alike; every unhappy family is unhappy in its own way.
-
-Everything was in confusion in the Oblonskys’ house. The wife had discovered
-that the husband was carrying on an intrigue with a French girl, who had been
-a governess in their family, and she had announced to her husband that she
-could not go on living in the same house with him...
-
-"""
-
+intro = ""
 
 
 -- UPDATE

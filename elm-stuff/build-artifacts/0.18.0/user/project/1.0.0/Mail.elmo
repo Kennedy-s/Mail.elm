@@ -348,16 +348,6 @@ var _user$project$Mail$inboxPage = function (model) {
 			}
 		});
 };
-var _user$project$Mail$view = function (model) {
-	var _p2 = _elm_lang$core$Native_Utils.eq(model.message, 'Ok');
-	if (_p2 === true) {
-		return _user$project$Mail$messagePage(model);
-	} else {
-		return _user$project$Mail$inboxPage(model);
-	}
-};
-var _user$project$Mail$main = _elm_lang$html$Html$program(
-	{init: _user$project$Mail$init, view: _user$project$Mail$view, update: _user$project$Mail$update, subscriptions: _user$project$Mail$subscriptions})();
 var _user$project$Mail$sendView = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
@@ -599,3 +589,13 @@ var _user$project$Mail$loginPage = function (model) {
 			}
 		});
 };
+var _user$project$Mail$view = function (model) {
+	var _p2 = _elm_lang$core$Native_Utils.eq(model.message, 'Ok');
+	if (_p2 === true) {
+		return _user$project$Mail$inboxPage(model);
+	} else {
+		return _user$project$Mail$loginPage(model);
+	}
+};
+var _user$project$Mail$main = _elm_lang$html$Html$program(
+	{init: _user$project$Mail$init, view: _user$project$Mail$view, update: _user$project$Mail$update, subscriptions: _user$project$Mail$subscriptions})();
