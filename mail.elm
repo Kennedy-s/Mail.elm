@@ -322,7 +322,6 @@ sendView model =
       , button [ onClick (Forward "")] [ text "Forward"]
       ]
 
-
 view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
@@ -331,7 +330,6 @@ view model =
     False ->
       loginPage model
   
-
 
 -- Subscriptions
 

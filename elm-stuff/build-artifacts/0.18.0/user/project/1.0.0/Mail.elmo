@@ -636,7 +636,7 @@ var _user$project$Mail$loginPage = function (model) {
 var _user$project$Mail$view = function (model) {
 	var _p2 = _elm_lang$core$Native_Utils.eq(model.message, 'Ok');
 	if (_p2 === true) {
-		return _user$project$Mail$sendView(model);
+		return _user$project$Mail$inboxPage(model);
 	} else {
 		return _user$project$Mail$loginPage(model);
 	}
