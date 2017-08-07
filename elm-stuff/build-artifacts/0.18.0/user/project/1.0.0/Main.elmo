@@ -10,7 +10,7 @@ var _user$project$Main$footerStyle = _elm_lang$html$Html_Attributes$style(
 			_0: {ctor: '_Tuple2', _0: 'margin', _1: '10px'},
 			_1: {
 				ctor: '::',
-				_0: {ctor: '_Tuple2', _0: 'float', _1: 'down'},
+				_0: {ctor: '_Tuple2', _0: 'float', _1: ''},
 				_1: {
 					ctor: '::',
 					_0: {ctor: '_Tuple2', _0: 'text-align', _1: 'justify'},
