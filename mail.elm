@@ -204,7 +204,7 @@ update msg model  =
             Just user ->
               "Ok"
             Nothing ->
-              "Invalid username/password"
+              "Invalid username or password"
 
         validate user =
           (user.username == model.username && user.password == model.password)
@@ -327,7 +327,7 @@ view : Model -> Html Msg
 view model =
   case model.message == "Ok" of
     True ->
-      sendView model
+      inboxPage model
     False ->
       loginPage model
   

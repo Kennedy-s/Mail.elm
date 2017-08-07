@@ -30,7 +30,7 @@ var _user$project$Mail$update = F2(
 					if (_p1.ctor === 'Just') {
 						return 'Ok';
 					} else {
-						return 'Invalid username/password';
+						return 'Invalid username or password';
 					}
 				};
 				var validationMessage = justUser(
