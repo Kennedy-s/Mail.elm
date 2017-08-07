@@ -113,6 +113,7 @@ view model =
           ]
 
     , text "Copyright@miranetworks.net 2017"
+
     ]
 
 
