@@ -299,7 +299,7 @@ loginPage model =
        , input [ id "password-field"
                , type_ "password"
                , value model.password
-               , on "input" (Json.map (\str -> Password str) targetValue)      
+               , on "input" (Json.map (\str -> Password str) targetValue)
                ]
                []
        , button [ onClick Login ] [ text "Login" ]
