@@ -113,7 +113,7 @@ view model =
           ]
 
     , text "Copyright@miranetworks.net 2017"
-
+    , nullable : Decoder a -> Decoder (Maybe a)
     ]
 
 
