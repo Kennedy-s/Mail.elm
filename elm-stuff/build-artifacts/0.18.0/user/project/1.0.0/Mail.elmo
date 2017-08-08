@@ -66,8 +66,6 @@ var _user$project$Mail$update = F2(
 						{inboxMessages: updatedInboxMsgs}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
-			case 'Forward':
-				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			case 'Inbox':
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			default:
@@ -96,7 +94,6 @@ var _user$project$Mail$model = {
 	filter: '',
 	send: '',
 	$delete: '',
-	forward: '',
 	inbox: '',
 	newMessages: '',
 	users: {
@@ -164,9 +161,7 @@ var _user$project$Mail$Model = function (a) {
 										return function (k) {
 											return function (l) {
 												return function (m) {
-													return function (n) {
-														return {username: a, password: b, login: c, logout: d, message: e, reply: f, filter: g, send: h, $delete: i, forward: j, inbox: k, newMessages: l, users: m, inboxMessages: n};
-													};
+													return {username: a, password: b, login: c, logout: d, message: e, reply: f, filter: g, send: h, $delete: i, inbox: j, newMessages: k, users: l, inboxMessages: m};
 												};
 											};
 										};
@@ -193,9 +188,6 @@ var _user$project$Mail$NewMessage = function (a) {
 };
 var _user$project$Mail$Inbox = function (a) {
 	return {ctor: 'Inbox', _0: a};
-};
-var _user$project$Mail$Forward = function (a) {
-	return {ctor: 'Forward', _0: a};
 };
 var _user$project$Mail$Delete = function (a) {
 	return {ctor: 'Delete', _0: a};
@@ -322,27 +314,7 @@ var _user$project$Mail$addInboxMessage = function (inboxMessage) {
 							_0: _elm_lang$html$Html$text('reply'),
 							_1: {ctor: '[]'}
 						}),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_elm_lang$html$Html$button,
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html_Events$onClick(
-									_user$project$Mail$Forward('forward')),
-								_1: {
-									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$value('Forward'),
-									_1: {ctor: '[]'}
-								}
-							},
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html$text('forward'),
-								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
-					}
+					_1: {ctor: '[]'}
 				}
 			}
 		});
@@ -467,23 +439,7 @@ var _user$project$Mail$sendView = function (model) {
 										_0: _elm_lang$html$Html$text('Reply'),
 										_1: {ctor: '[]'}
 									}),
-								_1: {
-									ctor: '::',
-									_0: A2(
-										_elm_lang$html$Html$button,
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html_Events$onClick(
-												_user$project$Mail$Forward('')),
-											_1: {ctor: '[]'}
-										},
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html$text('Forward'),
-											_1: {ctor: '[]'}
-										}),
-									_1: {ctor: '[]'}
-								}
+								_1: {ctor: '[]'}
 							}
 						}
 					}
