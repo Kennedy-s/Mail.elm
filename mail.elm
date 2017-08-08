@@ -28,6 +28,7 @@ type alias Model =
   , filter : String
   , send  : String
   , delete : String
+  , forward : String
   , inbox : String
   , newMessages : String
   , users : List User
@@ -46,6 +47,7 @@ model =
   , filter = ""
   , send = ""
   , delete = ""
+  , forward = ""
   , inbox = ""
   , newMessages = ""
   , users = [ user1, user2, user3, user4, user5, user6 ]
@@ -130,6 +132,7 @@ type Msg
     | Filter String
     | Send  String
     | Delete Int
+    | Forward String
     | Inbox String
     | NewMessage InboxMessage
 
@@ -235,7 +238,11 @@ update msg model  =
         updatedInboxMsgs =
           List.filter pred inboxMessages
       in
-        ({ model | inboxMessages = updatedInboxMsgs}, Cmd.none )  
+        ({ model | inboxMessages = updatedInboxMsgs}, Cmd.none )
+
+    Forward forward ->
+      (model, Cmd.none)
+      
 
     Inbox inbox ->
       (model, Cmd.none)
@@ -268,6 +275,7 @@ addInboxMessage inboxMessage =
   li [] [ text inboxMessage.messageBody
         , button [onClick ( Delete inboxMessage.id), value "Delete" ] [ text "delete"]
         , button [onClick ( Reply "reply"), value "Reply" ] [ text "reply"]
+        , button [onClick ( Forward "forward"), value "Forward" ] [ text "forward"]
         ]
 
            
@@ -311,6 +319,7 @@ sendView model =
       , button [ onClick (Send "") ] [ text "Send"]
       , button [ onClick (Delete 0)] [ text "Delete"]
       , button [ onClick (Reply "")] [ text "Reply"]
+      , button [ onClick (Forward "")] [ text "Forward"]
       ]
 
 view : Model -> Html Msg
