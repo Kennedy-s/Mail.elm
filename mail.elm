@@ -3,7 +3,6 @@ module Mail exposing (..)
 import Html.Attributes exposing (id, class, value, type_)
 import Html.Events exposing (..)
 import Html exposing (..)
-import Http exposing (..)
 import Json.Decode as Json 
 
 
