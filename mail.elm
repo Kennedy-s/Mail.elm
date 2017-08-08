@@ -320,6 +320,7 @@ sendView model =
       , button [ onClick (Delete 0)] [ text "Delete"]
       , button [ onClick (Reply "")] [ text "Reply"]
       , button [ onClick (Forward "")] [ text "Forward"]
+      , slice  [ (fromList [] ) == fromList 0,1,2]
       ]
 
 view : Model -> Html Msg
