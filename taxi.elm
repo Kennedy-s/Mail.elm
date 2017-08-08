@@ -66,13 +66,8 @@ update msg model =
      in
        (model, Cmd.none)
 
-    nullable : Decoder a -> Decoder (Maybe a)
-    
     Submit ->
       (model, Cmd.none)
-
-stringLength : Decoder Int
-stringLength : Decoder Int
 
 -- View
 

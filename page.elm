@@ -107,7 +107,6 @@ view model =
            , a[ href "http://www.gijimatechnology.co.za", myStyle ] [ text " About" ]
            , a[ href "http://www.bytestechnology.com", myStyle] [ text "Contact" ]
            , a[ href "http://www.vodacom.com", myStyle ] [ text "Servicse" ]
-           , nullable : Decoder a -> Decoder (Maybe a)
            ]
     ]
 
