@@ -275,7 +275,7 @@ addInboxMessage inboxMessage =
   li [] [ text inboxMessage.messageBody
         , button [onClick ( Delete inboxMessage.id), value "Delete" ] [ text "delete"]
         , button [onClick ( Reply "reply"), value "Reply" ] [ text "reply"]
-        , button [onClick ( Forward ""), value "Forward" ] [ text "forward"]
+        , button [onClick ( Forward "forward"), value "Forward" ] [ text "forward"]
         ]
 
            

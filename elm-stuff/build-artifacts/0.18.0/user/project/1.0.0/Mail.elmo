@@ -329,7 +329,7 @@ var _user$project$Mail$addInboxMessage = function (inboxMessage) {
 							{
 								ctor: '::',
 								_0: _elm_lang$html$Html_Events$onClick(
-									_user$project$Mail$Forward('')),
+									_user$project$Mail$Forward('forward')),
 								_1: {
 									ctor: '::',
 									_0: _elm_lang$html$Html_Attributes$value('Forward'),
