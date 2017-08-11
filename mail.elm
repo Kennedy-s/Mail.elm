@@ -235,13 +235,23 @@ update msg model  =
         pred message =
           message.id /= messageId
 
-        updatedInboxMsgs =
+        updatedInbox =
           List.filter pred inboxMessages
       in
-        ({ model | inboxMessages = updatedInboxMsgs}, Cmd.none )
+        ({ model | inboxMessages = updatedInbox }, Cmd.none )
 
     Forward forward ->
-      (model, Cmd.none)
+      let
+        inboxMessages =
+           model.inboxMessages
+
+        pred message =
+           message.id /= message.id
+
+        updatedInbox =
+           List.message pred inboxMessages
+      in
+      ({ model | inboxMessages = updatedInbox }, Cmd.none )
       
 
     Inbox inbox ->
