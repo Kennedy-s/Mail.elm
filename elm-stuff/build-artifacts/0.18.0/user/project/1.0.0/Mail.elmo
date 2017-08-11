@@ -55,7 +55,7 @@ var _user$project$Mail$update = F2(
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			case 'Delete':
 				var pred = function (message) {
-					return !_elm_lang$core$Native_Utils.eq(message.id, _p0._0);
+					return !_elm_lang$core$Native_Utils.eq(message.id, message.id);
 				};
 				var inboxMessages = model.inboxMessages;
 				var updatedInbox = A2(_elm_lang$core$List$filter, pred, inboxMessages);
@@ -340,7 +340,7 @@ var _user$project$Mail$addInboxMessage = function (inboxMessage) {
 							{
 								ctor: '::',
 								_0: _elm_lang$html$Html_Events$onClick(
-									_user$project$Mail$Forward('forward')),
+									_user$project$Mail$Forward(inboxMessage.id)),
 								_1: {
 									ctor: '::',
 									_0: _elm_lang$html$Html_Attributes$value('Forward'),
@@ -485,7 +485,7 @@ var _user$project$Mail$sendView = function (model) {
 										{
 											ctor: '::',
 											_0: _elm_lang$html$Html_Events$onClick(
-												_user$project$Mail$Forward('')),
+												_user$project$Mail$Forward(0)),
 											_1: {ctor: '[]'}
 										},
 										{
