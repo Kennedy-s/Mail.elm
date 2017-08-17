@@ -180,7 +180,6 @@ user6 =
  , password = "2008"
  }
 
-join@nicework.co.za
 update : Msg -> Model -> (Model, Cmd msg)
 update msg model  =
   case msg of
