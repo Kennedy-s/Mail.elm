@@ -15,7 +15,7 @@ main =
      }
 
 
---Model
+--MODEL
 
 type alias Model =
     { homePage : String
@@ -40,7 +40,7 @@ init =
   ( model, Cmd.none)
 
 
---Update
+--UPDATE
 
 type Msg
     = HomePage String
@@ -97,7 +97,7 @@ serviceView model =
 
 
 
---View
+--VIEW
 
 view : Model -> Html Msg
 view model =
@@ -143,7 +143,7 @@ menuStyle =
     ]
 
 
---Subscriptions 
+--SUBSCRIPTIONS
 
 subscriptions : Model -> Sub Msg
 subscriptions model =

@@ -18,7 +18,7 @@ main =
 type alias TaxiId = Int
 
 
--- Model
+-- MODEL
 
 type alias Model =
    { atRankCount : Int
@@ -39,7 +39,7 @@ init =
   ( model, Cmd.none)
 
 
---Update
+--UPDATE
 
   --  Msg  - action
 
@@ -69,7 +69,7 @@ update msg model =
     Submit ->
       (model, Cmd.none)
 
--- View
+-- VIEW
 
 view : Model -> Html Msg
 view model =
@@ -84,7 +84,7 @@ view model =
   , button [ onClick Submit ] [ text "Submit" ]
   ]
 
---Subscriptions
+--SUBSCRIPTIONS
 
 subscriptions : Model -> Sub Msg
 subscriptions model =

@@ -15,7 +15,7 @@ main =
         , subscriptions = subscriptions
         }
 
---Model
+--MODEL
 
 type alias Model
     { page : page
@@ -53,7 +53,7 @@ init location =
     in
         ( model, Cmd.batch [ urlCmd, navCmd ] )
 
---Update
+--UPDATE
 
 type Msg
     = UrlChange Location
@@ -112,7 +112,7 @@ view model =
         ]
 
 
---Subscriptions
+--SUBSCRIPTIONS
 
 
 subscriptions : Model -> Sub Msg

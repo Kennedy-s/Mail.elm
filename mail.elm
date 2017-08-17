@@ -16,7 +16,7 @@ main =
     }
 
 
--- Model
+-- MODEL
 
 type alias Model =
   { username : String
@@ -120,7 +120,7 @@ init =
 
 
 
--- Update
+-- UPDATE
  
 type Msg
     = Username String
@@ -279,7 +279,7 @@ addInboxMessage inboxMessage =
         ]
 
            
--- View
+-- VIEW
 
 loginPage : Model -> Html Msg
 loginPage model =
@@ -331,8 +331,8 @@ view model =
       loginPage model
   
 
--- Subscriptions
+-- SUBSCRIPTIONS
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
- Sub.none
+ Sub.patch

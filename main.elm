@@ -14,7 +14,7 @@ main =
   }
 
 
---Model
+--MODEL
 
 type alias Model =
    
@@ -41,7 +41,7 @@ init =
 
 
 
---Update
+--UPDATE
 
 type Msg
     = HomePage String
@@ -97,7 +97,7 @@ serviceView model =
        ]
 
  
---View
+--VIEW
 
 view : Model -> Html Msg
 view model =
@@ -158,7 +158,7 @@ footerStyle =
    , ("display", "")
    ]
 
---Subscriptions
+--SUBSCRIPTIONS
 
 subscriptions : Model -> Sub Msg
 subscriptions model =

@@ -12,7 +12,7 @@ main =
         , view = view
         }
 
---Model
+--MODEL
 
 type alias Model =
     { email : String
@@ -59,7 +59,7 @@ type PasswordStatus
     | ValidPassword
 
 
---Update
+--UPDATE
 
 type Msg
     = ChangeEmail String
@@ -126,7 +126,7 @@ validate model =
         }
 
 
---View
+--VIEW
 
 view model =
     Html.div []
@@ -240,7 +240,7 @@ empty =
     text ""
 
 
---Subscriptions
+--SUBSCRIPTIONS
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
