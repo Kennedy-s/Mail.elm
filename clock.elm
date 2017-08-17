@@ -17,7 +17,7 @@ main =
  
  
  
- -- MODEL
+ -- Model
  
  
 type alias Model = 
@@ -41,7 +41,7 @@ init =
    (initialModel, Cmd.none)
 
  
- -- UPDATE
+ -- Update
  
  
 type Msg
@@ -75,7 +75,7 @@ update msg model =
  
  
 
- -- VIEW
+ -- View
  
  
 view : Model -> Html Msg
@@ -109,7 +109,7 @@ view model =
 
 
 
- -- SUBSCRIPTIONS
+ -- Subscriptions
  
 subscriptions : Model -> Sub Msg
 subscriptions model =
