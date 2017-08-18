@@ -241,6 +241,13 @@ update msg model  =
         ({ model | inboxMessages = updatedInboxMsgs}, Cmd.none )
 
     Forward forward ->
+       let
+         inboxMessages =
+             model.inboxMessages
+
+         pred message =
+            message.id /= messageId
+       in
       (model, Cmd.none )
       
 
