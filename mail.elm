@@ -132,7 +132,7 @@ type Msg
     | Filter String
     | Send  String
     | Delete Int
-    | Forward Int String
+    | Forward String
     | Inbox String
     | NewMessage InboxMessage
 
@@ -179,6 +179,7 @@ user6 =
  { username = "user6"
  , password = "2008"
  }
+
 
 update : Msg -> Model -> (Model, Cmd msg)
 update msg model  =
@@ -239,18 +240,8 @@ update msg model  =
       in
         ({ model | inboxMessages = updatedInboxMsgs}, Cmd.none )
 
-    Forward messageId ->
-      let
-        inboxMessages =
-            model.inboxMessages
-
-        pred message =
-          message.id /= messageId
-
-        updatedInboxMsgs =
-          List.filter pred inboxMessages
-      in
-      ({model | inboxMessages = updatedInboxMsgs}, Cmd.none )
+    Forward forward ->
+      (model, Cmd.none )
       
 
     Inbox inbox ->
@@ -328,7 +319,7 @@ sendView model =
       , button [ onClick (Send "") ] [ text "Send"]
       , button [ onClick (Delete 0)] [ text "Delete"]
       , button [ onClick (Reply "")] [ text "Reply"]
-      , button [ onClick (Forward 0)] [ text "Forward"]
+      , button [ onClick (Forward "")] [ text "Forward"]
       ]
 
 view : Model -> Html Msg
